@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Index of Names — The Rayfields: A Family History</title>
+<style>
+:root { --text: #2c2c2c; --bg: #faf8f5; --accent: #5a3e28; --link: #7a5218; --border: #d4c8b8; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.75; max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem; }
+h1 { font-size: 2.2rem; color: var(--accent); margin: 3rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; color: var(--accent); margin: 2.5rem 0 0.8rem; }
+a { color: var(--link); }
+
+html { scroll-behavior: smooth; background-color: #d9d0c4; background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(130,110,90,0.055) 3px, rgba(130,110,90,0.055) 4px); min-height: 100vh; }
+body { background: var(--bg); box-shadow: 0 0 60px rgba(0,0,0,0.13), 0 0 0 1px rgba(0,0,0,0.05); min-height: 100vh; }
+
+/* ── Sidebar ── */
+#sidebar-nav { position: fixed; top: 0; left: 0; width: 210px; height: 100vh; overflow-y: auto; padding: 1.4rem 1rem 2rem; background: #ede6da; border-right: 1px solid #cec3b4; font-family: Georgia, serif; font-size: 0.8rem; line-height: 1.6; z-index: 100; transition: transform 0.28s ease; }
+#sidebar-nav .sb-title { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: #9a8878; margin: 0 0 0.7rem; padding-bottom: 0.4rem; border-bottom: 1px solid #cec3b4; }
+#sidebar-nav a { display: block; color: #5a3e28; text-decoration: none; padding: 0.15rem 0; }
+#sidebar-nav a:hover { color: var(--link); text-decoration: underline; }
+#sidebar-nav a.active { color: var(--link); font-weight: bold; }
+#sidebar-nav .sb-part { display: block; font-variant: small-caps; font-size: 0.72rem; color: #9a8878; margin: 0.85rem 0 0.15rem; }
+#sidebar-nav .sb-ch { padding-left: 0.6rem; }
+#sidebar-toggle { display: none; position: fixed; top: 0.75rem; left: 0.75rem; z-index: 200; background: #5a3e28; color: #fff; border: none; border-radius: 4px; padding: 0.38rem 0.65rem; font-size: 1.05rem; cursor: pointer; line-height: 1; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+
+@media (min-width: 1080px) { body { margin-left: 230px; } }
+@media (max-width: 1079px) {
+  #sidebar-nav { transform: translateX(-100%); box-shadow: none; }
+  #sidebar-nav.open { transform: translateX(0); box-shadow: 4px 0 16px rgba(0,0,0,0.15); }
+  #sidebar-toggle { display: block; }
+}
+@media (max-width: 600px) { body { padding: 2.5rem 1rem 2rem; } }
+@media print { #sidebar-nav, #sidebar-toggle { display: none !important; } body { margin-left: 0 !important; box-shadow: none; } html { background: white; } }
+
+/* ── Page header ── */
+.page-header { text-align: center; margin: 2rem 0 2.5rem; padding: 2rem 0; border-bottom: 2px solid var(--accent); }
+.page-header h1 { border: none; font-size: 2rem; margin: 0; }
+.page-header .subtitle { font-size: 1rem; color: #666; font-style: italic; margin-top: 0.5rem; }
+
+/* ── Controls ── */
+.ni-controls { margin: 0 0 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.ni-search { width: 100%; font-family: Georgia, serif; font-size: 0.95rem; padding: 0.5rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; background: #faf8f5; color: var(--text); outline: none; }
+.ni-search:focus { border-color: var(--link); box-shadow: 0 0 0 2px rgba(122,82,24,0.1); }
+.ni-filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
+.ni-filter { font-family: Georgia, serif; font-size: 0.78rem; padding: 4px 13px; border: 1px solid var(--border); border-radius: 20px; background: transparent; color: var(--link); cursor: pointer; }
+.ni-filter:hover { background: #f0ebe3; }
+.ni-filter.active { background: var(--accent); color: #f5f0e8; border-color: var(--accent); }
+
+/* ── Count ── */
+.ni-count { font-size: 0.82rem; color: #9a8878; font-style: italic; margin-bottom: 0.5rem; }
+
+/* ── Table ── */
+.ni-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.ni-table thead th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #9a8878; text-align: left; padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--border); font-weight: normal; }
+.ni-table tbody tr { border-bottom: 0.5px solid #ede8e0; }
+.ni-table tbody tr:last-child { border-bottom: none; }
+.ni-table tbody tr:hover { background: #f5f1ea; }
+.ni-table td { padding: 0.55rem 0.6rem 0.55rem 0; vertical-align: top; }
+.td-name { font-weight: normal; color: var(--text); min-width: 160px; }
+.td-years { white-space: nowrap; color: #7a6a58; font-size: 0.82rem; min-width: 100px; }
+.td-place { color: #7a6a58; font-size: 0.82rem; min-width: 130px; }
+.td-desc { color: #555; font-size: 0.85rem; font-style: italic; }
+.td-tag { white-space: nowrap; }
+.ni-tag { font-size: 0.7rem; padding: 2px 9px; border-radius: 10px; background: #f0ebe3; color: #7a5218; border: 0.5px solid #d4c8b8; display: inline-block; }
+.ni-tag.tag-Rayfield { background: #f0ebe3; color: #5a3e28; }
+.ni-tag.tag-Robinson { background: #e8eef5; color: #2a4a6a; border-color: #c0cdd8; }
+.ni-tag.tag-Lewis { background: #eaf2ea; color: #2a5a2a; border-color: #b8d0b8; }
+.ni-tag.tag-Allied { background: #f5f0e8; color: #8a7a5a; border-color: #d8d0c0; }
+
+.ni-empty { text-align: center; padding: 3rem 0; color: #9a8878; font-style: italic; font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .td-place, .td-years { display: none; }
+  .td-tag { display: none; }
+}
+</style>
+</head>
+<body>
+
+<button id="sidebar-toggle" aria-label="Open navigation">☰</button>
+
+<nav id="sidebar-nav" aria-label="Site navigation">
+  <span class="sb-title">The Rayfields</span>
+  <a href="The Rayfields - A Family History - cited.html">← Main Book</a>
+  <span class="sb-part">Profiles</span>
+  <a class="sb-ch" href="profile-john-carter-rayfield.html">John Carter Rayfield</a>
+  <a class="sb-ch" href="profile-franklin-myrtle-rayfield.html">Franklin &amp; Myrtle Rayfield</a>
+  <a class="sb-ch" href="profile-vernon-opal-rayfield.html">Vernon &amp; Opal Rayfield</a>
+  <a class="sb-ch" href="profile-absalom-robinson.html">Absalom Robinson</a>
+  <a class="sb-ch" href="profile-john-wesley-robinson.html">John Wesley Robinson</a>
+  <a class="sb-ch" href="profile-william-lewis.html">William John Lewis</a>
+  <span class="sb-part">Reference</span>
+  <a class="sb-ch active" href="name-index.html">Index of Names</a>
+  <a class="sb-ch" href="ancestor-map.html">Ancestor Map</a>
+</nav>
+
+<div class="page-header">
+  <h1>Index of Names</h1>
+  <div class="subtitle">Every person named in this history — 96 individuals across four family lines</div>
+</div>
+
+<div class="ni-controls">
+  <input class="ni-search" type="text" id="ni-search" placeholder="Search by name, place, or description…" aria-label="Search names" />
+  <div class="ni-filter-group" id="ni-filters" role="group" aria-label="Filter by family line">
+    <button class="ni-filter active" data-filter="all">All lines</button>
+    <button class="ni-filter" data-filter="Rayfield">Rayfield</button>
+    <button class="ni-filter" data-filter="Robinson">Robinson</button>
+    <button class="ni-filter" data-filter="Lewis">Lewis</button>
+    <button class="ni-filter" data-filter="Allied">Allied &amp; other</button>
+  </div>
+</div>
+
+<div class="ni-count" id="ni-count">Showing all 96 people</div>
+
+<table class="ni-table" aria-label="Index of names">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Years</th>
+      <th>Place</th>
+      <th>Role / connection</th>
+      <th>Line</th>
+    </tr>
+  </thead>
+  <tbody id="ni-tbody"></tbody>
+</table>
+<div class="ni-empty" id="ni-empty" style="display:none;">No matches found.</div>
+
+<script>
+const people = [
+  {"name":"Absalom Parker Robinson","years":"~1856–1936","place":"MO → St. Francois Co. → Des Arc → Doniphan","desc":"Father of John Wesley Robinson; farm laborer then sewing machine salesman; married Josephine Parks then Mary E. Burcham","surname":"Robinson"},
+  {"name":"Absolom Robinson (Dock)","years":"b. 1858","place":"Hawkins County, Tennessee","desc":"A different man; son of John A. Robinson and Mary Polly Manis; incorrectly merged with Missouri Absalom in genealogy databases","surname":"Robinson"},
+  {"name":"Abigail Johnson Lewis","years":"~1840–1919","place":"Floyd Co., KY → Iron County, MO","desc":"Wife of William John Lewis; married October 30, 1857; raised nine children plus orphaned nieces and nephews","surname":"Allied"},
+  {"name":"Alexander Robinson","years":"","place":"Missouri","desc":"Brother of Absalom Parker Robinson; siblings separated after parents' death; later reunited","surname":"Robinson"},
+  {"name":"Andrea Harter","years":"","place":"","desc":"Compiler of this history; née Rayfield","surname":"Rayfield"},
+  {"name":"Andrew Lewis","years":"","place":"Iron County, Missouri","desc":"Brother of William John Lewis; enrolled in 15th Missouri Cavalry December 22, 1862; raised two of Benjamin's orphaned children","surname":"Lewis"},
+  {"name":"Andy Lewis","years":"b. ~1866","place":"Iron County, Missouri","desc":"Son of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
+  {"name":"Angeline Lewis","years":"","place":"Iron County, Missouri","desc":"Wife of Andrew Lewis; helped raise orphaned children of Benjamin Lewis","surname":"Allied"},
+  {"name":"Andrew Jackson Rayfield","years":"~1853–","place":"Reynolds County, Missouri","desc":"Son of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann","surname":"Rayfield"},
+  {"name":"Armintie Ann Robinson","years":"1879–1879","place":"Missouri","desc":"Infant daughter of Absalom Robinson and Josephine Parks; died at one month","surname":"Robinson"},
+  {"name":"Arnold Mann","years":"","place":"Reynolds County, Missouri","desc":"Father of Mary Ann 'Polly' Mann, first wife of John Carter Rayfield Sr.","surname":"Allied"},
+  {"name":"Benjamin Franklin Rayfield","years":"~1852–1932","place":"Reynolds County, Missouri","desc":"Son of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann; John Carter Sr. lived in his household in 1900","surname":"Rayfield"},
+  {"name":"Benjamin F. Seal","years":"b. 1859","place":"Arcadia, Iron County, Missouri","desc":"Father of Myrtle Lee Seal","surname":"Allied"},
+  {"name":"Benjamin Lewis","years":"–1864","place":"Iron Co., MO → Gratiot Street Prison, St. Louis","desc":"Brother of William John Lewis; Confederate soldier captured at Wilson's Massacre Christmas Day 1863; died at Gratiot Street Prison January 30, 1864; buried Jefferson Barracks National Cemetery","surname":"Lewis"},
+  {"name":"Bessie L. Rayfield","years":"b. 1907","place":"Piedmont, Missouri","desc":"Daughter of Franklin Peter Rayfield and Myrtle Lee Seal","surname":"Rayfield"},
+  {"name":"Betsy Stop","years":"","place":"Cumberland County, Kentucky","desc":"Wife of Isaac Rayfield; married 1816","surname":"Allied"},
+  {"name":"Charles Arthur Robison","years":"1906–1979","place":"Missouri","desc":"Half-brother to Roxanna Robison's father; a later generation, not Absalom's sibling","surname":"Robinson"},
+  {"name":"Charles Jones","years":"","place":"Des Arc, Iron County, Missouri","desc":"Purchased John Wesley Robinson's blacksmith shop in February 1928","surname":"Allied"},
+  {"name":"Charlene Marie Rayfield","years":"1928–2009","place":"Des Arc, Iron County, Missouri","desc":"Daughter of Vernon Jack Rayfield and Opal Robinson Rayfield; first child","surname":"Rayfield"},
+  {"name":"Daniel Lewis","years":"","place":"Iron County, Missouri","desc":"Orphaned son of Benjamin Lewis and Naoma; raised by Andrew and Angeline Lewis","surname":"Lewis"},
+  {"name":"David Robinson","years":"b. ~1846","place":"Tennessee → Iron County, Missouri","desc":"Member of Isaac Robinson household in 1860 census; born Tennessee","surname":"Robinson"},
+  {"name":"Deborah Rayfield","years":"~1842–","place":"Reynolds County, Missouri","desc":"Daughter of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann","surname":"Rayfield"},
+  {"name":"Delbert Robinson","years":"b. 1891","place":"Missouri","desc":"Son of Absalom Robinson and Josephine Parks; likely the D. L. Robinson listed as informant on Absalom's death certificate","surname":"Robinson"},
+  {"name":"Eddy Pratt","years":"","place":"","desc":"Genealogist who produced 2014 reconstruction of Rayfield parentage identifying James Rayfield as John Carter's father","surname":"Allied"},
+  {"name":"Elizabeth Gilliland","years":"","place":"Marion County, Tennessee","desc":"Mother of William John Lewis; some sources spell surname Gildeon","surname":"Allied"},
+  {"name":"Elizabeth Lewis Jackson","years":"","place":"Iron County, Missouri","desc":"Sister of William John Lewis; married Thomas Jackson; raised little Naoma (Omy), orphaned daughter of Benjamin Lewis","surname":"Lewis"},
+  {"name":"Elmo Rayfield","years":"b. 1912","place":"Missouri","desc":"Son of Franklin Peter Rayfield and Myrtle Lee Seal","surname":"Rayfield"},
+  {"name":"Ernest Elmer Robinson","years":"b. 1894","place":"Iron County, Missouri","desc":"Twin son of Absalom Robinson and Josephine Parks","surname":"Robinson"},
+  {"name":"Franklin Peter Rayfield","years":"1884–1941","place":"Gads Hill, Wayne Co. → Ironton, Iron Co., MO","desc":"Farmer; son of John Carter Rayfield Jr. and Nancy Ann Farris; married Myrtle Lee Seal","surname":"Rayfield"},
+  {"name":"Franklin Pierce","years":"","place":"","desc":"President who signed John Carter Rayfield Sr.'s two land patents in 1853 and 1856","surname":"Allied"},
+  {"name":"George Crump","years":"","place":"Perry Township, St. Francois County, Missouri","desc":"Justice of the Peace who officiated marriage of Absalom Robinson and Josephine Parks in 1878","surname":"Allied"},
+  {"name":"George Lewis","years":"","place":"NC → Marion Co., TN → Sabula, Iron Co., MO","desc":"Father of William John Lewis; migrated from NC to TN to MO; died late 1857","surname":"Lewis"},
+  {"name":"George Washington Rayfield","years":"~1855–","place":"Reynolds County, Missouri","desc":"Son of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann","surname":"Rayfield"},
+  {"name":"Glenn E. Rayfield","years":"b. 1924","place":"Missouri","desc":"Son of Franklin Peter Rayfield and Myrtle Lee Seal","surname":"Rayfield"},
+  {"name":"H.G. Wray","years":"","place":"Iron County, Missouri","desc":"Elder who officiated marriage of Absalom Robinson and Mary E. Burcham in 1904","surname":"Allied"},
+  {"name":"Harmon Rayfield","years":"b. 1911","place":"Union, Iron County, Missouri","desc":"Son of Franklin Peter Rayfield and Myrtle Lee Seal","surname":"Rayfield"},
+  {"name":"Imogene Inez Rayfield","years":"b. ~1919","place":"Missouri","desc":"Daughter of Franklin Peter Rayfield and Myrtle Lee Seal","surname":"Rayfield"},
+  {"name":"Irma Maxine Robinson","years":"~1920–1934","place":"Washington, Franklin County, Missouri","desc":"Daughter of John Wesley and Katie Robinson; died of laryngeal diphtheria at age 13","surname":"Robinson"},
+  {"name":"Isaac Parks","years":"","place":"Missouri","desc":"Father of Josephine Parks; father-in-law of Absalom Robinson","surname":"Allied"},
+  {"name":"Isaac Rayfield","years":"~1748–after 1822","place":"Cumberland County, Kentucky","desc":"Great-grandfather of John Carter Rayfield Sr.; War of 1812 veteran","surname":"Rayfield"},
+  {"name":"Isaac Robinson","years":"~1793–","place":"North Carolina → Iron County, Missouri","desc":"Guardian who raised Absalom Parker Robinson after his biological parents died","surname":"Robinson"},
+  {"name":"Jack Stephen Rayfield","years":"1957–2023","place":"St. Louis, Missouri","desc":"Son of Vernon Jack Rayfield and Opal Robinson Rayfield; born when Opal was forty-five","surname":"Rayfield"},
+  {"name":"James Rayfield","years":"~1793–before 1829","place":"Cumberland County, Kentucky","desc":"Probable father of John Carter Rayfield Sr.; dead by 1829","surname":"Rayfield"},
+  {"name":"Jerome Lewis","years":"b. ~1872","place":"Iron County, Missouri","desc":"Son of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
+  {"name":"Jesse Clyde Rayfield","years":"b. 1906","place":"Ironton, Missouri","desc":"Son of Franklin Peter Rayfield and Myrtle Lee Seal","surname":"Rayfield"},
+  {"name":"Jesse James","years":"","place":"Missouri","desc":"Outlaw; pulled off train robbery at Gads Hill, Missouri in January 1874 with the Younger gang","surname":"Allied"},
+  {"name":"John A. Robinson","years":"b. ~1822","place":"Virginia → Hawkins County, Tennessee","desc":"Father of the Tennessee Absolom (Dock); not the Missouri line","surname":"Robinson"},
+  {"name":"John Carter Rayfield Jr.","years":"~1848–1915","place":"Reynolds County, Missouri","desc":"Son of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann; married Nancy Ann Farris; father of Franklin Peter Rayfield","surname":"Rayfield"},
+  {"name":"John Carter Rayfield Sr.","years":"1816–1903","place":"Cumberland Co., KY → Reynolds County, MO","desc":"Patriarch; farmer and homesteader who raised fourteen children across two marriages","surname":"Rayfield"},
+  {"name":"John Lewis (brother)","years":"","place":"Iron County, Missouri","desc":"Brother of William John Lewis; enrolled in 15th Missouri Cavalry December 22, 1862","surname":"Lewis"},
+  {"name":"John Lewis (son)","years":"b. ~1863","place":"Iron County, Missouri","desc":"Son of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
+  {"name":"John Rayfield (uncle)","years":"~1799–","place":"Cumberland Co., KY → Washington County, MO","desc":"Uncle of John Carter Rayfield Sr.; traveled west in 1829 with wife Nancy King and infant son Billy","surname":"Rayfield"},
+  {"name":"John Wesley Robinson","years":"1880–1941","place":"Perry Twp., St. Francois Co. → Des Arc → Steelville","desc":"Blacksmith, grocer, truck driver, and sawmill operator; son of Absalom Parker Robinson; married Katherine Lewis","surname":"Robinson"},
+  {"name":"Josephine Parks","years":"","place":"St. Francois County, Missouri","desc":"First wife of Absalom Parker Robinson; married March 22, 1878; bore 13 children","surname":"Allied"},
+  {"name":"Katherine (Katie) Lewis Robinson","years":"1878–1946","place":"Annapolis, Iron Co. → Des Arc → Pine Lawn","desc":"Wife of John Wesley Robinson; daughter of William John 'Uncle Billy' Lewis and Abigail Johnson; lifelong member of Des Arc Missionary Baptist Church","surname":"Lewis"},
+  {"name":"Lee Lewis","years":"b. ~1868","place":"Iron County, Missouri","desc":"Son of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
+  {"name":"Lloyd Robinson","years":"b. ~1906","place":"Iron County, Missouri","desc":"Son of Absalom Robinson and Mary E. Burcham (second wife); listed in 1920 census","surname":"Robinson"},
+  {"name":"Lucinda Biggers","years":"","place":"Reynolds County, Missouri","desc":"Mother of Mary Ann 'Polly' Mann; wife of Arnold Mann","surname":"Allied"},
+  {"name":"Lucinda Rayfield","years":"~1846–","place":"Reynolds County, Missouri","desc":"Daughter of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann","surname":"Rayfield"},
+  {"name":"Marion Lewis","years":"b. ~1859","place":"Iron County, Missouri","desc":"Son of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
+  {"name":"Martha Lewis","years":"b. ~1874","place":"Iron County, Missouri","desc":"Daughter of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
+  {"name":"Martha Mary Lewis (Polly)","years":"","place":"Iron County, Missouri","desc":"Orphaned daughter of Benjamin Lewis and Naoma; raised by Andrew and Angeline Lewis","surname":"Lewis"},
+  {"name":"Mary Ann 'Polly' Mann","years":"~1820–1860","place":"Reynolds County, Missouri","desc":"First wife of John Carter Rayfield Sr.; daughter of Arnold Mann and Lucinda Biggers","surname":"Allied"},
+  {"name":"Mary E. Burcham","years":"","place":"Iron County, Missouri","desc":"Second wife of Absalom Parker Robinson; née Davis; married May 15, 1904","surname":"Allied"},
+  {"name":"Mary Jane Lewis","years":"","place":"Missouri","desc":"Mother of Myrtle Lee Seal; shares the Lewis surname with William John Lewis's family","surname":"Lewis"},
+  {"name":"Mary Lewis","years":"b. ~1870","place":"Iron County, Missouri","desc":"Daughter of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
+  {"name":"Mary Polly Manis","years":"b. ~1831","place":"Hawkins County, Tennessee","desc":"Mother of the Tennessee Absolom (Dock); not the Missouri line","surname":"Allied"},
+  {"name":"Michael Vernon Rayfield","years":"b. 1949","place":"St. Louis, Missouri","desc":"Son of Vernon Jack Rayfield and Opal Robinson Rayfield","surname":"Rayfield"},
+  {"name":"Mollie Gonce","years":"","place":"Hawkins County, Tennessee","desc":"Wife of the Tennessee Absolom (Dock); married October 24, 1875","surname":"Allied"},
+  {"name":"Myrtle Lee Seal","years":"1888–1968","place":"Missouri → Des Arc, Iron County, MO","desc":"Wife of Franklin Peter Rayfield; daughter of Benjamin F. Seal and Mary Jane Lewis; buried Mountain View Cemetery","surname":"Allied"},
+  {"name":"Myrtle Levada Robinson","years":"b. 1885","place":"Missouri","desc":"Daughter of Absalom Robinson and Josephine Parks; married Chilton","surname":"Robinson"},
+  {"name":"Nancy Ann Farris","years":"","place":"Reynolds County, Missouri","desc":"Wife of John Carter Rayfield Jr.; mother of Franklin Peter Rayfield","surname":"Allied"},
+  {"name":"Nancy Ann Mann","years":"~1835–1902","place":"Reynolds County, Missouri","desc":"Second wife of John Carter Rayfield Sr.; Polly's first cousin; had 6 children with John Carter","surname":"Allied"},
+  {"name":"Nancy King","years":"","place":"Kentucky","desc":"Wife of Uncle John Rayfield; traveled west in 1829","surname":"Allied"},
+  {"name":"Nancy Lewis","years":"","place":"Iron County, Missouri","desc":"Orphaned daughter of Benjamin Lewis and Naoma; raised by William and Abigail Lewis","surname":"Lewis"},
+  {"name":"Nancy Robinson","years":"b. ~1858","place":"Iron County, Missouri","desc":"Member of Isaac Robinson household in 1860 census; likely Isaac's wife","surname":"Robinson"},
+  {"name":"Naoma Lewis","years":"","place":"Missouri → St. Louis","desc":"Wife of Benjamin Lewis; family tradition holds she was killed while trying to bring food to prisoners at Gratiot Street Prison","surname":"Allied"},
+  {"name":"Naoma Lewis (Omy)","years":"b. ~1861","place":"Iron County, Missouri","desc":"Orphaned daughter of Benjamin Lewis and Naoma; called Omy or little Naoma; raised by Elizabeth Lewis Jackson","surname":"Lewis"},
+  {"name":"Opal Myrtle Robinson Rayfield","years":"1911–2002","place":"Des Arc, Iron Co. → Pine Lawn, St. Louis Co.","desc":"Daughter of John Wesley Robinson and Katie Lewis Robinson; married Vernon Jack Rayfield; wrote 1976 bicentennial tribute preserving family history","surname":"Robinson"},
+  {"name":"Permelie C. Rayfield","years":"~1857–","place":"Reynolds County, Missouri","desc":"Daughter of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann","surname":"Rayfield"},
+  {"name":"Rella M. Robinson","years":"b. ~1888","place":"Missouri","desc":"Daughter of Absalom Robinson and Josephine Parks","surname":"Robinson"},
+  {"name":"Roxanna Robison","years":"","place":"Missouri","desc":"Descendant of Alexander Robinson; provided family oral history via Iron County Missouri Genealogy Facebook group in May 2026","surname":"Robinson"},
+  {"name":"Sarah Jane Rayfield","years":"~1843–","place":"Reynolds County, Missouri","desc":"Daughter of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann","surname":"Rayfield"},
+  {"name":"Sarah Mansfield","years":"","place":"Cumberland County, Kentucky","desc":"Mother of John Carter Rayfield Sr.; died young, possibly in childbirth; disinherited by Mansfield family for marrying a Rayfield","surname":"Allied"},
+  {"name":"Shirley Joyce Rayfield","years":"1931–2010","place":"Webb Township, Reynolds County, Missouri","desc":"Daughter of Vernon Jack Rayfield and Opal Robinson Rayfield","surname":"Rayfield"},
+  {"name":"Thomas Jackson","years":"","place":"Iron County, Missouri","desc":"Husband of Elizabeth Lewis Jackson; took in orphaned Naoma (Omy) after Benjamin Lewis died","surname":"Allied"},
+  {"name":"Timothy Reeves","years":"","place":"Missouri","desc":"Colonel commanding 15th Missouri Cavalry, the Confederate regiment William John Lewis and brothers enlisted in","surname":"Allied"},
+  {"name":"Valentine Robinson","years":"b. ~1845","place":"Tennessee → Iron County, Missouri","desc":"Member of Isaac Robinson household in 1860 census; born Tennessee","surname":"Robinson"},
+  {"name":"Vernon Jack Rayfield","years":"1909–1977","place":"Reynolds Co. / Iron Co. → St. Louis → Piedmont","desc":"Son of Franklin Peter Rayfield and Myrtle Lee Seal; married Opal Robinson; chauffeur and sawmill worker","surname":"Rayfield"},
+  {"name":"Walter L. Robinson","years":"","place":"Des Arc, MO → Steelville, MO","desc":"Only son of John Wesley and Katie Robinson; ran sawmill with father as J.W. Robinson and Son","surname":"Robinson"},
+  {"name":"William Abslum Robinson","years":"b. 1894","place":"Iron County, Missouri","desc":"Twin son of Absalom Robinson and Josephine Parks; recipient of John Wesley's last letter","surname":"Robinson"},
+  {"name":"William John Lewis","years":"~1834–1900","place":"Marion Co., TN → Des Arc, Iron County, MO","desc":"Called Uncle Billy; Confederate soldier in 15th Missouri Cavalry; farmer; father of Katherine (Katie) Lewis Robinson","surname":"Lewis"},
+  {"name":"William Lewis Jr.","years":"b. ~1876","place":"Iron County, Missouri","desc":"Son of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
+  {"name":"William Rayfield (uncle)","years":"~1786–after 1857","place":"Cumberland Co., KY → Reynolds County, MO","desc":"Uncle of John Carter Rayfield Sr. who accompanied him west in 1829; received land grant 1857","surname":"Rayfield"},
+  {"name":"William Rayfield Sr.","years":"~1670–1731","place":"England → Pasquotank Precinct, NC","desc":"Immigrant ancestor; 5x great-grandfather of John Carter Rayfield Sr.","surname":"Rayfield"}
+];
+
+const tbody = document.getElementById("ni-tbody");
+const countEl = document.getElementById("ni-count");
+const emptyEl = document.getElementById("ni-empty");
+let activeFilter = "all";
+let searchTerm = "";
+
+function render() {
+  const q = searchTerm.toLowerCase();
+  const filtered = people.filter(p => {
+    const matchFilter = activeFilter === "all" || p.surname === activeFilter;
+    const matchSearch = !q ||
+      p.name.toLowerCase().includes(q) ||
+      p.place.toLowerCase().includes(q) ||
+      p.desc.toLowerCase().includes(q) ||
+      p.years.includes(q);
+    return matchFilter && matchSearch;
+  });
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = "";
+    emptyEl.style.display = "block";
+    countEl.textContent = "No matches found.";
+    return;
+  }
+  emptyEl.style.display = "none";
+  countEl.textContent = filtered.length === people.length
+    ? "Showing all " + people.length + " people"
+    : "Showing " + filtered.length + " of " + people.length + " people";
+
+  tbody.innerHTML = filtered.map(p => `
+    <tr>
+      <td class="td-name">${p.name}</td>
+      <td class="td-years">${p.years || "—"}</td>
+      <td class="td-place">${p.place || "—"}</td>
+      <td class="td-desc">${p.desc}</td>
+      <td class="td-tag"><span class="ni-tag tag-${p.surname}">${p.surname}</span></td>
+    </tr>
+  `).join("");
+}
+
+document.getElementById("ni-search").addEventListener("input", e => {
+  searchTerm = e.target.value;
+  render();
+});
+document.querySelectorAll(".ni-filter").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".ni-filter").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeFilter = btn.dataset.filter;
+    render();
+  });
+});
+
+document.getElementById("sidebar-toggle").addEventListener("click", () => {
+  document.getElementById("sidebar-nav").classList.toggle("open");
+});
+
+render();
+</script>
+</body>
+</html>
