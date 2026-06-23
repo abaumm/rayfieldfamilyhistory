@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>William John "Uncle Billy" Lewis (~1834–1900) — Genealogy Profile</title>
 <meta name="description" content="Genealogy research profile for William John 'Uncle Billy' Lewis of Des Arc, Iron County, Missouri. Confederate service with the 15th Missouri Cavalry, land patents, family connections, and the tragic story of brother Benjamin Lewis at Wilson's Massacre and Gratiot Street Prison.">
+<link rel="stylesheet" href="style.css" />
 <style>
+/* Nav/footer clearance */
+body { padding-top: var(--nav-h, 4rem); }
 :root { --text: #2c2c2c; --bg: #faf8f5; --accent: #5a3e28; --link: #2F5496; --border: #d4c8b8; --green: #2e7d32; --red: #c62828; --orange: #e65100; --row-alt: #f5f0e8; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
@@ -63,8 +66,18 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 </style>
 </head>
 <body>
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
+  <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <ul class="site-nav__links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="name-index.html">Family Members</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="mailto:abaumm@gmail.com">Contact</a></li>
+  </ul>
+</nav>
 
-<p class="back-link"><a href="The Rayfields - A Family History - cited.html">Back to The Rayfields — A Family History</a></p>
 
 <h1>William John "Uncle Billy" Lewis</h1>
 <div class="subtitle">~1834 – April 9, 1900</div>
@@ -431,7 +444,7 @@ AGE<br>
 <li><strong>Daughter:</strong> Katie Lewis Robinson (1878–1946) — married <a href="profile-john-wesley-robinson.html">John Wesley Robinson</a></li>
 <li><strong>Son-in-law:</strong> <a href="profile-john-wesley-robinson.html">John Wesley Robinson</a> (1880–1941) — blacksmith of Des Arc</li>
 <li><strong>Granddaughter:</strong> <a href="profile-vernon-opal-rayfield.html">Opal Robinson Rayfield</a> (1911–2002) — married Vernon Rayfield</li>
-<li><strong>Featured in:</strong> <a href="The Rayfields - A Family History - cited.html">The Rayfields — A Family History</a>, Chapter 3: "Uncle Billy"</li>
+<li><strong>Featured in:</strong> <a href="the-rayfield-story.html">The Rayfields — A Family History</a>, Chapter 3: "Uncle Billy"</li>
 </ul>
 
 <div class="footer">
@@ -441,5 +454,35 @@ For questions, corrections, or to share information: <a href="mailto:abaumm@gmai
 <p>Last updated: June 2026</p>
 </div>
 
+<footer class="site-footer">
+  <p class="site-footer__logo">The Rayfield Family</p>
+  <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
+  <ul class="site-footer__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="name-index.html">Family Members</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="mailto:abaumm@gmail.com">Contact</a></li>
+  </ul>
+  <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
+</footer>
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open);
+      toggle.textContent = open ? '✕' : '☰';
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+  }
+</script>
 </body>
 </html>

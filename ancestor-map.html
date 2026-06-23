@@ -6,7 +6,10 @@
   <title>Where They Lived — Missouri Ozarks Ancestor Map</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <style>
+  <link rel="stylesheet" href="style.css" />
+<style>
+/* Nav/footer clearance */
+body { padding-top: var(--nav-h, 4rem); }
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -187,6 +190,17 @@
   </style>
 </head>
 <body>
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
+  <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <ul class="site-nav__links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="name-index.html">Family Members</a></li>
+    <li><a href="ancestor-map.html" aria-current="page">Ancestor Map</a></li>
+    <li><a href="mailto:abaumm@gmail.com">Contact</a></li>
+  </ul>
+</nav>
 
 <header class="page-header">
   <h1>Where They Lived</h1>
@@ -427,6 +441,36 @@ L.polygon([
   [37.155,-90.785]
 ],{color:'#2c4a6e',fillColor:'#4a78a0',fillOpacity:0.25,weight:1.5,opacity:0.5}).addTo(map)
   .bindTooltip('Clearwater Lake<br>(Rayfield homestead now submerged)',{permanent:false,sticky:true});
+</script>
+<footer class="site-footer">
+  <p class="site-footer__logo">The Rayfield Family</p>
+  <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
+  <ul class="site-footer__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="name-index.html">Family Members</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="mailto:abaumm@gmail.com">Contact</a></li>
+  </ul>
+  <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
+</footer>
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open);
+      toggle.textContent = open ? '✕' : '☰';
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+  }
 </script>
 </body>
 </html>

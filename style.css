@@ -1,0 +1,308 @@
+/* ============================================================
+   Rayfield Family History — Shared Design System
+   style.css · All pages link to this file
+   ============================================================ */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Design Tokens ── */
+:root {
+  /* Colors */
+  --navy:         #002C3D;
+  --navy-mid:     #003D56;
+  --navy-dark:    #001922;
+  --gold:         #D6A15D;   /* accent on dark backgrounds */
+  --gold-dark:    #7A5C2E;   /* accent on light backgrounds — WCAG AA */
+  --cream:        #F5F0EA;
+  --cream-dark:   #EDE6DC;
+  --white:        #FFFFFF;
+  --text-dark:    #1A1A1A;
+  --text-mid:     #4A4A4A;
+  --border-dark:  rgba(214, 161, 93, 0.25);
+  --border-light: rgba(122, 92, 46, 0.2);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Nav height — pages with fixed nav use this for padding-top */
+  --nav-h: 4rem;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* rem base */
+  scroll-behavior: smooth;
+}
+
+/* ============================================================
+   TOP NAV
+   ============================================================ */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: var(--nav-h);
+  background: rgba(0, 28, 39, 0.96);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.site-nav__logo {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav__links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.site-nav__links a {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.site-nav__links a:hover,
+.site-nav__links a[aria-current="page"] {
+  color: var(--gold);
+}
+
+/* Mobile hamburger */
+.site-nav__toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-dark);
+  color: var(--white);
+  padding: 0.4rem 0.65rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .site-nav { padding: 0 1.25rem; }
+
+  .site-nav__links {
+    display: none;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--navy-dark);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--border-dark);
+    padding: 0.5rem 0;
+  }
+
+  .site-nav__links.is-open {
+    display: flex;
+  }
+
+  .site-nav__links a {
+    display: block;
+    padding: 0.85rem 1.5rem;
+    border-bottom: 1px solid var(--border-dark);
+    font-size: 0.78rem;
+  }
+
+  .site-nav__links a:last-of-type { border-bottom: none; }
+
+  .site-nav__toggle { display: block; }
+}
+
+/* ============================================================
+   SHARED FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--navy-dark);
+  border-top: 1px solid var(--border-dark);
+  padding: 3rem 2.5rem 2rem;
+  text-align: center;
+  font-family: var(--font-body);
+}
+
+.site-footer__logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.site-footer__tagline {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.75rem;
+}
+
+.site-footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  list-style: none;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.site-footer__links a {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-footer__links a:hover { color: var(--gold); }
+
+.site-footer__copy {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================================
+   SHARED BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  transition: background 0.22s, color 0.22s, border-color 0.22s;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btn--filled {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btn--filled:hover {
+  background: #C49050;
+  border-color: #C49050;
+  color: var(--navy);
+}
+
+/* On light backgrounds */
+.btn--light {
+  border-color: var(--gold-dark);
+  color: var(--gold-dark);
+}
+
+.btn--light:hover {
+  background: var(--gold-dark);
+  color: var(--cream);
+}
+
+.btn--sm {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.62rem;
+}
+
+/* ============================================================
+   INNER-PAGE LAYOUT WRAPPER
+   Used on book, profiles, name-index, ancestor-map
+   ============================================================ */
+.page-wrap {
+  padding-top: var(--nav-h);
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+}
+
+.page-wrap--dark {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* Inner page header banner */
+.page-banner {
+  background: var(--navy);
+  color: var(--white);
+  padding: 3.5rem 2.5rem 3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.page-banner__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.page-banner__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.page-banner__subtitle {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+  font-style: italic;
+}
+
+/* ============================================================
+   PRINT OVERRIDE — nav/footer hidden when printing
+   ============================================================ */
+@media print {
+  .site-nav,
+  .site-footer,
+  .site-nav__toggle {
+    display: none !important;
+  }
+
+  .page-wrap {
+    padding-top: 0 !important;
+  }
+}
