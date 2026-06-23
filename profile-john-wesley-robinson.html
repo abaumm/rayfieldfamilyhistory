@@ -11,7 +11,7 @@
 body { padding-top: var(--nav-h, 4rem); }
 :root { --text: #1A1A1A; --bg: #F5F0EA; --accent: #7A5C2E; --link: #7A5C2E; --border: rgba(122,92,46,0.2); --green: #2e7d32; --red: #c62828; --orange: #e65100; --row-alt: #EDE6DC; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: calc(var(--nav-h, 4rem) + 2rem) 1.5rem 2rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
 h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
@@ -67,6 +67,12 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 /* Blockquotes for Opal's words */
 blockquote { background: #f5f0e8; border-left: 4px solid var(--accent); padding: 0.8rem 1.2rem; margin: 1rem 0 1.2rem; font-style: italic; border-radius: 0 6px 6px 0; }
 blockquote .attribution { display: block; margin-top: 0.5rem; font-style: normal; font-size: 0.85rem; color: #888; }
+
+/* Responsive tables */
+@media (max-width: 700px) {
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  td:first-child { white-space: nowrap; }
+}
 </style>
 </head>
 <body>
@@ -253,11 +259,6 @@ John Wesley Robinson was the blacksmith, grocer, truck driver, and sawmill opera
 <td colspan="4" style="font-size:0.9rem; color:#666; font-style:italic;">Katie's obituary lists additional daughters. The family had one son (Walter) and six daughters total. Further names to be confirmed from the obituary record.</td>
 </tr>
 </table>
-
-<div class="alert alert-warn">
-<strong>Irma Maxine &mdash; A Loss That Shaped the Family</strong>
-Irma was just thirteen years old when she died of laryngeal diphtheria on January 20, 1934. A tracheotomy was performed, but it was not enough. Her father, J.W. Robinson, was listed as the informant on the death certificate &mdash; meaning he was the one who had to stand in the office and answer the questions. This was a man who had built caskets for other families' losses. Now the loss was his own.
-</div>
 
 <!-- ============================================================ -->
 <h2>The Blacksmith Shop</h2>

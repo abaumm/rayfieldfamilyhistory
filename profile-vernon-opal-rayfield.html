@@ -11,7 +11,7 @@
 body { padding-top: var(--nav-h, 4rem); }
 :root { --text: #1A1A1A; --bg: #F5F0EA; --accent: #7A5C2E; --link: #7A5C2E; --border: rgba(122,92,46,0.2); --green: #2e7d32; --red: #c62828; --orange: #e65100; --row-alt: #EDE6DC; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: calc(var(--nav-h, 4rem) + 2rem) 1.5rem 2rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
 h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
@@ -63,6 +63,12 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 
 /* Footer */
 .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: #888; }
+
+/* Responsive tables */
+@media (max-width: 700px) {
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  td:first-child { white-space: nowrap; }
+}
 </style>
 </head>
 <body>

@@ -11,7 +11,7 @@
 body { padding-top: var(--nav-h, 4rem); }
 :root { --text: #1A1A1A; --bg: #F5F0EA; --accent: #7A5C2E; --link: #7A5C2E; --border: rgba(122,92,46,0.2); --green: #2e7d32; --red: #c62828; --orange: #e65100; --row-alt: #EDE6DC; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: calc(var(--nav-h, 4rem) + 2rem) 1.5rem 2rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
 h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
@@ -63,6 +63,12 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 
 /* Footer */
 .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: #888; }
+
+/* Responsive tables */
+@media (max-width: 700px) {
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  td:first-child { white-space: nowrap; }
+}
 </style>
 </head>
 <body>
@@ -314,11 +320,6 @@ Absalom Parker Robinson's biological parents remain unidentified. For years, gen
 
 <h2 id="dock">⚠ The Two Absolom Robinsons — Side by Side</h2>
 
-<div class="alert alert-error">
-<strong>CRITICAL DISTINCTION FOR RESEARCHERS</strong>
-These are two different men. Their records have been incorrectly merged on WikiTree (Robinson-10159), FamilySearch (LZ6L-PCJ), and many Ancestry trees. A WikiTree commenter (Anonymous Cope) flagged this error in April 2016. The 1900 Census proves it — both men appear in different states in the same year.
-</div>
-
 <div class="comparison">
 <div class="compare-col our-ab">
 <h3 style="color: var(--green);">✓ Our Absalom — "Ab"</h3>
@@ -427,7 +428,7 @@ These are two different men. Their records have been incorrectly merged on WikiT
 <h2>WikiTree & FamilySearch Notes</h2>
 <p><strong>WikiTree:</strong> Profile <a href="https://www.wikitree.com/wiki/Robinson-10159" target="_blank">Robinson-10159</a> is a merged profile combining records for both Absoloms. A commenter (Anonymous Cope, April 2016) flagged the error. The profile currently lists parents as John A Robinson and Mary Polly Manis — these are <strong>Dock's parents, not our Ab's</strong>.</p>
 <p><strong>FamilySearch:</strong> Person ID <strong>LZ6L-PCJ</strong> carries the same incorrect parentage. The tree shows grandparents Ezekiel Robinson and Hannah Couch — this is Dock's lineage.</p>
-<p><strong>If you are a researcher:</strong> Please do not attach Tennessee census records (1860, 1870 Hawkins County) to Absalom Parker Robinson who married Josephine Parks. Those records belong to the other Absolom ("Dock") who married Mollie Gonce and remained in Tennessee.</p>
+
 
 <div class="footer">
 <p>This profile is part of the Rayfield–Robinson Family History Project compiled by Andrea Harter (née Rayfield).<br>
