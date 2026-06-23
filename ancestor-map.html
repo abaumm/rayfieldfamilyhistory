@@ -4,192 +4,138 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Where They Lived — Missouri Ozarks Ancestor Map</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="style.css" />
 <style>
-/* Nav/footer clearance */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--navy);
+}
+
 body { padding-top: var(--nav-h, 4rem); }
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+.page-header {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-dark);
+}
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+.page-header p {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.3rem;
+}
 
-    :root {
-      --parchment: #f2e8d5;
-      --parchment-dark: #e8d9be;
-      --ink: #1c1610;
-      --sepia: #5a3e28;
-      --sepia-light: #7a5c3c;
-      --border: #c4b49a;
-      --shadow: rgba(90,62,40,0.18);
-      --highlight: #fff8ee;
-    }
+.layout {
+  display: flex;
+  height: calc(100vh - var(--nav-h) - 4.5rem); /* subtract header */
+  min-height: 500px;
+}
 
-    html, body {
-      height: 100%;
-      font-family: 'Libre Baskerville', Georgia, serif;
-      background: var(--parchment);
-      color: var(--ink);
-    }
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  min-width: 220px;
+  background: var(--navy-dark);
+  border-right: 1px solid var(--border-dark);
+  overflow-y: auto;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+}
 
-    .page-header {
-      background: var(--sepia);
-      color: var(--parchment);
-      text-align: center;
-      padding: 18px 20px 14px;
-      border-bottom: 3px solid #3d2a18;
-    }
-    .page-header h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.6em;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-    .page-header p {
-      font-size: 0.78em;
-      font-style: italic;
-      opacity: 0.8;
-      margin-top: 4px;
-    }
+.sidebar-section {
+  border-bottom: 1px solid var(--border-dark);
+  padding: 1rem 1rem 0.9rem;
+}
 
-    .layout {
-      display: flex;
-      height: calc(100vh - 80px);
-    }
+.sidebar-section h2 {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
 
-    .sidebar {
-      width: 300px;
-      min-width: 220px;
-      background: var(--highlight);
-      border-right: 1px solid var(--border);
-      overflow-y: auto;
-      flex-shrink: 0;
-    }
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.45rem;
+  color: rgba(255,255,255,0.8);
+}
+.legend-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
 
-    .sidebar-section {
-      border-bottom: 1px solid var(--border);
-      padding: 14px 16px;
-    }
-    .sidebar-section h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.8em;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--sepia);
-      margin-bottom: 10px;
-    }
+.place-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(214,161,93,0.15);
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.45;
+}
+.place-item:last-child { border-bottom: none; }
+.place-item strong {
+  display: block;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 0.1rem;
+}
+.place-item em {
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
+}
 
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      font-size: 0.78em;
-      margin-bottom: 7px;
-      color: var(--ink);
-      cursor: pointer;
-      padding: 3px 4px;
-      border-radius: 3px;
-      transition: background 0.15s;
-    }
-    .legend-item:hover { background: var(--parchment-dark); }
-    .legend-dot {
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      border: 2px solid rgba(0,0,0,0.2);
-    }
+.note-box {
+  background: rgba(214,161,93,0.08);
+  border: 1px solid var(--border-dark);
+  border-radius: 3px;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+}
 
-    .ancestor-btn {
-      display: block;
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      padding: 8px 4px;
-      border-bottom: 1px dashed var(--border);
-      cursor: pointer;
-      font-family: 'Libre Baskerville', Georgia, serif;
-      font-size: 0.78em;
-      color: var(--ink);
-      transition: background 0.15s;
-    }
-    .ancestor-btn:last-child { border-bottom: none; }
-    .ancestor-btn:hover { background: var(--parchment-dark); }
-    .ancestor-btn strong { display: block; color: var(--sepia); margin-bottom: 1px; }
-    .ancestor-btn span { font-style: italic; opacity: 0.72; }
+/* Map iframe */
+.map-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
 
-    .note-box {
-      background: var(--parchment-dark);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 10px 12px;
-      font-size: 0.74em;
-      font-style: italic;
-      line-height: 1.55;
-      color: var(--sepia);
-    }
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
 
-    #map { flex: 1; }
-
-    .leaflet-popup-content-wrapper {
-      background: var(--highlight);
-      border: 1.5px solid var(--border);
-      border-radius: 4px;
-      box-shadow: 0 3px 14px var(--shadow);
-    }
-    .leaflet-popup-tip { background: var(--highlight); }
-    .leaflet-popup-content {
-      font-family: 'Libre Baskerville', Georgia, serif;
-      font-size: 0.82em;
-      line-height: 1.5;
-      margin: 12px 14px;
-      color: var(--ink);
-      max-width: 280px;
-    }
-    .popup-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.1em;
-      font-weight: 600;
-      color: var(--sepia);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 5px;
-      margin-bottom: 6px;
-    }
-    .popup-sub {
-      font-style: italic;
-      font-size: 0.88em;
-      color: var(--sepia-light);
-      margin-bottom: 7px;
-    }
-    .popup-body p { margin-bottom: 5px; }
-    .popup-body ul { padding-left: 16px; margin: 4px 0 6px; }
-    .popup-tag {
-      display: inline-block;
-      background: var(--sepia);
-      color: var(--parchment);
-      font-size: 0.72em;
-      padding: 1px 7px;
-      border-radius: 2px;
-      margin: 6px 2px 0 0;
-      letter-spacing: 0.04em;
-    }
-    .popup-note {
-      font-style: italic;
-      font-size: 0.82em;
-      color: var(--sepia-light);
-      border-top: 1px dashed var(--border);
-      margin-top: 7px;
-      padding-top: 6px;
-    }
-
-    @media (max-width: 640px) {
-      .layout { flex-direction: column; }
-      .sidebar { width: 100%; height: 190px; border-right: none; border-bottom: 1px solid var(--border); }
-      #map { flex: 1; }
-    }
-  </style>
+@media (max-width: 640px) {
+  .layout { flex-direction: column; height: auto; }
+  .sidebar { width: 100%; min-width: unset; max-height: 220px; border-right: none; border-bottom: 1px solid var(--border-dark); }
+  .map-wrap { height: calc(100vh - var(--nav-h) - 4.5rem - 220px); min-height: 350px; }
+}
+</style>
 </head>
 <body>
+
 <nav class="site-nav" aria-label="Main navigation">
   <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
   <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -198,13 +144,13 @@ body { padding-top: var(--nav-h, 4rem); }
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html" aria-current="page">Ancestor Map</a></li>
-    <li><a href="mailto:abaumm@gmail.com">Contact</a></li>
+    <li><a href="mailto:abaumm+rayfieldfamilyhistory@gmail.com">Contact</a></li>
   </ul>
 </nav>
 
 <header class="page-header">
   <h1>Where They Lived</h1>
-  <p>Missouri Ozarks — Ancestral Locations of the Rayfield &amp; Robinson Families</p>
+  <p>Missouri Ozarks — Ancestral locations of the Rayfield &amp; Robinson families</p>
 </header>
 
 <div class="layout">
@@ -212,236 +158,61 @@ body { padding-top: var(--nav-h, 4rem); }
   <aside class="sidebar">
 
     <div class="sidebar-section">
-      <h2>Legend</h2>
-      <div class="legend-item" onclick="filterLayer('home')">
-        <div class="legend-dot" style="background:#7a5c3c"></div> Home / Community
-      </div>
-      <div class="legend-item" onclick="filterLayer('land')">
-        <div class="legend-dot" style="background:#4a7c59"></div> Land Grant / Farm
-      </div>
-      <div class="legend-item" onclick="filterLayer('burial')">
-        <div class="legend-dot" style="background:#2c4a6e"></div> Cemetery
-      </div>
-      <div class="legend-item" onclick="filterLayer('event')">
-        <div class="legend-dot" style="background:#8b4513"></div> Historical Event
-      </div>
-      <div class="legend-item" onclick="filterLayer('all')" style="border-top:1px solid var(--border);margin-top:4px;padding-top:8px;">
-        <div class="legend-dot" style="background:#999;border-style:dashed"></div> Show All
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <h2>Jump To</h2>
-      <button class="ancestor-btn" onclick="flyToAndOpen('des-arc',14)">
+      <h2>What's Pinned</h2>
+      <div class="place-item">
         <strong>Des Arc, Iron County</strong>
-        <span>Lewis family home · Robinson businesses</span>
-      </button>
-      <button class="ancestor-btn" onclick="flyToAndOpen('lewis-land',13)">
+        <em>Home of William Lewis &amp; J.W. Robinson · blacksmith shop, grocery</em>
+      </div>
+      <div class="place-item">
+        <strong>Mountain View Cemetery</strong>
+        <em>William "Uncle Billy" Lewis &amp; Abigail Johnson Lewis</em>
+      </div>
+      <div class="place-item">
         <strong>William Lewis Land Grant</strong>
-        <span>160 acres · T36N R3E · 1859</span>
-      </button>
-      <button class="ancestor-btn" onclick="flyToAndOpen('pilot-knob',13)">
+        <em>160 acres · Sec. 10 &amp; 15, T36N R3E · Iron County · 1859</em>
+      </div>
+      <div class="place-item">
         <strong>Pilot Knob</strong>
-        <span>Loyalty Oath 1863 · Battle 1864</span>
-      </button>
-      <button class="ancestor-btn" onclick="flyToAndOpen('annapolis',13)">
+        <em>Union Oath of Allegiance 1863 · Battle of Pilot Knob 1864</em>
+      </div>
+      <div class="place-item">
         <strong>Annapolis, Iron County</strong>
-        <span>Katie Lewis birthplace · 1878</span>
-      </button>
-      <button class="ancestor-btn" onclick="flyToAndOpen('rayfield-home',13)">
-        <strong>Rayfield Homestead</strong>
-        <span>Sinking Creek · Now Clearwater Lake</span>
-      </button>
-      <button class="ancestor-btn" onclick="flyToAndOpen('buffington',14)">
+        <em>Birthplace of Katie Lewis Robinson, 1878</em>
+      </div>
+      <div class="place-item">
+        <strong>Rayfield Homestead — Sinking Creek</strong>
+        <em>Reynolds County · now submerged under Clearwater Lake</em>
+      </div>
+      <div class="place-item">
         <strong>Buffington Cemetery</strong>
-        <span>John Carter Rayfield Sr. burial</span>
-      </button>
-      <button class="ancestor-btn" onclick="flyToAndOpen('perry-twp',12)">
-        <strong>Perry Twp., St. Francois Co.</strong>
-        <span>Absalom Robinson · J.W. born 1880</span>
-      </button>
+        <em>John Carter Rayfield Sr. &amp; Polly Mann Rayfield · still accessible</em>
+      </div>
+      <div class="place-item">
+        <strong>Perry Twp., St. Francois County</strong>
+        <em>Absalom Robinson · J.W. Robinson born here, 1880</em>
+      </div>
     </div>
 
     <div class="sidebar-section">
       <div class="note-box">
-        Pin locations reflect available historical records and are approximate. Land grant coordinates show township centers. The Buffington homestead is now submerged under Clearwater Lake.
+        Pin locations reflect available historical records and are approximate. Land grant coordinates show township centers. The Buffington homestead is now submerged under Clearwater Lake — the dam closed in 1948.
       </div>
     </div>
 
   </aside>
 
-  <div id="map"></div>
+  <div class="map-wrap">
+    <iframe
+      src="https://www.google.com/maps/d/embed?mid=1EqCmzT8wwo7TUnCN6rG2Jc1lpeUg9TIH&ll=37.25,-90.82&z=10"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Rayfield &amp; Robinson Ancestry Map — Missouri Ozarks"
+    ></iframe>
+  </div>
 
 </div>
 
-<script>
-const map = L.map('map', { center: [37.25, -90.82], zoom: 10 });
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  maxZoom: 18,
-  opacity: 0.85
-}).addTo(map);
-
-function makeIcon(color, symbol) {
-  return L.divIcon({
-    className: '',
-    html: `<div style="width:30px;height:30px;background:${color};border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid rgba(0,0,0,0.3);box-shadow:2px 2px 5px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);font-size:12px;color:white;line-height:1;">${symbol}</span></div>`,
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-    popupAnchor: [0, -32]
-  });
-}
-
-const icons = {
-  home:   makeIcon('#7a5c3c','⌂'),
-  land:   makeIcon('#4a7c59','⊞'),
-  burial: makeIcon('#2c4a6e','✝'),
-  event:  makeIcon('#8b4513','★'),
-};
-
-const markers = {};
-
-const locations = [
-  {
-    id:'des-arc',
-    type:'home', lat:37.010, lng:-90.755,
-    title:'Des Arc, Iron County',
-    sub:'Home of the Lewis &amp; Robinson families',
-    body:`<p><strong>William "Uncle Billy" Lewis</strong> (c.1834–1900) settled and died here. His <em>Iron County Register</em> obituary called him "an old and highly respected citizen."</p>
-          <p><strong>J.W. Robinson &amp; Katie Lewis</strong> married here November 30, 1902. J.W. ran a blacksmith and wagon shop on the main street, and later a grocery store that daughter Opal remembered from childhood.</p>`,
-    tags:['William Lewis','J.W. Robinson','Katie Lewis Robinson'],
-    note:'Des Arc is a small community in the Iron/Reynolds/Wayne county border area, not shown on most modern road maps.'
-  },
-  {
-    id:'mountain-view',
-    type:'burial', lat:37.013, lng:-90.758,
-    title:'Mountain View Cemetery',
-    sub:'Des Arc, Iron County',
-    body:`<p><strong>William "Uncle Billy" Lewis</strong> is buried here, having died April 9, 1900. His wife <strong>Abigail Johnson Lewis</strong> is also likely buried here.</p>`,
-    tags:['William Lewis','Abigail Johnson Lewis'],
-    note:null
-  },
-  {
-    id:'lewis-land',
-    type:'land', lat:37.680, lng:-90.700,
-    title:'William Lewis Land Grant',
-    sub:'Sec. 10 &amp; 15, T36N R3E · Iron County · 1859',
-    body:`<p>Two federal land patents issued the same day in September 1859 — 160 contiguous acres in the Pilot Knob / Ironton area of the St. Francois Mountains.</p>
-          <p>Certificate Nos. <strong>26,147</strong> and <strong>27,410</strong>, confirmed on BLM GLO records. Issued through the Jackson, MO Land Office under President Buchanan.</p>
-          <p>This land is likely still privately held today. The Iron County Assessor's GIS viewer can identify the current owner.</p>`,
-    tags:['William Lewis','Land Grant 1859'],
-    note:'Parcel pin placed at approximate township center. Exact boundaries: see BLM GLO records glorecords.blm.gov'
-  },
-  {
-    id:'pilot-knob',
-    type:'event', lat:37.627, lng:-90.692,
-    title:'Pilot Knob',
-    sub:'Iron County · Oath of Allegiance 1863 · Battle 1864',
-    body:`<p>On October 31, 1863, William Lewis signed a Union Bond and Oath of Allegiance here — under duress after his arrest, not by choice. He returned to Confederate service shortly after.</p>
-          <p>Less than a year later, the <strong>Battle of Pilot Knob</strong> (Sept. 27, 1864) was fought here when Confederate Gen. Sterling Price attacked Fort Davidson.</p>`,
-    tags:['William Lewis','Civil War Missouri'],
-    note:'The Oath is sometimes misread in Ancestry trees as a Union enlistment — it was not. Muster rolls confirm his return to Confederate service.'
-  },
-  {
-    id:'annapolis',
-    type:'home', lat:37.357, lng:-90.844,
-    title:'Annapolis, Iron County',
-    sub:'Birthplace of Katie Lewis Robinson',
-    body:`<p><strong>Katherine "Katie" Lewis</strong> was born November 28, 1878 in Annapolis, Iron County — daughter of William "Uncle Billy" Lewis and Abigail Johnson Lewis.</p>
-          <p>She married J.W. Robinson in Des Arc on November 30, 1902. Their daughter <strong>Opal Robinson</strong> (b. 1911) became Opal Robinson Rayfield.</p>`,
-    tags:['Katie Lewis Robinson'],
-    note:null
-  },
-  {
-    id:'rayfield-home',
-    type:'land', lat:37.090, lng:-90.880,
-    title:'Rayfield Homestead — Sinking Creek',
-    sub:'Reynolds County · Valley now submerged under Clearwater Lake',
-    body:`<p><strong>John Carter Rayfield Sr.</strong> (1816–1903) walked from Kentucky to Missouri at age 13 in 1829. He settled here on Sinking Creek, received two federal land grants, and farmed this land for the rest of his life.</p>
-          <ul><li><strong>1853</strong> — 40 acres, Reynolds County (Pres. Pierce)</li>
-          <li><strong>1856</strong> — 200 acres on Sinking Creek (Pres. Pierce)</li></ul>
-          <p>He built two log cabins and fathered 14 children across two wives, both surnamed Mann.</p>`,
-    tags:['John Carter Rayfield Sr.'],
-    note:'The U.S. Army Corps of Engineers condemned this land ~1935. The dam closed 1948. Lower bottomland is now Clearwater Lake; upper slopes are Clearwater Conservation Area (state land).'
-  },
-  {
-    id:'buffington',
-    type:'burial', lat:37.072, lng:-90.925,
-    title:'Buffington Cemetery',
-    sub:'Reynolds County · Above the Clearwater Lake waterline',
-    body:`<p><strong>John Carter Rayfield Sr.</strong> and wife <strong>Polly Mann Rayfield</strong> are buried here. The cemetery sits above the flood line that drowned the Buffington Community farmland below.</p>
-          <p>The Buffington Community — a close-knit Ozark settlement on Sinking Creek — was displaced by the reservoir project in the 1930s–40s.</p>`,
-    tags:['John Carter Rayfield Sr.','Polly Mann Rayfield'],
-    note:'Still accessible. A meaningful anchor for visiting ancestral land near Clearwater Lake.'
-  },
-  {
-    id:'perry-twp',
-    type:'home', lat:37.782, lng:-90.422,
-    title:'Perry Township, St. Francois County',
-    sub:'Home of Absalom Robinson · near Farmington, MO',
-    body:`<p><strong>Absalom Parker Robinson</strong> — father of J.W. Robinson — lived here in Perry Township per the 1880 census. <strong>John Wesley Robinson</strong> was born here March 18, 1880.</p>
-          <p>Absalom married Josephine Parks on March 22, 1878 in St. Francois County. The Robinson family roots trace back to Hawkins County, Tennessee before migrating to Missouri.</p>`,
-    tags:['Absalom Robinson','J.W. Robinson'],
-    note:null
-  },
-];
-
-const layers = { home:L.layerGroup(), land:L.layerGroup(), burial:L.layerGroup(), event:L.layerGroup() };
-
-locations.forEach(loc => {
-  const tagHtml = loc.tags.map(t=>`<span class="popup-tag">${t}</span>`).join(' ');
-  const noteHtml = loc.note ? `<div class="popup-note">${loc.note}</div>` : '';
-  const popup = `<div class="popup-title">${loc.title}</div>
-    <div class="popup-sub">${loc.sub}</div>
-    <div class="popup-body">${loc.body}</div>
-    <div style="margin-top:4px;">${tagHtml}</div>${noteHtml}`;
-  const m = L.marker([loc.lat,loc.lng],{icon:icons[loc.type]})
-    .bindPopup(popup,{maxWidth:300});
-  m.addTo(layers[loc.type]);
-  if (loc.id) markers[loc.id] = m;
-});
-
-Object.values(layers).forEach(l => l.addTo(map));
-
-function filterLayer(type) {
-  if (type==='all') { Object.values(layers).forEach(l=>{ if(!map.hasLayer(l)) l.addTo(map); }); return; }
-  Object.entries(layers).forEach(([k,l]) => {
-    if (k===type) { if(!map.hasLayer(l)) l.addTo(map); }
-    else          { if(map.hasLayer(l)) map.removeLayer(l); }
-  });
-}
-
-function flyToAndOpen(id, zoom) {
-  const m = markers[id];
-  if (!m) return;
-  const ll = m.getLatLng();
-  // ensure that marker's layer is visible
-  Object.values(layers).forEach(l=>{ if(!map.hasLayer(l)) l.addTo(map); });
-  map.flyTo([ll.lat, ll.lng], zoom||13, {duration:1.2});
-  map.once('moveend', () => m.openPopup());
-}
-
-// County outlines (approximate)
-L.polyline([[37.587,-90.932],[37.587,-90.421],[37.310,-90.421],[37.310,-90.932],[37.587,-90.932]],
-  {color:'#7a5c3c',weight:1.5,opacity:0.3,dashArray:'6 5'}).addTo(map)
-  .bindTooltip('Iron County',{permanent:false});
-
-L.polyline([[37.310,-91.118],[37.310,-90.595],[36.899,-90.595],[36.899,-91.118],[37.310,-91.118]],
-  {color:'#4a7c59',weight:1.5,opacity:0.3,dashArray:'6 5'}).addTo(map)
-  .bindTooltip('Reynolds County',{permanent:false});
-
-// Clearwater Lake — actual reservoir footprint (Reynolds County, MO)
-// Reservoir is roughly north-south along the Black River arm, near Piedmont
-L.polygon([
-  [37.155,-90.785],[37.148,-90.773],[37.130,-90.768],[37.112,-90.762],
-  [37.098,-90.760],[37.083,-90.758],[37.070,-90.762],[37.060,-90.770],
-  [37.055,-90.780],[37.058,-90.793],[37.068,-90.800],[37.082,-90.798],
-  [37.095,-90.793],[37.110,-90.790],[37.128,-90.790],[37.143,-90.795],
-  [37.155,-90.785]
-],{color:'#2c4a6e',fillColor:'#4a78a0',fillOpacity:0.25,weight:1.5,opacity:0.5}).addTo(map)
-  .bindTooltip('Clearwater Lake<br>(Rayfield homestead now submerged)',{permanent:false,sticky:true});
-</script>
 <footer class="site-footer">
   <p class="site-footer__logo">The Rayfield Family</p>
   <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
@@ -450,10 +221,11 @@ L.polygon([
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
-    <li><a href="mailto:abaumm@gmail.com">Contact</a></li>
+    <li><a href="mailto:abaumm+rayfieldfamilyhistory@gmail.com">Contact</a></li>
   </ul>
   <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
 </footer>
+
 <script>
   const toggle = document.getElementById('nav-toggle');
   const links  = document.getElementById('nav-links');
@@ -472,5 +244,6 @@ L.polygon([
     });
   }
 </script>
+
 </body>
 </html>

@@ -306,3 +306,51 @@ html {
     padding-top: 0 !important;
   }
 }
+
+/* ============================================================
+   SECONDARY PAGE TYPOGRAPHY OVERRIDES
+   Applies Cormorant Garamond to headings on inner pages.
+   Each page's inline :root overrides colors, but font-family
+   on headings can be set here since pages don't override it.
+   ============================================================ */
+
+/* Inner page body baseline */
+.page-content {
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+/* Sidebar (dark navy) — used on book and name-index pages */
+#sidebar-nav {
+  background: #002C3D !important;
+  border-right: 1px solid rgba(214,161,93,0.2) !important;
+}
+#sidebar-nav .sb-title {
+  color: rgba(255,255,255,0.4) !important;
+  border-bottom-color: rgba(214,161,93,0.15) !important;
+}
+#sidebar-nav .sb-part {
+  color: rgba(255,255,255,0.4) !important;
+}
+#sidebar-nav a {
+  color: rgba(255,255,255,0.8) !important;
+}
+#sidebar-nav a:hover,
+#sidebar-nav a.active {
+  color: #D6A15D !important;
+  text-decoration: none !important;
+}
+#sidebar-toggle {
+  background: #002C3D !important;
+  border: 1px solid rgba(214,161,93,0.3) !important;
+  color: #D6A15D !important;
+}
+
+/* Inner page header banner */
+.page-banner {
+  padding-top: calc(var(--nav-h) + 3rem);
+}

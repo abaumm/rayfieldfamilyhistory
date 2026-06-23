@@ -8,25 +8,25 @@
 <style>
 /* Nav/footer clearance */
 body { padding-top: var(--nav-h, 4rem); }
-:root { --text: #2c2c2c; --bg: #faf8f5; --accent: #5a3e28; --link: #7a5218; --border: #d4c8b8; }
+:root { --text: #1A1A1A; --bg: #F5F0EA; --accent: #7A5C2E; --link: #7A5C2E; --border: rgba(122,92,46,0.2); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.75; max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem; }
 h1 { font-size: 2.2rem; color: var(--accent); margin: 3rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
 h2 { font-size: 1.5rem; color: var(--accent); margin: 2.5rem 0 0.8rem; }
 a { color: var(--link); }
 
-html { scroll-behavior: smooth; background-color: #d9d0c4; background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(130,110,90,0.055) 3px, rgba(130,110,90,0.055) 4px); min-height: 100vh; }
-body { background: var(--bg); box-shadow: 0 0 60px rgba(0,0,0,0.13), 0 0 0 1px rgba(0,0,0,0.05); min-height: 100vh; }
+html { scroll-behavior: smooth; background: #002C3D; min-height: 100vh; }
+body { background: var(--bg); min-height: 100vh; }
 
 /* ── Sidebar ── */
-#sidebar-nav { position: fixed; top: var(--nav-h, 4rem); left: 0; width: 210px; height: 100vh; overflow-y: auto; padding: 1.4rem 1rem 2rem; background: #ede6da; border-right: 1px solid #cec3b4; font-family: Georgia, serif; font-size: 0.8rem; line-height: 1.6; z-index: 100; transition: transform 0.28s ease; }
-#sidebar-nav .sb-title { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: #9a8878; margin: 0 0 0.7rem; padding-bottom: 0.4rem; border-bottom: 1px solid #cec3b4; }
-#sidebar-nav a { display: block; color: #5a3e28; text-decoration: none; padding: 0.15rem 0; }
+#sidebar-nav { position: fixed; top: var(--nav-h, 4rem); left: 0; width: 210px; height: 100vh; overflow-y: auto; padding: 1.4rem 1rem 2rem; background: #002C3D; border-right: 1px solid rgba(214,161,93,0.2); font-family: Georgia, serif; font-size: 0.8rem; line-height: 1.6; z-index: 100; transition: transform 0.28s ease; }
+#sidebar-nav .sb-title { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.4); margin: 0 0 0.7rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(214,161,93,0.15); }
+#sidebar-nav a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; padding: 0.15rem 0; }
 #sidebar-nav a:hover { color: var(--link); text-decoration: underline; }
 #sidebar-nav a.active { color: var(--link); font-weight: bold; }
-#sidebar-nav .sb-part { display: block; font-variant: small-caps; font-size: 0.72rem; color: #9a8878; margin: 0.85rem 0 0.15rem; }
+#sidebar-nav .sb-part { display: block; font-variant: small-caps; font-size: 0.72rem; color: rgba(255,255,255,0.4); margin: 0.85rem 0 0.15rem; }
 #sidebar-nav .sb-ch { padding-left: 0.6rem; }
-#sidebar-toggle { display: none; position: fixed; top: 0.75rem; left: 0.75rem; z-index: 200; background: #5a3e28; color: #fff; border: none; border-radius: 4px; padding: 0.38rem 0.65rem; font-size: 1.05rem; cursor: pointer; line-height: 1; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+#sidebar-toggle { display: none; position: fixed; top: 0.75rem; left: 0.75rem; z-index: 200; background: #002C3D; color: #fff; border: none; border-radius: 4px; padding: 0.38rem 0.65rem; font-size: 1.05rem; cursor: pointer; line-height: 1; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
 
 @media (min-width: 1080px) { body { margin-left: 230px; } }
 @media (max-width: 1079px) {
@@ -38,18 +38,18 @@ body { background: var(--bg); box-shadow: 0 0 60px rgba(0,0,0,0.13), 0 0 0 1px r
 @media print { #sidebar-nav, #sidebar-toggle { display: none !important; } body { margin-left: 0 !important; box-shadow: none; } html { background: white; } }
 
 /* ── Page header ── */
-.page-header { text-align: center; margin: 2rem 0 2.5rem; padding: 2rem 0; border-bottom: 2px solid var(--accent); }
+.page-header { text-align: center; margin: 2rem 0 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--border); }
 .page-header h1 { border: none; font-size: 2rem; margin: 0; }
 .page-header .subtitle { font-size: 1rem; color: #666; font-style: italic; margin-top: 0.5rem; }
 
 /* ── Controls ── */
 .ni-controls { margin: 0 0 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
-.ni-search { width: 100%; font-family: Georgia, serif; font-size: 0.95rem; padding: 0.5rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; background: #faf8f5; color: var(--text); outline: none; }
+.ni-search { width: 100%; font-family: Georgia, serif; font-size: 0.95rem; padding: 0.5rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; background: #F5F0EA; color: var(--text); outline: none; }
 .ni-search:focus { border-color: var(--link); box-shadow: 0 0 0 2px rgba(122,82,24,0.1); }
 .ni-filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
 .ni-filter { font-family: Georgia, serif; font-size: 0.78rem; padding: 4px 13px; border: 1px solid var(--border); border-radius: 20px; background: transparent; color: var(--link); cursor: pointer; }
-.ni-filter:hover { background: #f0ebe3; }
-.ni-filter.active { background: var(--accent); color: #f5f0e8; border-color: var(--accent); }
+.ni-filter:hover { background: #EDE6DC; }
+.ni-filter.active { background: #7A5C2E; color: #F5F0EA; border-color: #7A5C2E; }
 
 /* ── Count ── */
 .ni-count { font-size: 0.82rem; color: #9a8878; font-style: italic; margin-bottom: 0.5rem; }
@@ -59,15 +59,15 @@ body { background: var(--bg); box-shadow: 0 0 60px rgba(0,0,0,0.13), 0 0 0 1px r
 .ni-table thead th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #9a8878; text-align: left; padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--border); font-weight: normal; }
 .ni-table tbody tr { border-bottom: 0.5px solid #ede8e0; }
 .ni-table tbody tr:last-child { border-bottom: none; }
-.ni-table tbody tr:hover { background: #f5f1ea; }
+.ni-table tbody tr:hover { background: #EDE6DC; }
 .ni-table td { padding: 0.55rem 0.6rem 0.55rem 0; vertical-align: top; }
 .td-name { font-weight: normal; color: var(--text); min-width: 160px; }
 .td-years { white-space: nowrap; color: #7a6a58; font-size: 0.82rem; min-width: 100px; }
 .td-place { color: #7a6a58; font-size: 0.82rem; min-width: 130px; }
 .td-desc { color: #555; font-size: 0.85rem; font-style: italic; }
 .td-tag { white-space: nowrap; }
-.ni-tag { font-size: 0.7rem; padding: 2px 9px; border-radius: 10px; background: #f0ebe3; color: #7a5218; border: 0.5px solid #d4c8b8; display: inline-block; }
-.ni-tag.tag-Rayfield { background: #f0ebe3; color: #5a3e28; }
+.ni-tag { font-size: 0.7rem; padding: 2px 9px; border-radius: 10px; background: #EDE6DC; color: #7a5218; border: 0.5px solid #d4c8b8; display: inline-block; }
+.ni-tag.tag-Rayfield { background: #EDE6DC; color: #7A5C2E; }
 .ni-tag.tag-Robinson { background: #e8eef5; color: #2a4a6a; border-color: #c0cdd8; }
 .ni-tag.tag-Lewis { background: #eaf2ea; color: #2a5a2a; border-color: #b8d0b8; }
 .ni-tag.tag-Allied { background: #f5f0e8; color: #8a7a5a; border-color: #d8d0c0; }
@@ -89,7 +89,7 @@ body { background: var(--bg); box-shadow: 0 0 60px rgba(0,0,0,0.13), 0 0 0 1px r
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
     <li><a href="name-index.html" aria-current="page">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
-    <li><a href="mailto:abaumm@gmail.com">Contact</a></li>
+    <li><a href="mailto:abaumm+rayfieldfamilyhistory@gmail.com">Contact</a></li>
   </ul>
 </nav>
 
@@ -308,7 +308,7 @@ render();
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
-    <li><a href="mailto:abaumm@gmail.com">Contact</a></li>
+    <li><a href="mailto:abaumm+rayfieldfamilyhistory@gmail.com">Contact</a></li>
   </ul>
   <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
 </footer>
