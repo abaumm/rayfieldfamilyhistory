@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get in Touch — The Rayfield Family History</title>
+  <link rel="stylesheet" href="style.css" />
+<style>
+body { padding-top: var(--nav-h); background: var(--cream); }
+
+.contact-wrap {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.contact-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 1rem;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.contact-body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-mid);
+  max-width: 36rem;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.contact-note {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(74,74,74,0.6);
+  margin-top: 1.25rem;
+  font-style: italic;
+}
+
+.divider {
+  width: 3rem;
+  height: 1px;
+  background: var(--gold-dark);
+  opacity: 0.4;
+  margin: 2.5rem auto;
+}
+
+.what-to-share {
+  max-width: 28rem;
+  text-align: left;
+  background: var(--cream-dark);
+  border: 1px solid rgba(122,92,46,0.2);
+  border-radius: 4px;
+  padding: 1.5rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+.what-to-share strong {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 0.75rem;
+}
+
+.what-to-share ul {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.what-to-share li {
+  margin-bottom: 0.35rem;
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
+  <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <ul class="site-nav__links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="name-index.html">Family Members</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="contact.html" aria-current="page">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="contact-wrap">
+
+  <p class="contact-eyebrow">Get in Touch</p>
+  <h1 class="contact-title">Have something to contribute?</h1>
+  <p class="contact-body">If you have photos, letters, documents, or memories connected to the Rayfield, Robinson, or Lewis families — I'd genuinely love to hear from you. This history is still growing.</p>
+
+  <a href="mailto:abaumm+rayfieldfamilyhistory@gmail.com" class="btn btn--light">Send me an email →</a>
+  <p class="contact-note">Opens your email app. You can also copy the address from there.</p>
+
+  <div class="divider"></div>
+
+  <div class="what-to-share">
+    <strong>What's worth sharing</strong>
+    <ul>
+      <li>Old photos — even low quality scans are welcome</li>
+      <li>Letters, diaries, or documents</li>
+      <li>Cemetery or church records</li>
+      <li>Corrections to anything in the history</li>
+      <li>Stories passed down in your family</li>
+      <li>DNA connections through Rayfield, Robinson, or Lewis lines</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p class="site-footer__logo">The Rayfield Family</p>
+  <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
+  <ul class="site-footer__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="name-index.html">Family Members</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open);
+      toggle.textContent = open ? '✕' : '☰';
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
