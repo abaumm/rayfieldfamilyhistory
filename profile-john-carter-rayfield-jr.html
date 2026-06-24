@@ -10,7 +10,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
-h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; scroll-margin-top: 5rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
 p { margin-bottom: 0.8rem; }
 a { color: var(--link); }
@@ -45,6 +45,11 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 .census-card .detail { margin-top: 0.5rem; font-size: 0.9rem; }
 .census-card .source { margin-top: 0.5rem; font-size: 0.8rem; color: #888; }
 
+
+/* Profile anchor nav */
+.profile-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+.profile-nav a { padding: 0.4rem 1.1rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.9rem; text-decoration: none; }
+.profile-nav a:hover { opacity: 0.85; }
 /* Back link */
 .back-link { font-size: 0.9rem; margin-bottom: 2rem; }
 
@@ -69,7 +74,22 @@ Last updated: June 2026
 John Carter Rayfield Jr. is the crucial link between the patriarch and the modern family. He was born on his father&rsquo;s Reynolds County homestead, grew up on Sinking Creek, and spent his entire life farming the same Ozark hill country his father had settled. His son <strong>Franklin Peter Rayfield</strong> &mdash; born in that household in 1884 &mdash; is the subject of Chapter 2 of <em>The Rayfields &mdash; A Family History</em>. This profile also covers Jr.&rsquo;s wife, <strong>Nancy Ann Farris</strong>, daughter of one of Reynolds County&rsquo;s most significant nineteenth-century figures.
 </div>
 
-<h2>Name in Records</h2>
+
+<nav class="profile-nav" aria-label="Jump to section">
+  <a href="#story">Story</a>
+  <a href="#vital-facts">Vital Facts</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<h2 id="story">Their Story</h2>
+
+<p>John Carter Rayfield Jr. was born around 1848 on his father's Reynolds County homestead — the second generation of Rayfields to grow up on Sinking Creek. His father was the patriarch John Carter Rayfield Sr.; his mother was Mary Ann "Polly" Mann, who died when John Carter Jr. was about twelve years old. He grew up in a large household, farming the same Ozark ground his father had patented from the federal government, and he stayed there his whole life.</p>
+
+<p>He married Nancy Ann Farris sometime in the late 1860s. Nancy Ann had grown up in the same river valley community — her father was Lucian Nester Farris, one of Reynolds County's most significant men of the era: a farmer, two-term state legislator, and Confederate officer who had arrived in the county around 1840 and built one of its most prominent households. When Lucian died in 1876, Nancy Ann was already a young married woman. When John Carter Jr. had married her, he was joining two of the county's founding families.</p>
+
+<p>They raised their family in Webb Township — the same remote corner of Reynolds County where both families had been rooted for decades. The 1900 census shows them together, both listed at age 52, with three of their children still at home: son John at eighteen, son Franklin at sixteen (who would one day carry this family's story forward into the next generation), and daughter Sarah at twelve. John Carter Jr. died around 1915, probably in his late sixties. Nancy Ann outlived him by sixteen years, dying on February 8, 1931. Her funeral was held at the Buffington schoolhouse — not a church in town, not a funeral parlor, but the community building of the valley where she had spent her entire life.</p>
+
+<h2 id="vital-facts">Name in Records</h2>
 <p>John Carter Rayfield Jr. appears in records almost always as a variant of his father's name, which can create confusion:</p>
 <span class="name-var">John C Rayfield</span>
 <span class="name-var">J.C.R. Rayfield</span>
@@ -169,20 +189,6 @@ John Carter Rayfield Jr. is the crucial link between the patriarch and the moder
 <td>Stated in 1931 obituary. Three daughters not yet identified by name — research gap. See Open Questions.</td>
 </tr>
 </table>
-
-<h2>Nancy Ann's Father: Lucian Nester Farris (Context)</h2>
-
-<p>Nancy Ann&rsquo;s father, <strong>Lucian Nester Farris</strong> (October 12, 1820 &ndash; August 8, 1876), was a Reynolds County farmer, two-term state legislator, and Confederate officer who became one of the county&rsquo;s most prominent nineteenth-century figures. He arrived in what was then Ripley County (now Reynolds County) around 1840 and spent the rest of his life there. He died at fifty-five and was buried at Buffington Cemetery &mdash; the same ground where the Rayfields would eventually rest.</p>
-
-<p>Nancy Ann was from Lucian&rsquo;s first marriage, to Nancy Hyatt (married February 15, 1840), who died around 1854 when Nancy Ann was seven. Lucian remarried in 1856, bringing stepmother Anna Carter into the household.</p>
-
-<p style="font-size:0.9rem; color:#666;">A full biographical profile of Lucian Nester Farris is planned separately. Sources for this summary: <span class="arn">ARN0000233</span> Farris biography; <span class="arn">ARN0000234</span>&ndash;<span class="arn">ARN0000235</span> Confederate service records.</p>
-
-<h2>The Connection Between the Families</h2>
-
-<p>Lucian Farris and John Carter Rayfield Sr. were exact contemporaries in Reynolds County — Lucian arrived around 1840, John Carter Sr. was there from 1829. They would have known each other: both farmers, both in the same river valley community, both eventually buried at Buffington Cemetery. When John Carter Jr. married Nancy Ann Farris in the late 1860s, he was knitting together two of the county&rsquo;s founding families.</p>
-
-<p>That Nancy Ann&rsquo;s funeral in 1931 was held at the Buffington <em>schoolhouse</em> &mdash; not a church in town, not a funeral parlor &mdash; says something about where this family rooted itself. Even sixty years after the original settlement, the Buffington community was still their home ground.</p>
 
 <h2>Census Timeline</h2>
 
@@ -287,7 +293,7 @@ Nancy Ann (now approximately 29, married to JCR Jr.) appears in the 1876 Missour
 The May 2026 research session identified the existence and key details of Nancy Ann Farris Rayfield&rsquo;s 1931 obituary (born June 12, 1847; died February 8, 1931; five sons named with locations; three unnamed daughters; husband preceded her ~16 years; funeral at Buffington schoolhouse). However, the full obituary text — including the sons&rsquo; given names and their locations — has not yet been retrieved and transcribed. Locating this obituary (likely Wayne County Journal-Banner, February 1931) would resolve multiple open questions at once.
 </div>
 
-<h2>Open Questions</h2>
+<h2 id="sources">Open Questions</h2>
 
 <table>
 <tr><th>Question</th><th>Status</th><th>Suggested Source</th></tr>

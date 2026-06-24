@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pioneer Families of the Buffington Community — The Rayfield Family History</title>
+  <meta name="description" content="The pioneer families of the Buffington Community in Reynolds and Iron Counties, Missouri — the settler families whose lines converge in this history." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: var(--cream); padding-top: var(--nav-h); }
+
+    /* ── PAGE HEADER ── */
+    .ff-header {
+      background: var(--navy-dark);
+      padding: 5rem 2.5rem 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .ff-header__eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .ff-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .ff-header h1 em { font-style: italic; color: var(--gold); }
+    .ff-header p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      max-width: 38rem;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── MAIN PROSE ── */
+    .ff-body {
+      max-width: 48rem;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .ff-body p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 1.1rem;
+      text-align: justify;
+    }
+    .ff-body p:first-of-type { text-indent: 0; }
+
+    /* ── FAMILY SECTIONS ── */
+    .family-section {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .family-section__label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .family-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .family-section h2 em { font-style: italic; color: var(--gold-dark); }
+
+    /* ── CONNECTION CALLOUT ── */
+    .connection-note {
+      background: var(--cream-dark);
+      border-left: 3px solid var(--gold-dark);
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .connection-note__label {
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .connection-note p {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin: 0 !important;
+      text-indent: 0 !important;
+    }
+
+    /* ── CONVERGENCE SECTION ── */
+    .convergence {
+      background: var(--navy);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+      margin-top: 4rem;
+    }
+    .convergence__label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .convergence h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .convergence p {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+    .convergence p:last-child { margin-bottom: 0; }
+
+    /* ── CITATIONS ── */
+    sup.cite a {
+      font-size: 0.72em;
+      color: var(--gold-dark);
+      text-decoration: none;
+      vertical-align: super;
+      padding: 0 1px;
+    }
+    sup.cite a:hover { text-decoration: underline; }
+    .citations-section {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .citations-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+    }
+    .citations-list {
+      list-style: none;
+      padding: 0;
+    }
+    .citations-list li {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      padding: 0.4rem 0 0.4rem 2.5rem;
+      border-bottom: 1px solid rgba(122,92,46,0.1);
+      position: relative;
+    }
+    .citations-list li::before {
+      content: attr(data-n);
+      position: absolute;
+      left: 0;
+      font-family: var(--font-display);
+      color: var(--gold-dark);
+      font-size: 0.9rem;
+      min-width: 2rem;
+    }
+    .arn-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--gold-dark);
+      background: rgba(122,92,46,0.08);
+      border: 1px solid rgba(122,92,46,0.2);
+      padding: 0.05rem 0.4rem;
+      border-radius: 2px;
+      margin-right: 0.35rem;
+      font-family: var(--font-body);
+    }
+
+    @media (max-width: 768px) {
+      .ff-header { padding: 4rem 1.5rem 3rem; }
+      .ff-body { padding: 3rem 1.25rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
+  <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <ul class="site-nav__links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html" aria-current="page">Pioneer Families</a></li>
+    <li><a href="name-index.html">Family Members</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="ff-header">
+  <span class="ff-header__eyebrow">Reynolds &amp; Iron Counties, Missouri</span>
+  <h1>The Pioneer Families<br>of <em>Reynolds and Iron Counties</em></h1>
+  <p>The families who settled this corner of the Missouri Ozarks, their arrival in the community, and how they connect to the family line this history follows.</p>
+</header>
+
+<main class="ff-body">
+
+  <p>In the 1830s, a cluster of families began building lives in the country around Sinking Creek and the upper Black River in southeastern Reynolds County, Missouri — limestone hill country where the springs ran cold year-round, the soil was thin above the stone, and the nearest town was a long day's ride. They cleared ground, logged timber, and plowed land that an earlier people had been forced to leave not long before. Over the following decades, more families arrived from Tennessee, Kentucky, and Virginia. They built a schoolhouse, cleared a cemetery on a rise above the creek bottom, and named the whole community Buffington, after one of the pioneer families. For nearly a hundred years, it was a real place — a world defined by family surnames and mutual help, where the same handful of names appeared on deeds, in census columns, and on headstones side by side, generation after generation.</p>
+
+  <p>In 1948, when the Army Corps of Engineers closed the dam on the Black River and Clearwater Lake began to fill, most of the Buffington Community went under water. The cemetery survived on high ground, intact. The surnames survived too — scattered into St. Louis and Piedmont and the towns along the Iron Mountain railroad, but still connected.</p>
+
+  <p>The families in this history fall into two distinct groups. Three — Rayfield, Mann, and Farris — were Buffington Community families, rooted in the limestone hill country of Reynolds County around Sinking Creek. Three more — Seal, Robinson, and Lewis — were Iron County families, rooted in the Arcadia Valley and the towns along the Iron Mountain railroad. The two groups joined in 1928 when Vernon Rayfield married Opal Robinson. The Buffington and Skaggs families were community families of the Buffington neighborhood itself; their connection to this lineage runs through intermarriage rather than direct documented descent. What follows traces each family's arrival and the records that document them.</p>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="family-section">
+    <span class="family-section__label">Historical Context</span>
+    <h2>The country, before the families</h2>
+
+    <p>The land that became Reynolds and Iron Counties was Osage territory before American settlement reached it. French trappers, working upriver from the Mississippi in the early 1700s, had already given the main drainage a name: <em>l'eau noire</em> — "the black water." It became the Black River, and it still flows through the lower corner of what is now Reynolds County. The Osage held the land as hunting country until November 10, 1808, when the Treaty of Fort Clark required them to cede more than fifty million acres of Missouri and Arkansas territory to the United States. In exchange, the Osage received $1,200 in cash and $1,500 in merchandise. The land the pioneer families would build their lives on had been cleared for settlement by that exchange.<sup class="cite"><a href="#cite-32" id="cite-32-ref">[32]</a></sup></p>
+
+    <p>The first American settler in what would become Reynolds County was probably a Kentuckian named Henry Fry, who arrived around 1812 on the Middle Fork of the Black River — four years after the Osage cession opened the country. Those who followed him over the next two decades were mainly hunters and trappers at first; the state historical marker for Reynolds County notes that early settlers "gave little attention to farming, growing only sufficient 'garden truck' for their individual needs." The Manns, the Farrises, and the Rayfields were part of the second wave — the farming families who arrived in the 1820s and 1830s and began to put down permanent roots.<sup class="cite"><a href="#cite-33" id="cite-33-ref">[33]</a></sup></p>
+
+    <p>Reynolds County itself was not formally organized until February 25, 1845, when the Missouri legislature carved it from the older Washington County territory and named it for Governor Thomas Reynolds. Even after organization, its records were precarious. The county courthouse burned twice: first in December 1863, when Confederate forces burned it during the Civil War, and again in November 1871 under separate circumstances. Both times, all county records were destroyed. For researchers working with Reynolds County families from before the war, those courthouse losses are a constant obstacle. The families in this history are documented primarily through federal census records, federal land patents, and state-level vital records — sources held elsewhere that survived when the courthouse did not.<sup class="cite"><a href="#cite-34" id="cite-34-ref">[34]</a></sup></p>
+
+    <p>Iron County was a different kind of place. Organized on February 17, 1857 — carved partly from Reynolds County itself and from five other surrounding counties — it was built around ore. The Arcadia Valley in the county's northeast was ringed by iron deposits of extraordinary richness; a furnace had been operating at Pilot Knob since before the Civil War, and the St. Louis and Iron Mountain Railroad completed its line to Pilot Knob the same year the county was organized. The towns the railroad and the mines built — Ironton, Annapolis, Arcadia, Des Arc — became the world the Lewis and Robinson families farmed and worked and raised their children in. The first settlers had arrived in what would become Iron County as early as 1798; by the time William Lewis rode in from Tennessee in 1857, the county was brand new and the railroad had just arrived.<sup class="cite"><a href="#cite-35" id="cite-35-ref">[35]</a></sup></p>
+
+    <p>Both counties were covered in 1894 by Goodspeed Brothers' <em>A Reminiscent History of the Ozark Region</em>, a subscription county history that included biographical sketches of prominent families in the area. The sketches are useful but partial — they covered families who paid to be included. The families in this history appear variously in those pages, in federal land records, in census enumerations, and in the church registers and newspaper notices that survived where courthouse records did not.<sup class="cite"><a href="#cite-36" id="cite-36-ref">[36]</a></sup></p>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="family-section">
+    <span class="family-section__label">Pioneer Family · Reynolds County</span>
+    <h2>The <em>Rayfields</em></h2>
+
+    <p>John Carter Rayfield arrived in Missouri in 1829 at the age of thirteen, riding west with his uncles William and John from Cumberland County, Kentucky. He would never return east. By the 1830 census he was living in Uncle William's household in Washington County; within a few years the family had moved south and east into Reynolds County, where the Manns were already farming along Sinking Creek.<sup class="cite"><a href="#cite-1" id="cite-1-ref">[1]</a></sup></p>
+
+    <p>He married into the Mann family and by 1850 was farming in Reynolds County on his own account. On August 1, 1853, the federal government granted him forty acres in Reynolds County — a patent signed by President Franklin Pierce. A second grant of two hundred acres along Sinking Creek followed on January 3, 1856. He built two log cabins in the 1850s, a walnut-plank barn, and eventually a five-room frame house.<sup class="cite"><a href="#cite-2" id="cite-2-ref">[2]</a></sup> The family farmed that ground for decades. When John Carter Rayfield died in 1903, his children and grandchildren were still on the same land.</p>
+
+    <p>The Rayfield name was already established in the wider Ozark country by the 1880s. John Carter's cousin William Rayfield, who had traveled west as an infant in that same 1829 party, became one of the area's merchants — first in partnership at Adams &amp; Rayfield in Lesterville, then at Rayfield &amp; Son in Centreville, where he raised a family of his own. The Goodspeed history of the Ozark region, published in 1894, included a sketch of William Rayfield's life and business career.<sup class="cite"><a href="#cite-3" id="cite-3-ref">[3]</a></sup> The Rayfields had been in this country long enough to be part of its story.</p>
+
+    <div class="connection-note">
+      <span class="connection-note__label">Andrea's connection</span>
+      <p>John Carter Rayfield Sr. (1816–1903) → son John Carter Rayfield Jr. (c. 1848–c. 1915) → son Franklin Peter Rayfield (1884–1941) → son Vernon Jack Rayfield (1909–1977) → son Michael Vernon Rayfield → Andrea Harter.</p>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="family-section">
+    <span class="family-section__label">Pioneer Family · Reynolds County</span>
+    <h2>The <em>Manns</em></h2>
+
+    <p>The Manns were in Missouri before the Rayfields arrived. Arnold Mann — born in Kentucky around 1798, likely of German descent through his father — had settled in Washington County, Missouri, by the time John Carter Rayfield rode in as a thirteen-year-old in 1829. By the 1830 census, Arnold was already established there. In time he moved south into Reynolds County, where he farmed Sinking Creek country and raised his family.<sup class="cite"><a href="#cite-4" id="cite-4-ref">[4]</a></sup></p>
+
+    <p>His daughter Mary Ann "Polly" Mann, born around October 20, 1820, became John Carter Rayfield Sr.'s first wife. She bore him eight children before her death on August 1, 1860. After Polly died, her first cousin Nancy Ann Mann — unmarried at twenty-five — married John Carter in 1865 and bore him six more children, bringing his total family to fourteen.<sup class="cite"><a href="#cite-5" id="cite-5-ref">[5]</a></sup> The Mann name was woven into the Rayfield family at its foundation.</p>
+
+    <p>Arnold Mann appears in the county's newspaper record as a buyer of livestock in 1853,<sup class="cite"><a href="#cite-6" id="cite-6-ref">[6]</a></sup> and his estate was settled after his death in 1872.<sup class="cite"><a href="#cite-7" id="cite-7-ref">[7]</a></sup> The family's presence persisted through the generations. The 1954 Buffington Cemetery reunion photograph still shows Carl Mann and Freda Mann Rayfield among the assembled families — descendants of the same Mann line that had been farming this country since before it was even Reynolds County.<sup class="cite"><a href="#cite-8" id="cite-8-ref">[8]</a></sup></p>
+
+    <div class="connection-note">
+      <span class="connection-note__label">Andrea's connection</span>
+      <p>Arnold Mann → daughter Mary Ann "Polly" Mann → married John Carter Rayfield Sr. (1816–1903) → son John Carter Rayfield Jr. (c. 1848–c. 1915) → son Franklin Peter Rayfield (1884–1941) → son Vernon Jack Rayfield (1909–1977) → son Michael Vernon Rayfield → Andrea Harter.</p>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="family-section">
+    <span class="family-section__label">Pioneer Family · Reynolds County</span>
+    <h2>The <em>Farrises</em></h2>
+
+    <p>Lucian N. Farris was in Reynolds County by the time of the 1850 federal census, enumerated in District 76 — the same census district as John Carter Rayfield.<sup class="cite"><a href="#cite-9" id="cite-9-ref">[9]</a></sup> He was a man of standing in the community: his biography describes him as a legislator, and a letter he wrote to his wife from the field in 1859 survives, placing him in the county as a man with a documented public presence.<sup class="cite"><a href="#cite-10" id="cite-10-ref">[10]</a></sup> He served in the Missouri State Guard during the Civil War,<sup class="cite"><a href="#cite-11" id="cite-11-ref">[11]</a></sup> and also appears in the compiled Confederate service records.<sup class="cite"><a href="#cite-12" id="cite-12-ref">[12]</a></sup> He died in 1876; his death notice appeared in the St. Louis Republic that August.<sup class="cite"><a href="#cite-13" id="cite-13-ref">[13]</a></sup></p>
+
+    <p>His daughter Nancy Ann Farris appears in the Reynolds County census records as a child in 1850<sup class="cite"><a href="#cite-14" id="cite-14-ref">[14]</a></sup> and as a young woman in 1860.<sup class="cite"><a href="#cite-15" id="cite-15-ref">[15]</a></sup> She married into the Rayfield family, becoming the wife of John Carter Rayfield's son (born approximately 1848) and the mother of Franklin Peter Rayfield. Through that marriage, the Farris and Rayfield families — neighbors in Reynolds County for decades — became one.</p>
+
+    <p>Buffington Cemetery, the community's shared burial ground, holds members of both the Farris and Mann families alongside the Rayfields, a visible record of how thoroughly these pioneer families overlapped.<sup class="cite"><a href="#cite-16" id="cite-16-ref">[16]</a></sup></p>
+
+    <div class="connection-note">
+      <span class="connection-note__label">Andrea's connection</span>
+      <p>Lucian N. Farris → daughter Nancy Ann Farris → married John Carter Rayfield Jr. (c. 1848–c. 1915) → son Franklin Peter Rayfield (1884–1941) → son Vernon Jack Rayfield (1909–1977) → son Michael Vernon Rayfield → Andrea Harter.</p>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="family-section">
+    <span class="family-section__label">Pioneer Family · Iron County</span>
+    <h2>The <em>Seals</em></h2>
+
+    <p>The Seals were an Iron County family, not a Buffington Community family — they enter this history through Myrtle Lee Seal's marriage to Franklin Peter Rayfield in 1905. Their roots were in the lead and iron country around Arcadia before the Rayfields had fully settled Reynolds County. Benjamin F. Seal was born in 1859 in Arcadia, Iron County — a town whose existence owed itself to the metal in the surrounding hills — and the Seal family was already established in that corner of southeastern Missouri when the Civil War arrived and passed through. By the 1880 census, members of the Seal family were farming in Webb, Reynolds County, enumerated on the same census pages as Lewis and Mann families — three founding surnames in the same county district at the same moment.<sup class="cite"><a href="#cite-17" id="cite-17-ref">[17]</a></sup></p>
+
+    <p>Benjamin F. Seal's daughter Myrtle Lee Seal was born July 29, 1888. She married Franklin Peter Rayfield — grandson of the patriarch John Carter Rayfield — on June 17, 1905, in Butler County, Missouri.<sup class="cite"><a href="#cite-18" id="cite-18-ref">[18]</a></sup> The marriage united two Reynolds County families who had been farming the same hills for decades.</p>
+
+    <p>The 1954 Buffington Cemetery reunion photograph shows how far the Seal family had intermarried with its neighbors: Eva Seal Farris, Ella Seal Skaggs, and Lora Seal Buffington were all present that day, their surnames recording the marriages that had tied the Seals to three other pioneer families in a single generation.<sup class="cite"><a href="#cite-19" id="cite-19-ref">[19]</a></sup></p>
+
+    <div class="connection-note">
+      <span class="connection-note__label">Andrea's connection</span>
+      <p>Benjamin F. Seal (1859–1941) → daughter Myrtle Lee Seal (1888–1968) → married Franklin Peter Rayfield → son Vernon Jack Rayfield (1909–1977) → son Michael Vernon Rayfield → Andrea Harter.</p>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="family-section">
+    <span class="family-section__label">Pioneer Family · Iron County</span>
+    <h2>The <em>Lewises</em></h2>
+
+    <p>Like the Seals, the Lewises were an Iron County family, not a Buffington Community one — they connect to this history through Katie Lewis's marriage to John Wesley Robinson, and Opal Robinson's marriage to Vernon Rayfield. William John Lewis came to Iron County from Marion County, Tennessee, arriving sometime before October 30, 1857, when he married Abigail Johnson in a documented Iron County ceremony.<sup class="cite"><a href="#cite-20" id="cite-20-ref">[20]</a></sup> He was among the wave of settlers who came from Tennessee and the upland South in the years just before the Civil War, drawn by cheap land and kin already gone west. Within two years of his marriage, he had received two federal land patents in Iron County — certificates 26147 and 27410, both issued September 10, 1859 — establishing him as a landowner in the community where he would spend the rest of his life.<sup class="cite"><a href="#cite-21" id="cite-21-ref">[21]</a></sup></p>
+
+    <p>William farmed Iron County through the Civil War (serving in Colonel Timothy Reeves' 15th Missouri Cavalry and later signing a Union loyalty oath at Pilot Knob), and by the 1880s the Iron County Register was calling him "Uncle Billy" — a community title for trusted elders that attached to names only after years of standing in the neighborhood. He died in April 1900. His wife Abigail continued farming alone, listed as head of household and farmer in subsequent census years.</p>
+
+    <p>His daughter Katie Lewis was born November 28, 1878, in Annapolis, Iron County — a birth date confirmed independently by her obituary, the 1900 federal census, and her death certificate. She married John Wesley Robinson in Des Arc on November 30, 1902.<sup class="cite"><a href="#cite-22" id="cite-22-ref">[22]</a></sup> Their daughter Opal would later marry into the Rayfield line.</p>
+
+    <div class="connection-note">
+      <span class="connection-note__label">Andrea's connection</span>
+      <p>William John Lewis (approximately 1834–1900) → daughter Katie Lewis (1878–1946) → married John Wesley Robinson → daughter Opal Myrtle Robinson (1911–2002) → married Vernon Jack Rayfield → son Michael Vernon Rayfield → Andrea Harter.</p>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="family-section">
+    <span class="family-section__label">Pioneer Family · Iron County</span>
+    <h2>The <em>Robinsons</em></h2>
+
+    <p>The Robinsons were an Iron County family — rooted in Des Arc and the Iron County townships, not in the Buffington Community of Reynolds County. The Robinson family came to Iron County by 1859, when Isaac Robinson — or Roberson, as the deed sometimes spells it — appears in an Iron County warranty deed, signing by mark, his name and presence documented in county records by that date.<sup class="cite"><a href="#cite-23" id="cite-23-ref">[23]</a></sup> Isaac also held a federal land patent in Iron County.<sup class="cite"><a href="#cite-24" id="cite-24-ref">[24]</a></sup> He raised Absalom Parker Robinson, whose own origins remain uncertain beyond the oral tradition that his Tennessee-born parents died young and their children were separated and taken in by different families. What is certain is that Absalom grew up in Iron County as Isaac Robinson's ward, and that he built his own life there.</p>
+
+    <p>On March 22, 1878, Absalom married Josephinia Parks in Perry Township, St. Francois County, Missouri.<sup class="cite"><a href="#cite-25" id="cite-25-ref">[25]</a></sup> They would have nine children before Josie's death around 1900. Their son John Wesley Robinson, born March 18, 1880, became a blacksmith and merchant in Des Arc, Iron County. He married Katie Lewis in 1902. The Robinson and Lewis families — both Iron County by the 1860s, both farming the same county through the Civil War and its aftermath — became one household in November of that year.</p>
+
+    <p>John Wesley and Katie Robinson's daughter Opal married Vernon Jack Rayfield on January 27, 1928, in Annapolis, Iron County.<sup class="cite"><a href="#cite-26" id="cite-26-ref">[26]</a></sup> It was the marriage that joined the Iron County Robinson-Lewis lines to the Reynolds County Rayfield-Mann-Farris-Seal lines — four pioneer families meeting in a single ceremony on a January day.</p>
+
+    <div class="connection-note">
+      <span class="connection-note__label">Andrea's connection</span>
+      <p>Isaac Robinson → raised Absalom Parker Robinson (approximately 1856–1936) → son John Wesley Robinson (1880–1941) → daughter Opal Myrtle Robinson (1911–2002) → married Vernon Jack Rayfield → son Michael Vernon Rayfield → Andrea Harter.</p>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="family-section">
+    <span class="family-section__label">Community Family · Reynolds County</span>
+    <h2>The <em>Buffingtons</em></h2>
+
+    <p>The community itself carried the Buffington name. Buffington Cemetery — where John Carter Rayfield Sr. and Mary Ann "Polly" Mann Rayfield are buried, along with members of the Mann, Farris, Seal, and Buffington families — sits on the rise of ground above the Sinking Creek valley that the water of Clearwater Lake could not reach. The community named for this family was the gathering place where all the pioneer families overlapped, and the cemetery is the most permanent record of that overlap: 127 memorials on Find A Grave, representing the families who settled and worked and were buried here across a century.<sup class="cite"><a href="#cite-27" id="cite-27-ref">[27]</a></sup></p>
+
+    <p>The 1954 "class and cemetery reunion" photograph, taken at Buffington Cemetery, documents the family in the mid-twentieth century: Ann Buffington Copeland, Mozelle Lee Buffington, Esther Buffington Gwin, Lora Seal Buffington, Ed Buffington, Zed Buffington, Jacob Buffington, and John Buffington are all identifiable among the attendees, gathered at the same ground where their family's name had been on the land for generations.<sup class="cite"><a href="#cite-28" id="cite-28-ref">[28]</a></sup> Shelley Buffington Hoffman, who identified many of the photograph's attendees, remains a descendant of the community and provided genealogical context for several family connections documented in this history.<sup class="cite"><a href="#cite-29" id="cite-29-ref">[29]</a></sup></p>
+
+    <div class="connection-note">
+      <span class="connection-note__label">Community connection</span>
+      <p>The Buffington family's connection to this lineage is through the Seal family: Lora Seal Buffington connects the Buffington line to Benjamin F. Seal's family, from which Myrtle Lee Seal descends. The Buffingtons are a community family rather than a direct lineage family, but their name on the land and their burial ground document the community these families built together.</p>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="family-section">
+    <span class="family-section__label">Community Family · Reynolds County</span>
+    <h2>The <em>Skaggs</em></h2>
+
+    <p>The Skaggs family wove through the same community network as the Buffingtons and Seals. In the 1954 Buffington Cemetery reunion photograph, Ella Seal Skaggs and Wilma Skaggs Buffington are both identifiable in the assembled group — a woman who was a Seal by birth and a Skaggs by marriage, and a woman who was a Skaggs by birth and a Buffington by marriage, both present at the same gathering of pioneer family descendants.<sup class="cite"><a href="#cite-30" id="cite-30-ref">[30]</a></sup> The Skaggs family had married into both the Seal line and the Buffington line, binding them into the community network that the other families had built.</p>
+
+    <p>Shelley Buffington Hoffman's personal communication in May 2026 further documented the Skaggs family's place in the Buffington Community, including their relationship to the Buffington and Seal lines that run through this history.<sup class="cite"><a href="#cite-31" id="cite-31-ref">[31]</a></sup></p>
+
+    <div class="connection-note">
+      <span class="connection-note__label">Community connection</span>
+      <p>Like the Buffingtons, the Skaggs family connects to this lineage through community intermarriage — specifically through the Seal family, whose women married into the Skaggs and Buffington lines in the same generation. The Skaggs family is a community family rather than a direct lineage family, but their presence in the 1954 reunion photograph documents their place in the same founding community.</p>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="convergence">
+    <span class="convergence__label">The Convergence</span>
+    <h2>Six pioneer families, one marriage</h2>
+    <p>On January 27, 1928, Vernon Jack Rayfield and Opal Myrtle Robinson were married in Annapolis, Iron County, Missouri. He was the son of Franklin Peter Rayfield and Myrtle Lee Seal — carrying the Rayfield, Mann, Farris, and Seal lines of Reynolds and Iron County. She was the daughter of John Wesley Robinson and Katie Lewis Robinson — carrying the Robinson and Lewis lines of Iron County. In one ceremony, four of the pioneer families of the Buffington Community came together with two of the pioneer families of Iron County's own settlement history.</p>
+    <p>Their son Michael Vernon Rayfield, born January 26, 1949, in St. Louis, carries all six lines. Through him, the family documented in this history descends directly from John Carter Rayfield (arrived Reynolds County 1829), Arnold Mann (in Missouri before 1830), Lucian N. Farris (Reynolds County by 1850), Benjamin F. Seal (Arcadia, Iron County, 1859), William John Lewis (Iron County by 1857), and Isaac Robinson (Iron County by 1859). The pioneer families of the Buffington Community are, collectively, one family.</p>
+  </div>
+
+  <!-- ───────────────────────────────────── -->
+  <div class="citations-section" id="citations">
+    <h2>Sources &amp; Citations</h2>
+    <ol class="citations-list">
+      <li id="cite-1" data-n="1."><span class="arn-tag">ARN0000025</span> Reynolds County Genealogy Sketch, Kathryn Vickery, 1978 — family tradition recorded from descendants' oral history; source for John Carter Rayfield's 1829 westward journey from Cumberland County, KY. <a href="#cite-1-ref">↩</a></li>
+      <li id="cite-2" data-n="2.">Federal land patents, Reynolds County, Missouri: 40-acre patent, August 1, 1853 (President Franklin Pierce); 200-acre patent along Sinking Creek, January 3, 1856. Family papers; summarized in project chapter notes. <a href="#cite-2-ref">↩</a></li>
+      <li id="cite-3" data-n="3."><span class="arn-tag">ARN0000115</span> Biography of William Rayfield, in <em>A Reminiscent History of the Ozark Region</em> (Chicago: Goodspeed Brothers Publishers, 1894). Subscription county-history sketch; Adams &amp; Rayfield and Rayfield &amp; Son merchant details. <a href="#cite-3-ref">↩</a></li>
+      <li id="cite-4" data-n="4.">Arnold Mann in Washington County, Missouri: 1830 U.S. Federal Census. For the Mann lineage (Jacob Mann as German immigrant; Mary Arnold as mother), see Geneanet Community Trees and FamilySearch community trees — user-submitted leads, not yet supported by primary documentation. Arnold Mann's presence in Missouri is independently corroborated by census and federal land-patent records. <a href="#cite-4-ref">↩</a></li>
+      <li id="cite-5" data-n="5.">Mary Ann "Polly" Mann, birth approximately October 20, 1820; death August 1, 1860; first wife of John Carter Rayfield. Nancy Ann Mann, born approximately 1835, died 1902; first cousin of Polly; second wife of John Carter Rayfield, 1865. U.S. Census records (Reynolds County, 1850–1880); project chapter notes. <a href="#cite-5-ref">↩</a></li>
+      <li id="cite-6" data-n="6."><span class="arn-tag">ARN0000075</span> Newspaper, Arnold Mann mare purchases, 1853. <a href="#cite-6-ref">↩</a></li>
+      <li id="cite-7" data-n="7."><span class="arn-tag">ARN0000074</span> Final Settlement, Arnold Mann Estate. <a href="#cite-7-ref">↩</a></li>
+      <li id="cite-8" data-n="8."><span class="arn-tag">ARN0000170</span> 1954 "class and cemetery reunion" photograph, Buffington Cemetery, Reynolds County, Missouri. Attendees identified by Shelley Buffington Hoffman (Facebook comment, Reynolds County Missouri Genealogy Chat, edited April 18, 2025). Carl Mann (no. 46) and Freda Mann Rayfield (no. 15) identified in annotated key. <a href="#cite-8-ref">↩</a></li>
+      <li id="cite-9" data-n="9."><span class="arn-tag">ARN0000236</span> 1850 U.S. Federal Census, Lucian Farris, District 76, Reynolds County, Missouri. <a href="#cite-9-ref">↩</a></li>
+      <li id="cite-10" data-n="10."><span class="arn-tag">ARN0000233</span> Biography of Lucian N. Farris and 1859 letter to his wife. <a href="#cite-10-ref">↩</a></li>
+      <li id="cite-11" data-n="11."><span class="arn-tag">ARN0000234</span> Confederate Service Record Card, Lucian N. Farris, Missouri State Guard. <a href="#cite-11-ref">↩</a></li>
+      <li id="cite-12" data-n="12."><span class="arn-tag">ARN0000235</span> Compiled Confederate Service Record, Lucian N. Farris, Missouri Cavalry. <a href="#cite-12-ref">↩</a></li>
+      <li id="cite-13" data-n="13."><span class="arn-tag">ARN0000232</span> Death notice, Lucian N. Farris, <em>St. Louis Republic</em>, August 16, 1876. <a href="#cite-13-ref">↩</a></li>
+      <li id="cite-14" data-n="14."><span class="arn-tag">ARN0000205</span> 1850 U.S. Federal Census, Nancy Ann Farris as child in Farris household, Reynolds County, Missouri. <a href="#cite-14-ref">↩</a></li>
+      <li id="cite-15" data-n="15."><span class="arn-tag">ARN0000206</span> 1860 U.S. Federal Census, Nancy Ann Farris, Reynolds County, Missouri. <a href="#cite-15-ref">↩</a></li>
+      <li id="cite-16" data-n="16.">Buffington Cemetery, Reynolds County, Missouri — burials include John Carter Rayfield Sr., Mary Ann "Polly" Mann Rayfield, and members of the Mann, Farris, Seal, and Buffington families. Find A Grave: cemetery #27811 (127 memorials). <a href="#cite-16-ref">↩</a></li>
+      <li id="cite-17" data-n="17."><span class="arn-tag">ARN0000169</span> 1880 U.S. Federal Census, Webb, Reynolds County, Missouri — Lewis, Mann, and Seal families enumerated in the same district. <a href="#cite-17-ref">↩</a></li>
+      <li id="cite-18" data-n="18.">Myrtle Lee Seal — birth July 29, 1888, and parents (Benjamin F. Seal, b. 1859, Arcadia, Iron County; Mary Jane Lewis): vital records and census. Marriage to Franklin Peter Rayfield, June 17, 1905, Butler County, Missouri: Missouri Marriage Records, 1805–2002. <a href="#cite-18-ref">↩</a></li>
+      <li id="cite-19" data-n="19."><span class="arn-tag">ARN0000170</span> 1954 Buffington Cemetery reunion photograph (see note 8). Eva Seal Farris (no. 12), Ella Seal Skaggs (no. 22), and Lora Seal Buffington (no. 34) identified in annotated key. <a href="#cite-19-ref">↩</a></li>
+      <li id="cite-20" data-n="20.">Marriage record, William Lewis and Abigail Johnson, October 30, 1857, Iron County, Missouri. Handwritten record (primary source); project research files. <a href="#cite-20-ref">↩</a></li>
+      <li id="cite-21" data-n="21.">Federal land patents, Iron County, Missouri: Certificate 26147 and Certificate 27410, both issued September 10, 1859, to William Lewis. BLM General Land Office Records. <a href="#cite-21-ref">↩</a></li>
+      <li id="cite-22" data-n="22.">Katie Lewis — birth November 28, 1878, Annapolis, Iron County: confirmed by obituary (1946), 1900 U.S. Federal Census (birth month Nov 1878), and Missouri death certificate (three independent primary sources). Marriage to John Wesley Robinson, November 30, 1902, Des Arc: Iron County records. <a href="#cite-22-ref">↩</a></li>
+      <li id="cite-23" data-n="23."><span class="arn-tag">ARN0000165</span> Warranty deed, Isaac Roberson (Robinson) and wife Nancy to John Button, Iron County, Missouri, July 23, 1859 — places Isaac in Iron County by name; signed by mark. <a href="#cite-23-ref">↩</a></li>
+      <li id="cite-24" data-n="24.">BLM-GLO federal land patent MO3770__.385 — Robinson family land holding, Iron County, Missouri. Bureau of Land Management General Land Office Records. <a href="#cite-24-ref">↩</a></li>
+      <li id="cite-25" data-n="25."><span class="arn-tag">ARN0000033</span> Marriage record, Absalom Robinson and Josephinia Parks, March 22, 1878, Perry Township, St. Francois County, Missouri. George Crump, Justice of the Peace, officiant. <a href="#cite-25-ref">↩</a></li>
+      <li id="cite-26" data-n="26.">Marriage record, Vernon Jack Rayfield and Opal Myrtle Robinson, January 27, 1928, Annapolis, Iron County, Missouri — Missouri Marriage Records, 1805–2002. Both parties under 21; consent given in person by mothers. <a href="#cite-26-ref">↩</a></li>
+      <li id="cite-27" data-n="27.">Buffington Cemetery (Find A Grave: cemetery #27811) — 127 memorials; burials include John Carter Rayfield Sr., Mary Ann "Polly" Mann Rayfield, and members of the Mann, Farris, Seal, and Buffington families. Cemetery survived Clearwater Lake inundation on high ground; USACE dam closed 1948. <a href="#cite-27-ref">↩</a></li>
+      <li id="cite-28" data-n="28."><span class="arn-tag">ARN0000170</span> 1954 Buffington Cemetery reunion photograph (see note 8). Buffington family members identified in annotated key: Ann Buffington Copeland (no. 26), Mozelle Lee Buffington (no. 27), Esther Buffington Gwin (no. 31), Lora Seal Buffington (no. 34), Ed Buffington (no. 51), Zed Buffington (no. 52), John Buffington (no. 53), Jacob Buffington (no. 54). <a href="#cite-28-ref">↩</a></li>
+      <li id="cite-29" data-n="29.">Shelley Buffington Hoffman, personal communication, May 2026 — identification of attendees in ARN0000170 and genealogical context for Buffington, Seal, and Skaggs family connections in the Buffington Community. <a href="#cite-29-ref">↩</a></li>
+      <li id="cite-30" data-n="30."><span class="arn-tag">ARN0000170</span> 1954 Buffington Cemetery reunion photograph (see note 8). Ella Seal Skaggs (no. 22) and Wilma Skaggs Buffington (no. 13) identified in annotated key. <a href="#cite-30-ref">↩</a></li>
+      <li id="cite-31" data-n="31.">Shelley Buffington Hoffman, personal communication, May 2026 (see note 29). <a href="#cite-31-ref">↩</a></li>
+      <li id="cite-32" data-n="32.">Treaty of Fort Clark (1808): Osage Nation cession of land in Missouri and Arkansas to the United States, signed November 10, 1808, ratified April 28, 1810. Terms and acreage: Wikipedia, "<a href="https://en.wikipedia.org/wiki/Treaty_of_Fort_Clark" target="_blank">Treaty of Fort Clark</a>"; and "Osage tribe cedes Missouri and Arkansas lands," <em>HISTORY.com</em> (A&amp;E Networks). French name for the Black River (*l'eau noire*): Reynolds County Historical Marker, State Historical Society of Missouri (text below). <a href="#cite-32-ref">↩</a></li>
+      <li id="cite-33" data-n="33.">Reynolds County Historical Marker (text reproduced), Ellington, Missouri. Erected 1961 by State Historical Society of Missouri and Missouri State Highway Commission. Transcription: The Historical Marker Database, marker #179937 (<a href="https://www.hmdb.org/m.asp?m=179937" target="_blank">hmdb.org</a>). Quote: "Kentuckian Henry Fry was probably the first settler in 1812" and county lies "in land claimed by the Osage Indians until 1808." <a href="#cite-33-ref">↩</a></li>
+      <li id="cite-34" data-n="34.">Reynolds County courthouse burnings: Wikipedia, "<a href="https://en.wikipedia.org/wiki/Reynolds_County,_Missouri" target="_blank">Reynolds County, Missouri</a>" — "The Reynolds County Courthouse has burned twice. The first time was in December 1863 when the Confederate army burned it. A new courthouse was built in the fall of 1867 on the same foundation as the previous one. This courthouse was burned in late November 1871. Both times all records were destroyed." Reynolds County organization (February 25, 1845): Reynolds County Historical Marker (see note 33). <a href="#cite-34-ref">↩</a></li>
+      <li id="cite-35" data-n="35.">Iron County organization (February 17, 1857, from Madison, Reynolds, St. Francois, Washington, and Wayne counties): Wikipedia, "<a href="https://en.wikipedia.org/wiki/Iron_County,_Missouri" target="_blank">Iron County, Missouri</a>." First settlers (William and Joseph Reed, 1798): "History of Iron County, Missouri," RootsWeb (<a href="https://sites.rootsweb.com/~moiron2/history.html" target="_blank">sites.rootsweb.com/~moiron2/history.html</a>). St. Louis and Iron Mountain Railroad reaching Pilot Knob in 1857: same source. Iron ore discovery and Arcadia Valley: Wikipedia, "Iron County, Missouri" (cited above). <a href="#cite-35-ref">↩</a></li>
+      <li id="cite-36" data-n="36.">Goodspeed Brothers, <em>A Reminiscent History of the Ozark Region: Comprising a Condensed General History, a Brief Descriptive History of Each County, and Numerous Biographical Sketches of Prominent Citizens of Such Counties</em> (Chicago: Goodspeed Brothers Publishers, 1894). Covers Reynolds County (Missouri), Iron County, and 26 other Missouri and Arkansas counties. Full text digitized and available at <a href="https://archive.org/details/reminiscenthisto00unse" target="_blank">Internet Archive</a>. <a href="#cite-36-ref">↩</a></li>
+    </ol>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p class="site-footer__logo">The Rayfield Family</p>
+  <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
+  <ul class="site-footer__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="name-index.html">Family Members</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.textContent = open ? '✕' : '☰';
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    });
+  });
+</script>
+</body>
+</html>

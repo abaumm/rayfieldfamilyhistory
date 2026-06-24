@@ -13,7 +13,7 @@ body { padding-top: var(--nav-h, 4rem); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: calc(var(--nav-h, 4rem) + 2rem) 1.5rem 2rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
-h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; scroll-margin-top: 5rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
 p { margin-bottom: 0.8rem; }
 a { color: var(--link); }
@@ -58,6 +58,11 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 .compare-col h3 { margin-top: 0; }
 @media (max-width: 600px) { .comparison { grid-template-columns: 1fr; } }
 
+
+/* Profile anchor nav */
+.profile-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+.profile-nav a { padding: 0.4rem 1.1rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.9rem; text-decoration: none; }
+.profile-nav a:hover { opacity: 0.85; }
 /* Back link */
 .back-link { font-size: 0.9rem; margin-bottom: 2rem; }
 
@@ -82,6 +87,7 @@ blockquote .attribution { display: block; margin-top: 0.5rem; font-style: normal
   <ul class="site-nav__links" id="nav-links" role="list">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -103,7 +109,25 @@ John Wesley Robinson was the blacksmith, grocer, truck driver, and sawmill opera
 </div>
 
 <!-- ============================================================ -->
-<h2>Name Variations in Records</h2>
+
+<nav class="profile-nav" aria-label="Jump to section">
+  <a href="#story">Story</a>
+  <a href="#vital-facts">Vital Facts</a>
+  <a href="#sources">Sources</a>
+  <a href="#connections">Connections</a>
+</nav>
+
+<h2 id="story">Their Story</h2>
+
+<p>John Wesley Robinson was born March 18, 1880, in Perry Township, St. Francois County, Missouri — the son of Absalom Parker Robinson and Josephine Parks. He came to Des Arc, Iron County, as a young man, and on November 30, 1902, he married Katherine Lewis — called Katie by everyone who knew her — the daughter of William John "Uncle Billy" Lewis of Annapolis. J.W. was twenty-two; Katie was twenty-four. Together they had seven children, a son and six daughters, and built a life in the small communities of Iron and Crawford Counties.</p>
+
+<p>In Des Arc, J.W. ran a blacksmith shop that served the whole community. He made horseshoes, wagon wheels, and entire wagons over the forge. There was no funeral home in Des Arc, so he also built the caskets — each one his own design, finished with satin and lace. His daughter Opal, writing about him decades later, described him as a man the whole community counted on: not a specialist, but someone who could make whatever people needed because there was nobody else to do it. At some point he added a grocery store, running it on the barter economy of rural Missouri — eggs and chickens traded for dry goods, cash being scarce. In 1928 he sold the blacksmith shop but kept the store going.</p>
+
+<p>By the 1930s the family had moved to Steelville in Crawford County, where J.W. worked as a truck driver and then started a sawmill with his son Walter — J.W. Robinson and Son. On October 27, 1941, he wrote to his half-brother William from Steelville. He had just come home from nine days in a St. Louis hospital. Two months later, on December 27, 1941 — twenty days after the bombing of Pearl Harbor — he was dead. He was sixty-one years old.</p>
+
+<p>Katie survived him by five years. She eventually moved to Pine Lawn, in St. Louis County, to live with her daughter Opal and son-in-law Vernon Rayfield, and died there on May 18, 1946. The Des Arc Missionary Baptist Church had been the center of her community life throughout, and her obituary named it as such. Her mother's Bible — a black leather volume stamped with Katie's name, filled with handwritten records of births, deaths, and marriages — was preserved by Opal and passed down through the family. It is still in the family today.</p>
+
+<h2 id="vital-facts">Name Variations in Records</h2>
 <span class="name-var">John Wesley Robinson</span>
 <span class="name-var">J. W. Robinson</span>
 <span class="name-var">J.W. Robinson</span>
@@ -261,106 +285,7 @@ John Wesley Robinson was the blacksmith, grocer, truck driver, and sawmill opera
 </table>
 
 <!-- ============================================================ -->
-<h2>The Blacksmith Shop</h2>
-<!-- ============================================================ -->
-
-<p>In Des Arc, John Wesley Robinson ran a blacksmith shop that served the whole community. He wasn't a specialist &mdash; he was the kind of blacksmith who could make whatever people needed, because there was nobody else to do it.</p>
-
-<blockquote>
-"He was a general blacksmith because everything he made was, as the saying is today, from scratch."
-<span class="attribution">&mdash; Opal Robinson Rayfield, 1976 tribute article (<span class="arn">ARN0000046</span>)</span>
-</blockquote>
-
-<p>He made horseshoes, wagon wheels, entire wagons. He shaped the iron over the forge and put things together that people depended on every day. But there was another part of the work that tells you something about how small-town life really operated in the Ozarks: there was no funeral home in Des Arc. When someone died, J.W. built the casket.</p>
-
-<blockquote>
-"Every casket he made was his own idea and finished out with a high satin and lace."
-<span class="attribution">&mdash; Opal Robinson Rayfield, 1976 tribute article (<span class="arn">ARN0000046</span>)</span>
-</blockquote>
-
-<p>Think about what that means. This was a blacksmith &mdash; a man who worked with fire and iron all day &mdash; and when a neighbor lost someone, he turned around and lined a casket with satin and lace. Each one made from his own design. That tells you everything about what it meant to be the person people counted on in a place like Des Arc.</p>
-
-<!-- ============================================================ -->
-<h2>The Grocery Store</h2>
-<!-- ============================================================ -->
-
-<p>At some point, J.W. added a grocery store to his operation. Why? Opal put it simply:</p>
-
-<blockquote>
-"He added a grocery store &mdash; since he had six girls, plenty of help."
-<span class="attribution">&mdash; Opal Robinson Rayfield, 1976 tribute article (<span class="arn">ARN0000046</span>)</span>
-</blockquote>
-
-<p>The store ran on a barter economy, which was how most of rural Missouri worked at the time. People brought in eggs, berries, chickens &mdash; whatever they had &mdash; and exchanged them for the goods they needed. Cash was scarce. Trust wasn't.</p>
-
-<p>On February 2, 1928, the <em>Iron County Register</em> reported that J.W. Robinson had sold his blacksmith shop to Charles Jones but would continue running his mercantile business. The forge was done, but the store kept going.</p>
-
-<div class="census-card">
-<span class="year">February 2, 1928</span> &middot; <span class="location">Iron County Register</span>
-<div class="detail">
-J.W. Robinson sold his blacksmith shop to Charles Jones. Continued operating the mercantile (grocery store).
-</div>
-<div class="source"><span class="arn">ARN0000040</span> &middot; <a href="https://drive.google.com/file/d/1yybFQ9tBOtjdP2MBsIkSgFD5XHyj3MhV/view" target="_blank">View record</a></div>
-</div>
-
-<!-- ============================================================ -->
-<h2>The Move to Steelville &amp; the Sawmill</h2>
-<!-- ============================================================ -->
-
-<p>By the 1930 Census, J.W. was listed as a truck driver, and the family had moved to Steelville in Crawford County. The blacksmith shop was behind him, the grocery store was behind him, and now he was hauling loads and working timber.</p>
-
-<p>He and his son Walter started a sawmill together: <strong>J.W. Robinson and Son</strong>. Father and son, cutting lumber in the Ozark hills. After J.W.'s death, Walter kept the sawmill running on his own.</p>
-
-<div class="census-card">
-<span class="year">Business Notice</span> &middot; <span class="location">J.W. Robinson and Son</span>
-<div class="detail">
-Sawmill operation in the Steelville area. J.W. Robinson and son Walter L. Robinson.
-</div>
-<div class="source"><span class="arn">ARN0000041</span> &middot; <a href="https://drive.google.com/file/d/1sNTqzwBHbducOtmm5q95TlkyqtHuI7JA/view" target="_blank">View record</a></div>
-</div>
-
-<!-- ============================================================ -->
-<h2>J.W.'s Last Letter</h2>
-<!-- ============================================================ -->
-
-<p>On October 27, 1941, John Wesley wrote to his half-brother William from Steelville. He had just come home from nine days in a St. Louis hospital. We don't know what the diagnosis was, but we know he was not well. Two months later &mdash; on December 27, 1941, twenty days after the bombing of Pearl Harbor &mdash; he was gone.</p>
-
-<p>He was 61 years old.</p>
-
-<!-- ============================================================ -->
-<h2>Katie After J.W.</h2>
-<!-- ============================================================ -->
-
-<p>After J.W.'s death, Walter continued running the sawmill alone. Katie eventually returned to Des Arc &mdash; back to the community where she and J.W. had raised their family, run the shop, run the store. But she didn't stay there forever. She moved to Pine Lawn, in St. Louis County, to live with her daughter Opal and son-in-law Vernon Rayfield.</p>
-
-<p>She died there on May 18, 1946, at Opal's home.</p>
-
-<p>After her death, Walter organized the auction of her personal property:</p>
-
-<div class="census-card">
-<span class="year">Auction Notice</span> &middot; <span class="location">Des Arc, Missouri</span>
-<div class="detail">
-"Personal property of the late Mrs. J.W. Robinson, at her home in Des Arc, Mo." Organized by Walter L. Robinson.
-</div>
-<div class="source"><span class="arn">ARN0000043</span> &middot; <a href="https://drive.google.com/file/d/1c9xUbwc4s6c4YhE0RQUk3nUnnXjI2HT7/view" target="_blank">View record</a></div>
-</div>
-
-<!-- ============================================================ -->
-<h2>WWI Draft Registration</h2>
-<!-- ============================================================ -->
-
-<p>On September 12, 1918, John Wesley registered for the draft in Iron County, Missouri. Serial No. 7161. He was 38 years old. There is no record of him being called to serve.</p>
-
-<div class="census-card">
-<span class="year">September 12, 1918</span> &middot; <span class="location">Iron County, Missouri</span>
-<div class="detail">
-WWI Draft Registration. John Wesley Robinson, Serial No. 7161.
-</div>
-<div class="source"><span class="arn">ARN0000045</span> &middot; <a href="https://drive.google.com/file/d/1rzlmaGvSoarGnjj08FKmQIL6uRBkQS6d/view" target="_blank">View record</a></div>
-</div>
-
-<!-- ============================================================ -->
-<h2>All Source Records</h2>
+<h2 id="sources">All Source Records</h2>
 <!-- ============================================================ -->
 
 <table>
@@ -428,7 +353,7 @@ WWI Draft Registration. John Wesley Robinson, Serial No. 7161.
 </table>
 
 <!-- ============================================================ -->
-<h2>Connections to Other Profiles</h2>
+<h2 id="connections">Connections to Other Profiles</h2>
 <!-- ============================================================ -->
 
 <ul style="margin: 0.5rem 0 1rem 1.5rem;">
@@ -453,6 +378,7 @@ For questions, corrections, or to share information: <a href="mailto:abaumm+rayf
   <ul class="site-footer__links">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>

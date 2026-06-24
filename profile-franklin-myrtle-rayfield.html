@@ -13,7 +13,7 @@ body { padding-top: var(--nav-h, 4rem); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: calc(var(--nav-h, 4rem) + 2rem) 1.5rem 2rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
-h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; scroll-margin-top: 5rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
 p { margin-bottom: 0.8rem; }
 a { color: var(--link); }
@@ -58,6 +58,11 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 .compare-col h3 { margin-top: 0; }
 @media (max-width: 600px) { .comparison { grid-template-columns: 1fr; } }
 
+
+/* Profile anchor nav */
+.profile-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+.profile-nav a { padding: 0.4rem 1.1rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.9rem; text-decoration: none; }
+.profile-nav a:hover { opacity: 0.85; }
 /* Back link */
 .back-link { font-size: 0.9rem; margin-bottom: 2rem; }
 
@@ -78,6 +83,7 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
   <ul class="site-nav__links" id="nav-links" role="list">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -98,7 +104,25 @@ Last updated: June 2026
 This profile currently draws on a limited set of inventoried records. As additional documents are located and cataloged with ARN numbers, this page will grow. If you have records, photos, or family stories about Franklin or Myrtle, please get in touch.
 </div>
 
-<h2>Franklin Peter Rayfield &mdash; Vital Facts</h2>
+
+<nav class="profile-nav" aria-label="Jump to section">
+  <a href="#story">Story</a>
+  <a href="#vital-facts">Vital Facts</a>
+  <a href="#sources">Sources</a>
+  <a href="#connections">Connections</a>
+</nav>
+
+<h2 id="story">Their Story</h2>
+
+<p>Franklin Peter Rayfield was born on April 13, 1884, in Gads Hill — a small settlement in Wayne County, Missouri that had already earned a permanent place in American outlaw lore. Exactly ten years before his birth, Jesse James and the Younger gang pulled off the first train robbery in Missouri history at the Gads Hill siding. By the time Franklin was growing up, the holdup was local legend, the kind of story everyone in the area knew. He was the son of John Carter Rayfield Jr. and Nancy Ann Farris, and grew up farming the Reynolds County ground his grandfather had homesteaded a generation earlier.</p>
+
+<p>In June 1905, Franklin married Myrtle Lee Seal in Butler County. Myrtle had been born on July 29, 1888, in Iron County — the daughter of Benjamin Seal and Mary Jane Lewis. Together they had seven children across roughly eighteen years: Jesse Clyde, Bessie, Vernon Jack, Harmon, Elmo, Imogene Inez, and Glenn. Census records trace the family moving through Wayne, Reynolds, and Iron Counties — always within the same stretch of Ozark hill country, always farming wherever they landed. Franklin worked the land the same way his father and grandfather had, and the 1900 census had already shown him at sixteen alongside his own father, working as a farm hand in the family household.</p>
+
+<p>In January 1938, Franklin was admitted to a St. Louis hospital. The diagnosis was tuberculosis. He survived the acute illness but never fully recovered — his lungs were permanently damaged. Three years later, on January 16, 1941, he died in Ironton, Iron County, at fifty-six years old. The official cause was prostate trouble and left bronchial pneumonia, but the pneumonia took hold in lungs the tuberculosis had already hollowed out. He and Myrtle had been married thirty-five years.</p>
+
+<p>Myrtle was fifty-two when Franklin died. She outlived him by twenty-seven more years — a quarter century of widowhood, longer than some people's whole lives — and died on July 1, 1968, at seventy-nine. She is buried at Mountain View Cemetery in Des Arc, Iron County, Missouri.</p>
+
+<h2 id="vital-facts">Franklin Peter Rayfield &mdash; Vital Facts</h2>
 <table>
 <tr>
 <th>Fact</th>
@@ -152,8 +176,6 @@ This profile currently draws on a limited set of inventoried records. As additio
 </tr>
 </table>
 
-<h3>About Gads Hill</h3>
-<p>Franklin was born in Gads Hill, a tiny settlement in Wayne County, Missouri. The town had already earned a permanent place in American outlaw lore: on January 31, 1874 &mdash; exactly ten years before Franklin's birth &mdash; Jesse James and the Younger gang pulled off the first train robbery in Missouri history there. By the time Franklin was growing up, the holdup was local legend, the kind of story everyone in the area knew.</p>
 
 <h2>Myrtle Lee Seal &mdash; Vital Facts</h2>
 <table>
@@ -246,19 +268,7 @@ Franklin and Myrtle appear together on the <strong>North Side of Wayne Street</s
 <div class="source">1940 Federal Census</div>
 </div>
 
-<h2>Tuberculosis and Franklin's Death</h2>
-<p>In January 1938, Franklin was admitted to a hospital in St. Louis. The <em>Wayne County Journal-Banner</em> reported on his hospitalization. The diagnosis was tuberculosis.</p>
-
-<p>He survived the acute illness, but the damage was done. His lungs never recovered. For the next three years, Franklin lived with permanently weakened health. On January 16, 1941, he died in Ironton, Iron County, at the age of 56. The cause of death was listed as prostate trouble and left bronchial pneumonia &mdash; but the pneumonia took hold in lungs that TB had already hollowed out.</p>
-
-<p>He was fifty-six years old. He and Myrtle had been married thirty-five years.</p>
-
-<h2>Myrtle After Franklin</h2>
-<p>Myrtle was fifty-two when Franklin died. She continued on alone for twenty-seven more years &mdash; more than a quarter century of widowhood. Whatever that life looked like day to day, there are few records to tell us. She outlived her husband by the same span of time they had spent raising children together.</p>
-
-<p>Myrtle Lee Seal Rayfield died on July 1, 1968, at the age of seventy-nine. She is buried at Mountain View Cemetery in Des Arc, Iron County, Missouri.</p>
-
-<h2>All Source Records</h2>
+<h2 id="sources">All Source Records</h2>
 
 <div class="alert alert-warn">
 <strong>Limited Records Currently Inventoried</strong>
@@ -275,7 +285,7 @@ Only one ARN record is currently cataloged for this couple. Additional records &
 </tr>
 </table>
 
-<h2>Connections to Other Profiles</h2>
+<h2 id="connections">Connections to Other Profiles</h2>
 <ul style="margin: 0.5rem 0 1rem 1.5rem;">
 <li><strong>Son:</strong> <a href="profile-vernon-opal-rayfield.html">Vernon Jack Rayfield</a> (1909&ndash;?) &mdash; married Opal Robinson</li>
 <li><strong>Daughter-in-law:</strong> <a href="profile-vernon-opal-rayfield.html">Opal Robinson Rayfield</a> (1911&ndash;2002) &mdash; granddaughter of Absalom Robinson</li>
@@ -296,6 +306,7 @@ For questions, corrections, or to share information: <a href="mailto:abaumm+rayf
   <ul class="site-footer__links">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>

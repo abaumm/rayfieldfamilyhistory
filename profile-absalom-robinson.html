@@ -13,7 +13,7 @@ body { padding-top: var(--nav-h, 4rem); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: calc(var(--nav-h, 4rem) + 2rem) 1.5rem 2rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
-h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; scroll-margin-top: 5rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
 p { margin-bottom: 0.8rem; }
 a { color: var(--link); }
@@ -58,6 +58,11 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 .compare-col h3 { margin-top: 0; }
 @media (max-width: 600px) { .comparison { grid-template-columns: 1fr; } }
 
+
+/* Profile anchor nav */
+.profile-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+.profile-nav a { padding: 0.4rem 1.1rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.9rem; text-decoration: none; }
+.profile-nav a:hover { opacity: 0.85; }
 /* Back link */
 .back-link { font-size: 0.9rem; margin-bottom: 2rem; }
 
@@ -78,6 +83,7 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
   <ul class="site-nav__links" id="nav-links" role="list">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -98,7 +104,25 @@ Last updated: June 2026
 There are two distinct, unrelated men named Absolom Robinson born within a year or two of each other. One was born and lived his entire life in Hawkins County, Tennessee. The other — our Absalom — was born in Missouri and lived there his entire adult life. Their records have been incorrectly merged on WikiTree, FamilySearch, Ancestry, and other genealogy sites. There is no evidence our Absalom was ever in Tennessee. This profile covers our Absolom — "Ab" — of Missouri. For the Tennessee Absolom ("Dock"), see the <a href="#dock">comparison section below</a>.
 </div>
 
-<h2>Name Variations in Records</h2>
+
+<nav class="profile-nav" aria-label="Jump to section">
+  <a href="#origins">Story</a>
+  <a href="#vital-facts">Vital Facts</a>
+  <a href="#sources">Sources</a>
+  <a href="#connections">Connections</a>
+</nav>
+
+<h2 id="story">His Story</h2>
+
+<p>Absalom Parker Robinson came into the world around 1856 or 1857 in Missouri — exactly when and where is not known, because his earliest years left no documentary trace. His biological parents, both from Tennessee, died when he was very young. He and his brother Alexander were separated and sent to live with different families. Absalom was taken in by Isaac Robinson of Iron County, Missouri — an older man who appears in the 1860 census with a child listed as "Apsa," age five, born Missouri. That child was almost certainly Absalom.</p>
+
+<p>Whether Isaac Robinson was Absalom's guardian or his biological father has been an open research question. The family oral tradition — that Absalom's parents died young and the children were placed with other families — could describe either an informal adoption or a situation where a widowed or absent father placed his children in relatives' households. AncestryDNA ThruLines shows DNA matches connecting to Isaac's other documented children, including daughters from an earlier marriage who were not related to Absalom's mother — meaning those matches would carry Isaac's DNA through a completely separate branch of the tree. That kind of corroborating signal, coming through paths independent of Absalom's own line, points toward Isaac as a biological ancestor rather than a legal or informal guardian. The complication is that those same distant matches also carry DNA from the Lewis family — because every research path from this family eventually runs through John Wesley Robinson and his wife Katie Lewis — so the Robinson and Lewis contributions can't be cleanly separated at the distances involved. The conclusion is probable, not proven: Isaac Robinson was most likely Absalom's biological father, not only the man who raised him.</p>
+
+<p>He grew up in Iron County and as a young man moved to St. Francois County, where on March 22, 1878, he married Josephine Parks at the home of a justice of the peace in Perry Township. Their son John Wesley Robinson was born two years later. Absalom worked as a farm laborer in his early years, and eventually became a traveling salesman for the Singer Sewing Machine Company — covering the creek bottoms and hollows of southeast Missouri on a circuit that took him through the same communities where he had spent his whole life. A 1929 newspaper notice places him in the Peola community when he was roughly seventy-one years old, still making his rounds: "A. B. Robinson, the Singer Sewing Machine Salesman, was on our creek last Friday."</p>
+
+<p>Absalom died on June 17, 1936, in Doniphan, Missouri. He was buried at Mountain View Cemetery in Des Arc — the same ground where so many of the families woven through this history would eventually come to rest. One thread in his story remains unresolved. Family oral history, passed down through a descendant of his brother Alexander, holds that as an adult Absalom once encountered a man he suspected might be his lost brother and asked him to remove his shoes. He was looking for a childhood scar on the foot. The man had it. The brothers recognized each other. The full story of how they were separated and how they found each other again is a piece of this family's history that the records uncovered so far cannot tell — though other records may exist, waiting to be found by someone who looks further.</p>
+
+<h2 id="vital-facts">Name Variations in Records</h2>
 <p>Census takers, clerks, and engravers rendered his name differently across 50+ years of records:</p>
 <span class="name-var">Absolom Robinson</span>
 <span class="name-var">Absalom Robinson</span>
@@ -263,102 +287,7 @@ Birthplace: <strong>Missouri</strong>.
 
 <p style="margin-top:1rem; font-size:0.95rem;"><strong>Pattern:</strong> Missouri listed as birthplace on <em>every single adult record</em> across 50+ years (1880–1936). This is consistent and deliberate, not an error.</p>
 
-<h2>Newspaper Mention</h2>
-<div class="census-card">
-<span class="year">1929</span> · <span class="location">Reynolds County, Missouri</span>
-<div class="detail">
-D. County Courier, "Peola News" column, April 11, 1929:<br>
-<em>"A. B. Robinson, the Singer Sewing Machine Salesman, was on our creek last Friday."</em><br>
-He was approximately 71 years old, still working his circuit.
-</div>
-<div class="source"><span class="arn">ARN0000035</span> · <a href="https://drive.google.com/file/d/1fmU40FeYi7aXhYQT-9JP--xpyzppG2bV/view" target="_blank">View record</a></div>
-</div>
-
-<h2 id="origins">Origins — What We Know and Don't Know</h2>
-
-<div class="alert alert-info">
-<strong>Key Finding (May 2026)</strong>
-Absalom Parker Robinson's biological parents remain unidentified. For years, genealogy sites listed his parents as John A Robinson and Mary Polly Manis of Hawkins County, Tennessee. <strong>This was an error.</strong> The child in that household was a different Absolom — see <a href="#dock">comparison below</a>.
-</div>
-
-<h3>What family oral history tells us</h3>
-<p>In May 2026, Roxanna Robison — a descendant of Alexander Robinson — connected via the Iron County Missouri Genealogy Facebook group and shared the following, passed down through her father and uncle:</p>
-<ul style="margin: 0.5rem 0 1rem 1.5rem;">
-<li>Absalom and Alexander Robinson were <strong>biological brothers</strong></li>
-<li>Roxanna also mentioned a <strong>Charles Arthur Robison</strong> — a half-brother to <em>her dad</em>, not to Absalom (a later generation)</li>
-<li>Their <strong>biological parents died when they were young</strong></li>
-<li>The children were <strong>separated</strong> and sent to live with different family members</li>
-<li>They were eventually <strong>raised as children of Isaac Robinson and Sarah Jane Goad</strong></li>
-<li>One brother later <strong>went to find the other</strong></li>
-</ul>
-
-<h3>The "injured foot" reunion story</h3>
-<p>A family story has been told for generations: Absalom, as an adult, encountered another Robinson and asked him to remove his shoes. He was looking for a scar — an old injury to the foot, from childhood. The man had it. Absalom declared they were brothers. A military record has reportedly been found for a Robinson exempted from service due to an injured foot, lending the story a documentary shadow, though the specific record has not been identified.</p>
-
-<h3>Isaac Robinson — the guardian</h3>
-<p>Isaac Robinson appears in the 1860 Census in Arcadia, Iron County, Missouri, with a household that includes a young boy the census taker recorded as "Apsa" — age 5, birthplace Missouri. This is a plausible match for Absalom as a child in his guardian's household.</p>
-
-<table>
-<tr><th colspan="2">Isaac Robinson Household — 1860 Census, Arcadia, Iron County, MO</th></tr>
-<tr><td>Isaac Robinson</td><td>65, Male, born North Carolina. $100 real estate.</td></tr>
-<tr><td>Nancy</td><td>37, Female (28-year age gap — likely 2nd+ wife)</td></tr>
-<tr><td>Valentine</td><td>15, Male, born Tennessee. Farmer.</td></tr>
-<tr><td>David</td><td>14, Male, born Tennessee.</td></tr>
-<tr><td><strong>"Apsa"</strong></td><td><strong>5, Male, born Missouri.</strong> ← Possible Absalom.</td></tr>
-<tr><td>John</td><td>2, Male.</td></tr>
-</table>
-
-<p>Isaac's 1850 Census (Sevier County, Tennessee) shows the same family earlier — with a newborn "Alexr" (Alexander) who is absent from the 1860 household. This aligns with the story of siblings being separated.</p>
-
-<h3>Open research leads</h3>
-<ul style="margin: 0.5rem 0 1rem 1.5rem;">
-<li>Roxanna says she has seen an <strong>earlier census</strong> showing Alexander and Absolom together "about 11 and the other younger" — before they appear with Isaac. That census could name their biological parents.</li>
-<li>The <strong>"Parker" middle name</strong> could be a family surname — possibly a mother's maiden name. Worth searching Parker families in Iron/St. Francois/Madison County MO.</li>
-<li>A <strong>1918 Wayne County tax lawsuit</strong> names Alexander A. Robinson, A. Robinson, James Robinson, and Robert C. Robinson as co-owners of land in Wayne County — suggesting a shared inheritance and possible common parent.</li>
-<li><strong>Autosomal DNA testing</strong> between Andrea's family and Roxanna's family could confirm the Absolom-Alexander sibling connection.</li>
-</ul>
-
-<h2 id="dock">⚠ The Two Absolom Robinsons — Side by Side</h2>
-
-<div class="comparison">
-<div class="compare-col our-ab">
-<h3 style="color: var(--green);">✓ Our Absalom — "Ab"</h3>
-<table>
-<tr><td>Born</td><td>~1856–1858, <strong>Missouri</strong></td></tr>
-<tr><td>Parents</td><td>Unknown (from TN, died young)</td></tr>
-<tr><td>Raised by</td><td>Isaac Robinson, Iron County, MO</td></tr>
-<tr><td>Married</td><td>Josephine Parks, 1878, St. Francois Co, MO</td></tr>
-<tr><td>Lived</td><td>Perry Twp → Des Arc, Iron County, MO</td></tr>
-<tr><td>Occupation</td><td>Farm laborer → sewing machine salesman</td></tr>
-<tr><td>Died</td><td>June 17, 1936, Doniphan, MO</td></tr>
-<tr><td>Buried</td><td>Mountain View Cemetery, Des Arc</td></tr>
-<tr><td>Birthplace on records</td><td><strong>Missouri — every time</strong></td></tr>
-<tr><td>Known as</td><td>"Ab"</td></tr>
-</table>
-</div>
-
-<div class="compare-col dock">
-<h3 style="color: var(--red);">✗ The Other Absolom — "Dock"</h3>
-<table>
-<tr><td>Born</td><td>Nov 1858, <strong>Tennessee</strong></td></tr>
-<tr><td>Parents</td><td>John A Robinson & Mary Polly Manis</td></tr>
-<tr><td>Raised in</td><td>War Gap, Hawkins County, TN</td></tr>
-<tr><td>Married</td><td>Mollie (Mary Ann) Gonce, Oct 24, 1875, Hawkins Co, TN</td></tr>
-<tr><td>Lived</td><td>Hawkins County, Tennessee — <strong>entire life</strong></td></tr>
-<tr><td>Occupation</td><td>Farmer</td></tr>
-<tr><td>1900 Census</td><td>Still in Hawkins Co, TN, District 3, ED 78</td></tr>
-<tr><td>Buried</td><td>Tennessee</td></tr>
-<tr><td>Birthplace on records</td><td><strong>Tennessee</strong></td></tr>
-<tr><td>Known as</td><td>"Dock" or "Doc"</td></tr>
-</table>
-</div>
-</div>
-
-<h3>Dock's family (for reference — NOT our line)</h3>
-<p>Dock was the son of John A Robinson (b. ~1822, Virginia) and Mary Polly Manis (b. ~1831, Hawkins Co, TN). He married Mollie Gonce on October 24, 1875 in Hawkins County and remained in Tennessee his entire life. His children: Robert, Victoria, Anthony, Otis, Lela, Mollie.</p>
-<p><span class="arn">ARN0000036</span> 1870 Census — Absolom age 13 in John Robinson household, Hawkins Co, TN. This record belongs to Dock. <span class="source-link">· <a href="https://drive.google.com/file/d/1g5GjCKE_A3Qu1ZGcLs6-UN3PTgceTw12/view" target="_blank">View record</a></span></p>
-
-<h2>All Source Records</h2>
+<h2 id="sources">All Source Records</h2>
 <table>
 <tr><th>ARN</th><th>Record</th><th>Type</th><th>Link</th></tr>
 <tr>
@@ -417,14 +346,6 @@ Absalom Parker Robinson's biological parents remain unidentified. For years, gen
 </tr>
 </table>
 
-<h2>Connections to Other Profiles</h2>
-<ul style="margin: 0.5rem 0 1rem 1.5rem;">
-<li><strong>Son:</strong> <a href="profile-john-wesley-robinson.html">John Wesley Robinson</a> (1880–1941) — blacksmith of Des Arc, married Katie Lewis</li>
-<li><strong>Daughter-in-law:</strong> <a href="profile-william-lewis.html">Katie Lewis Robinson</a> (1878–1946) — daughter of William John "Uncle Billy" Lewis</li>
-<li><strong>Granddaughter:</strong> <a href="profile-vernon-opal-rayfield.html">Opal Robinson Rayfield</a> (1911–2002) — married Vernon Rayfield</li>
-<li><strong>Featured in:</strong> <a href="the-rayfield-story.html">The Rayfields — A Family History</a>, Chapter 4: "The Salesman from Des Arc"</li>
-</ul>
-
 <h2>WikiTree & FamilySearch Notes</h2>
 <p><strong>WikiTree:</strong> Profile <a href="https://www.wikitree.com/wiki/Robinson-10159" target="_blank">Robinson-10159</a> is a merged profile combining records for both Absoloms. A commenter (Anonymous Cope, April 2016) flagged the error. The profile currently lists parents as John A Robinson and Mary Polly Manis — these are <strong>Dock's parents, not our Ab's</strong>.</p>
 <p><strong>FamilySearch:</strong> Person ID <strong>LZ6L-PCJ</strong> carries the same incorrect parentage. The tree shows grandparents Ezekiel Robinson and Hannah Couch — this is Dock's lineage.</p>
@@ -443,6 +364,7 @@ For questions, corrections, or to share information: <a href="mailto:abaumm+rayf
   <ul class="site-footer__links">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -469,3 +391,11 @@ For questions, corrections, or to share information: <a href="mailto:abaumm+rayf
 </script>
 </body>
 </html>
+
+<h2 id="connections">Connections to Other Profiles</h2>
+<ul style="margin: 0.5rem 0 1rem 1.5rem;">
+<li><strong>Son:</strong> <a href="profile-john-wesley-robinson.html">John Wesley Robinson</a> (1880–1941) — blacksmith of Des Arc, married Katie Lewis</li>
+<li><strong>Daughter-in-law:</strong> <a href="profile-william-lewis.html">Katie Lewis Robinson</a> (1878–1946) — daughter of William John "Uncle Billy" Lewis</li>
+<li><strong>Granddaughter:</strong> <a href="profile-vernon-opal-rayfield.html">Opal Robinson Rayfield</a> (1911–2002) — married Vernon Rayfield</li>
+<li><strong>Featured in:</strong> <a href="the-rayfield-story.html">The Rayfields — A Family History</a>, Chapter 4: "The Salesman from Des Arc"</li>
+</ul>

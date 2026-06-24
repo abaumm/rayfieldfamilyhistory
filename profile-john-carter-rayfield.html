@@ -13,7 +13,7 @@ body { padding-top: var(--nav-h, 4rem); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: calc(var(--nav-h, 4rem) + 2rem) 1.5rem 2rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
-h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; scroll-margin-top: 5rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
 p { margin-bottom: 0.8rem; }
 a { color: var(--link); }
@@ -58,6 +58,11 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 .compare-col h3 { margin-top: 0; }
 @media (max-width: 600px) { .comparison { grid-template-columns: 1fr; } }
 
+
+/* Profile anchor nav */
+.profile-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+.profile-nav a { padding: 0.4rem 1.1rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.9rem; text-decoration: none; }
+.profile-nav a:hover { opacity: 0.85; }
 /* Back link */
 .back-link { font-size: 0.9rem; margin-bottom: 2rem; }
 
@@ -78,6 +83,7 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
   <ul class="site-nav__links" id="nav-links" role="list">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -98,7 +104,25 @@ Last updated: June 2026
 John Carter Rayfield Sr is the earliest Rayfield we can follow in real detail &mdash; census by census, land patent by land patent &mdash; from his childhood in Kentucky through nearly nine decades of life on the Missouri frontier. He is the anchor of our Rayfield line, the man who turned wilderness into a homestead and raised fourteen children across two marriages. His story is featured in <strong>Chapter 1</strong> of <em>The Rayfields &mdash; A Family History</em>.
 </div>
 
-<h2>Name Variations in Records</h2>
+
+<nav class="profile-nav" aria-label="Jump to section">
+  <a href="#story">Story</a>
+  <a href="#vital-facts">Vital Facts</a>
+  <a href="#sources">Sources</a>
+  <a href="#connections">Connections</a>
+</nav>
+
+<h2 id="story">His Story</h2>
+
+<p>John Carter Rayfield arrived in Missouri in 1829 as a thirteen-year-old orphan. Both his parents were dead — his mother, a Mansfield woman whose first name has not been established, had died young, and his father James was gone by the time John Carter was old enough to travel. He made the journey west from Cumberland County, Kentucky, with his Uncle William, then in his forties, and Uncle John, who was younger and already married with a small child. They were headed for the wild Black River country in what would become Reynolds County — timbered Ozark hills, clear springs, and land that was still nearly open. John Carter would never leave.</p>
+
+<p>By 1830 he was in Uncle William's household, learning the country. By the late 1830s he was married to Mary Ann "Polly" Mann, daughter of local Reynolds County settlers, and beginning the long work of building a homestead from scratch. He secured his first federal land patent in 1853 — forty acres — and a second in 1856: two hundred acres on Sinking Creek, both signed by President Franklin Pierce. He built two log cabins on that land and raised eight children with Polly, naming his sons after the heroes of the young republic: Andrew Jackson, George Washington, Benjamin Franklin. When Polly died in August 1860, leaving children ranging from a toddler to a teenager, he kept going. Five years later he married Nancy Ann Mann — Polly's first cousin, who already knew the children — and had six more. Fourteen children in all, across two marriages.</p>
+
+<p>John Carter Rayfield spent seventy-four years on the same ground in Reynolds County. Seven decades of census records place him in the same valley, farming the same land, watching his children and grandchildren spread out from the homestead he'd built as a young man. When he died on July 27, 1903, at eighty-six years old, he had outlasted the frontier era, a Civil War, and most of the men he'd known since boyhood.</p>
+
+<p>One thing he carried his whole life was a story about his ancestors — that his grandfather had come from England, settled in Virginia, freed his bondsmen, and rescued abandoned enslaved people. He told it to his grandchildren; they wrote it down. When researchers later checked the records, the core of the story turned out to be real. The man John Carter called his grandfather was actually his great-great-grandfather, William Rayfield Sr., who had arrived in colonial North Carolina from England in 1703 — a documented landowner and will-maker in Pasquotank Precinct. The family had carried a real history in its head for two hundred years.</p>
+
+<h2 id="vital-facts">Name Variations in Records</h2>
 <p>The Rayfield surname has been spelled many ways across three centuries of records:</p>
 <span class="name-var">Rayfield</span>
 <span class="name-var">Raifield</span>
@@ -183,49 +207,6 @@ John Carter Rayfield Sr is the earliest Rayfield we can follow in real detail &m
 </tr>
 </table>
 
-<h2 id="parentage">The Parentage Question</h2>
-
-<p>Here is one of those genealogy puzzles where you have to work backward from what <em>can't</em> be true to land on what probably <em>is</em>. No single document says "James Rayfield was John Carter's father." But the evidence keeps pointing that direction, and nothing contradicts it.</p>
-
-<p>John Carter had two uncles who made the trip to Missouri with him: <strong>William Rayfield</strong> and <strong>John Rayfield</strong>. We know William was his uncle, not his father, because William was still alive in the 1850s, patenting land at age 71 &mdash; and family memory consistently called him "Uncle William," never grandfather. William's 1857 land grant places him firmly as a contemporary of the older generation.</p>
-
-<p>That leaves James Rayfield (b. ~1793), who was gone by the time thirteen-year-old John Carter headed west in 1829. Both of John Carter's parents were dead by then &mdash; his mother Sarah Mansfield had died young (possibly in childbirth), and his father was gone too. Eddy Pratt's 2014 genealogical reconstruction reached the same conclusion about James being the father through an independent analysis of the same evidence.</p>
-
-<div class="alert alert-warn">
-<strong>A Note on the Mansfield Connection</strong>
-The story that Sarah Mansfield's family disinherited her for marrying a Rayfield is oral tradition, passed down through the generations. We haven't found the document that proves it. But the Mansfields were indeed slaveholders in Cumberland County, Kentucky, and a marriage to a family of modest means like the Rayfields would have been considered a poor match. The disinheritance story fits the social reality of the time, even if we can't yet pin it to a specific record.
-</div>
-
-<h2>The Journey West (1829)</h2>
-
-<p>Picture this: it's 1829, and a thirteen-year-old boy named John Carter Rayfield is leaving the only home he has ever known. Both his parents are gone. He is traveling west from Cumberland County, Kentucky with his Uncle William (about 43 years old) and his Uncle John (about 30, married to Nancy King, carrying their infant son Billy).</p>
-
-<p>They were headed for Missouri &mdash; specifically, the Black River country in what was then Washington County. The land was wild, timbered, full of game and springs and possibility. It wouldn't become Reynolds County until 1845, when the Missouri legislature carved it out of the larger county.</p>
-
-<p>By <strong>1830</strong>, we find young John Carter listed in Uncle William's household on the census &mdash; Black River Township, Washington County (now Reynolds County), Missouri. He made it.</p>
-
-<div class="census-card">
-<span class="year">1830</span> &middot; <span class="location">Black River Township, Washington County (now Reynolds County), Missouri</span>
-<div class="detail">
-John Carter appears in <strong>Uncle William Rayfield's household</strong>. He is approximately 13&ndash;14 years old. This is the same ground that would become Reynolds County in 1845.
-</div>
-<div class="source"><span class="arn">ARN0000014</span> &middot; <a href="https://drive.google.com/file/d/13H9HmU5VfPK8rhny_64ukCgLqeE49olP/view" target="_blank">View record</a></div>
-</div>
-
-<h2>Marriage and Family</h2>
-
-<h3>First Marriage: Polly Mann (~1837&ndash;1860)</h3>
-
-<p>John Carter married Mary Ann "Polly" Mann around 1837, when he was about twenty-one and she was about seventeen. Polly was the daughter of Arnold Mann and Lucinda Biggers &mdash; local Reynolds County families. Together they had eight children over eighteen years.</p>
-
-<p>Polly died on August 1, 1860, at about age forty. The cause isn't recorded, but with her youngest child Permelie only three years old, the household was full of children ranging from toddler to teenager. John Carter was left a widower at forty-three with eight children to raise on the frontier.</p>
-
-<h3>Second Marriage: Nancy Ann Mann (1865&ndash;1902)</h3>
-
-<p>John Carter married Nancy Ann Mann formally in 1865, though their first child predates the marriage. Nancy was Polly's first cousin &mdash; which wasn't unusual on the frontier, where families lived close together and a widower with eight children needed help, and a woman who already knew the children was a natural choice. Nancy and John Carter had six more children together, bringing the total to fourteen.</p>
-
-<p>Nancy died in 1902, one year before John Carter himself passed.</p>
-
 <h2>Children</h2>
 <table>
 <tr><th>Name</th><th>Born</th><th>Died</th><th>Notes</th></tr>
@@ -243,29 +224,6 @@ John Carter appears in <strong>Uncle William Rayfield's household</strong>. He i
 </table>
 
 <p style="font-size:0.9rem; color:#666;">Notice the names: Andrew Jackson, George Washington, Benjamin Franklin. John Carter was naming his sons after the heroes of the Republic. These weren't random choices &mdash; they tell you something about how this frontier farmer saw himself and his country.</p>
-
-<h2>Land and Homestead</h2>
-
-<p>John Carter didn't just settle in Reynolds County &mdash; he put down roots in the most literal way possible. He secured two federal land patents, both signed by President Franklin Pierce:</p>
-
-<div class="census-card">
-<span class="year">August 1, 1853</span> &middot; <span class="location">40 Acres, Reynolds County, Missouri</span>
-<div class="detail">
-Federal land patent granted to John C. Rayfield. Signed by <strong>President Franklin Pierce</strong>. This was his first piece of land &mdash; forty acres to call his own.
-</div>
-<div class="source"><span class="arn">ARN0000076</span> &middot; <a href="https://drive.google.com/file/d/1-D1QLmAhlKt1nlT0YPsnHD_hZ4kPts-D/view" target="_blank">View record</a></div>
-</div>
-
-<div class="census-card">
-<span class="year">January 3, 1856</span> &middot; <span class="location">200 Acres on Sinking Creek, Reynolds County, Missouri</span>
-<div class="detail">
-Federal land patent for a much larger tract &mdash; <strong>200 acres on Sinking Creek</strong>. Also signed by President Pierce. This was serious acreage. John Carter built two log cabins on this land in the 1850s.
-</div>
-<div class="source"><span class="arn">ARN0000077</span> &middot; <a href="https://drive.google.com/file/d/1Q-kRETXlvGeEH6EpFy3nBYtDXjeqd59u/view" target="_blank">View record</a></div>
-</div>
-
-<p>For context, Uncle William was also patenting land in the area around this time &mdash; his grant came through in 1857, when he was approximately 71 years old and still working the land.</p>
-<p class="source-link"><span class="arn">ARN0000079</span> William Rayfield land grant, 1857 &middot; <a href="https://drive.google.com/file/d/1-iulekBGzj8IdROwxG6yVqTDFde7CnhZ/view" target="_blank">View record</a></p>
 
 <h2>Census Timeline</h2>
 
@@ -319,102 +277,7 @@ John Carter is 83 years old, living with his son <strong>Benjamin Franklin Rayfi
 
 <p style="margin-top:1rem; font-size:0.95rem;"><strong>Pattern:</strong> Seven decades in the same county. John Carter Rayfield arrived in what would become Reynolds County as a boy of thirteen in 1829 and never left. He died there in 1903 at age eighty-six. That kind of rootedness tells its own story.</p>
 
-<h2>The Family Story</h2>
-
-<div class="alert alert-info">
-<strong>What John Carter Told His Grandchildren</strong>
-John Carter Rayfield told his grandchildren that his grandfather came from England, settled in Virginia, freed his bondsmen, and rescued abandoned enslaved people. This story was passed down through the generations and written up in the Vickery genealogy sketch.
-</div>
-
-<p>This is one of those family stories that turns out to be <em>mostly right</em> in a way that makes the hair on the back of your neck stand up &mdash; once you dig into the records.</p>
-
-<p>The "grandfather" John Carter described was almost certainly <strong>William Rayfield Sr</strong>, who was actually his great-great-grandfather, five generations back. That kind of compression is completely normal in oral tradition &mdash; a story gets shortened to "my grandfather" even when the actual relationship is more distant. What matters is the core facts he preserved:</p>
-
-<ul style="margin: 0.5rem 0 1rem 1.5rem;">
-<li><strong>"Came from England"</strong> &mdash; Confirmed. William Rayfield Sr (b. ~1670, England) arrived in the Albemarle region of colonial North Carolina in 1703.</li>
-<li><strong>"Settled in Virginia"</strong> &mdash; This is actually more accurate than it first appears. William settled in Pasquotank Precinct, North Carolina, but that area sat right on the disputed Virginia&ndash;North Carolina border. Before the 1728 Dividing Line survey, many residents weren't sure which colony they lived in. William may well have considered himself a Virginian.</li>
-<li><strong>"Freed his bondsmen"</strong> &mdash; We have not yet found the document confirming this, but it is a specific and unusual claim that would be strange to invent.</li>
-</ul>
-
-<p>John Carter was carrying a real history in his head &mdash; compressed, simplified, but anchored in events that actually happened two hundred years before he was born. That is remarkable.</p>
-
-<h2 id="deep-roots">Deep Roots: The Rayfield Line</h2>
-
-<p>Thanks to surviving colonial records, we can trace John Carter's ancestry further back than most American families dream of. Here is the line as we currently understand it:</p>
-
-<table>
-<tr><th>Generation</th><th>Name</th><th>Key Facts</th><th>Source</th></tr>
-<tr>
-<td>5x Great-grandfather</td>
-<td><strong>William Rayfield Sr</strong></td>
-<td>Born ~1670, England. Arrived Albemarle region, NC, 1703. Will dated 1722, probated March 1731 in Pasquotank Precinct. He is the immigrant ancestor.</td>
-<td><span class="arn">ARN0000027</span> Colonial records <span class="source-link">&middot; <a href="https://drive.google.com/file/d/1Hri3EfHSOO00xlixiWLkv8j7KHmrTphE/view" target="_blank">View</a></span><br><span class="arn">ARN0000011</span> Will abstract <span class="source-link">&middot; <a href="https://drive.google.com/file/d/17qK2WIP9RrDjBl_cuovwP5Q-jQ0DZ65a/view" target="_blank">View</a></span><br><span class="arn">ARN0000010</span> 1716 land grant <span class="source-link">&middot; <a href="https://drive.google.com/file/d/1Ns_lzNaDdCa31Q_6-wg2TIz3B_HF703S/view" target="_blank">View</a></span></td>
-</tr>
-<tr>
-<td colspan="4" style="font-size:0.85rem; color:#666; font-style:italic; text-align:center;">[Intervening generations in Tidewater NC &rarr; Surry County, NC &mdash; research ongoing]</td>
-</tr>
-<tr>
-<td>Grandfather</td>
-<td><strong>Isaac Rayfield</strong></td>
-<td>Born ~1748, died after 1822 in Cumberland County, KY. Described as "indigent and a cripple" in an 1812 Kentucky Legislature relief act. War of 1812 veteran. Married Betsy Stop in 1816.</td>
-<td><span class="arn">ARN0000001</span> 1790 Census <span class="source-link">&middot; <a href="https://drive.google.com/file/d/1kk9joZwQYGvlwappOQjLa21NYJtqD8YZ/view" target="_blank">View</a></span><br><span class="arn">ARN0000002</span> NC land grant 1795 <span class="source-link">&middot; <a href="https://drive.google.com/file/d/1A8bKUImkpjxV8pX3wAg8QM6Fr06aMZrg/view" target="_blank">View</a></span><br><span class="arn">ARN0000003</span> NC land grant 1802 <span class="source-link">&middot; <a href="https://drive.google.com/file/d/1fpMR1BPRf8DcrPSmYuNNzs0_3yIFbOX7/view" target="_blank">View</a></span><br><span class="arn">ARN0000004</span> 1810 Census <span class="source-link">&middot; <a href="https://drive.google.com/file/d/1ZMaW7TVjwuyNlW40-OQqrPBXFocJ94sG/view" target="_blank">View</a></span><br><span class="arn">ARN0000005</span> War of 1812 <span class="source-link">&middot; <a href="https://drive.google.com/file/d/1aoOApKQd9Xc04vqiMIJT6sPDfGvLPGaH/view" target="_blank">View</a></span><br><span class="arn">ARN0000008</span> Marriage to Betsy Stop 1816 <span class="source-link">&middot; <a href="https://drive.google.com/file/d/1_37doFX9fRKy5y2TtRbhKPLa1jIDvnTg/view" target="_blank">View</a></span><br><span class="arn">ARN0000009</span> 1820 Census <span class="source-link">&middot; <a href="https://drive.google.com/file/d/10k2Vy4FPmlCeN2Nehb2G63Gl1oxVmY_N/view" target="_blank">View</a></span></td>
-</tr>
-<tr>
-<td>Father</td>
-<td><strong>James Rayfield</strong></td>
-<td>Born ~1793. Dead by 1829. See <a href="#parentage">Parentage section</a> above.</td>
-<td>Process of elimination; Eddy Pratt's 2014 genealogical reconstruction</td>
-</tr>
-</table>
-
-<h3>The Migration Trail</h3>
-<p>Following the Rayfield name through the records, the family moved steadily west and south over two centuries:</p>
-
-<table>
-<tr><th>Period</th><th>Location</th><th>Who</th></tr>
-<tr><td>1703</td><td>England &rarr; Albemarle / Pasquotank Precinct, NC</td><td>William Rayfield Sr (immigrant)</td></tr>
-<tr><td>~1716&ndash;1731</td><td>Tidewater North Carolina</td><td>William Sr (land grants, will)</td></tr>
-<tr><td>Mid-1700s</td><td>Surry County, North Carolina</td><td>Next generations (research ongoing)</td></tr>
-<tr><td>By 1790</td><td>Cumberland County, Kentucky</td><td>Isaac Rayfield (1790 Census)</td></tr>
-<tr><td>1829</td><td>Kentucky &rarr; Washington County, Missouri</td><td>John Carter (age 13), Uncle William, Uncle John</td></tr>
-<tr><td>1845&ndash;1903</td><td>Reynolds County, Missouri</td><td>John Carter (homesteader, patriarch)</td></tr>
-</table>
-
-<h2>Newspaper and Published Accounts</h2>
-
-<div class="census-card">
-<span class="year">Newspaper Sketch</span> &middot; <span class="location">Reynolds County, Missouri</span>
-<div class="detail">
-A published genealogical sketch of John Carter Rayfield Sr provides many of the biographical details recorded here, including his birth date, migration story, and family connections.
-</div>
-<div class="source"><span class="arn">ARN0000015</span> &middot; <a href="https://drive.google.com/file/d/1fphfnZgWFjLCmakV3dumaTbaHJzi1_9j/view" target="_blank">View record</a></div>
-</div>
-
-<div class="census-card">
-<span class="year">Vickery Genealogy Sketch</span>
-<div class="detail">
-A genealogical sketch compiled by the Vickery family records John Carter's lineage, his wives, and the family story about the English immigrant ancestor.
-</div>
-<div class="source"><span class="arn">ARN0000025</span> &middot; <a href="https://drive.google.com/file/d/1CMbW_j8oIbfRZX4TepCqW_KCIgW9yknd/view" target="_blank">View record</a></div>
-</div>
-
-<h2>Photos</h2>
-
-<table>
-<tr><th>Description</th><th>ARN</th><th>Link</th></tr>
-<tr>
-<td>Family photo</td>
-<td><span class="arn">ARN0000081</span></td>
-<td><a href="https://drive.google.com/file/d/1QSpT6fkACp8cPCcqchpgqXtpB2m62E-S/view" target="_blank">View photo</a></td>
-</tr>
-<tr>
-<td>Tombstone, Buffington Cemetery</td>
-<td><span class="arn">ARN0000084</span></td>
-<td><a href="https://drive.google.com/file/d/1fiaxLT-oOxHTnowc8lngPTHPDgQDhUkv/view" target="_blank">View photo</a></td>
-</tr>
-</table>
-
-<h2>All Source Records</h2>
+<h2 id="sources">All Source Records</h2>
 <table>
 <tr><th>ARN</th><th>Record</th><th>Type</th><th>Link</th></tr>
 <tr>
@@ -574,7 +437,7 @@ A genealogical sketch compiled by the Vickery family records John Carter's linea
 </tr>
 </table>
 
-<h2>Connections to Other Profiles</h2>
+<h2 id="connections">Connections to Other Profiles</h2>
 <ul style="margin: 0.5rem 0 1rem 1.5rem;">
 <li><strong>Son:</strong> John Carter Rayfield Jr (1848&ndash;1915) &mdash; married Nancy Ann Farris</li>
 <li><strong>Son:</strong> Benjamin Franklin Rayfield (1852&ndash;1932)</li>
@@ -596,6 +459,7 @@ For questions, corrections, or to share information: <a href="mailto:abaumm+rayf
   <ul class="site-footer__links">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>

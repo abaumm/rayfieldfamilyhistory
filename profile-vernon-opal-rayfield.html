@@ -13,7 +13,7 @@ body { padding-top: var(--nav-h, 4rem); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: calc(var(--nav-h, 4rem) + 2rem) 1.5rem 2rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
-h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; scroll-margin-top: 5rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
 p { margin-bottom: 0.8rem; }
 a { color: var(--link); }
@@ -58,6 +58,11 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 .compare-col h3 { margin-top: 0; }
 @media (max-width: 600px) { .comparison { grid-template-columns: 1fr; } }
 
+
+/* Profile anchor nav */
+.profile-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+.profile-nav a { padding: 0.4rem 1.1rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.9rem; text-decoration: none; }
+.profile-nav a:hover { opacity: 0.85; }
 /* Back link */
 .back-link { font-size: 0.9rem; margin-bottom: 2rem; }
 
@@ -78,6 +83,7 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
   <ul class="site-nav__links" id="nav-links" role="list">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -98,7 +104,23 @@ Last updated: June 2026
 Opal was the family&rsquo;s storyteller &mdash; and its archivist. In 1976, she sat down and wrote &ldquo;A Tribute to My Parents in This Bicentennial Year Because They Left Their Mark&rdquo; &mdash; a loving, detailed account of growing up in the Robinson household at Des Arc. But the tribute was just one piece of what she preserved. She clipped obituaries and newspaper articles about family, kept handwritten notes from her own genealogy research, and saved her mother Katie&rsquo;s Bible with its handwritten records of births, deaths, and marriages. She had a framed family tree that hung in her dining room for years &mdash; unfortunately lost to extended family and time, and not yet tracked down. In her later years, she passed along mementos and antiques to family members as a way of sharing memories of earlier times and making sure the things that mattered didn&rsquo;t disappear. That instinct to hold on, to write it down, to hand it forward &mdash; it&rsquo;s the reason so much of this project was possible.
 </div>
 
-<h2>Vernon Jack Rayfield &mdash; Vital Facts</h2>
+
+<nav class="profile-nav" aria-label="Jump to section">
+  <a href="#story">Story</a>
+  <a href="#vital-facts">Vital Facts</a>
+  <a href="#sources">Sources</a>
+  <a href="#connections">Connections</a>
+</nav>
+
+<h2 id="story">Their Story</h2>
+
+<p>Vernon Jack Rayfield was born September 9, 1909, the son of Franklin Rayfield and Myrtle Seal — raised in the same Reynolds and Iron County hill country where Rayfields had farmed for three generations. Opal Myrtle Robinson was born two years later, on June 11, 1911, in Des Arc — the daughter of John Wesley Robinson the blacksmith and his wife Katie Lewis. Both families had roots in the same small communities along the Black River. When Vernon and Opal married on January 27, 1928, in Annapolis, Iron County, Vernon was eighteen and Opal was sixteen. Neither had reached twenty-one, so their mothers — Myrtle Rayfield and Katie Robinson — came in person to give their consent at the ceremony.</p>
+
+<p>Days after the wedding, the newlyweds were in a car collision near Annapolis while heading to church. They went on to have four children: Charlene, born in Des Arc in 1928; Shirley, born in Reynolds County in 1931; Michael, born in St. Louis in 1949; and Jack, born in St. Louis in 1957. The gap in those birth years tells the story of a family in motion. By 1933, Vernon and Opal were living on North 23rd Street in St. Louis, where Vernon worked as a chauffeur. During at least part of the early 1940s they pulled back toward the Ozarks — Vernon's 1941 draft registration lists his employer as J.W. Robinson and Son, his father-in-law's sawmill operation in Steelville — and they eventually settled in Piedmont, Wayne County. Vernon died there on November 9, 1977, at sixty-eight, and was buried at Mountain View Cemetery in Des Arc.</p>
+
+<p>Opal lived to ninety-one, dying in Bridgeton, Missouri, on July 23, 2002. She was, in the truest sense, the family's historian. In 1976, as the nation celebrated its bicentennial, she sat down and wrote a tribute to her parents — a detailed, loving account of growing up in the Robinson household at Des Arc. She preserved her mother Katie's Bible, clipped obituaries, saved handwritten genealogy notes, and made sure the things that mattered didn't disappear. Without Opal's tribute, whole chapters of this family history would be dates and census entries and nothing more. She gave them life. She is buried beside Vernon at Mountain View Cemetery.</p>
+
+<h2 id="vital-facts">Vernon Jack Rayfield &mdash; Vital Facts</h2>
 <table>
 <tr>
 <th>Fact</th>
@@ -216,14 +238,6 @@ Opal was the family&rsquo;s storyteller &mdash; and its archivist. In 1976, she 
 </tr>
 </table>
 
-<h2>The Marriage &mdash; January 1928</h2>
-<p>Vernon and Opal married on January 27, 1928, in Annapolis, Iron County. He was eighteen; she was sixteen. Neither had reached twenty-one, so the law required parental consent. Both mothers &mdash; Myrtle Rayfield and Katie Robinson &mdash; came in person to give their blessing. A minister of the gospel performed the ceremony.</p>
-
-<p>Think about what that day meant for those two families. The Rayfields and the Robinsons were already neighbors in this same stretch of Iron County and Reynolds County hill country. Now they were kin.</p>
-
-<h3>A Rough Start</h3>
-<p>Just days after their wedding — on or before February 9, 1928 — Vernon and Opal were in a car collision with a truck near Annapolis while heading to church. The Wayne County Journal-Banner reported the accident. Details of injuries aren't recorded, but in rural Missouri in 1928, any car wreck was serious.</p>
-
 <h2>Children</h2>
 <table>
 <tr><th>Name</th><th>Born</th><th>Died</th><th>Notes</th></tr>
@@ -254,67 +268,7 @@ Opal was the family&rsquo;s storyteller &mdash; and its archivist. In 1976, she 
 </table>
 <p style="font-size:0.9rem; color:#666;">Note the seventeen-year gap between Shirley (1931) and Michael (1949). The first two children were born in the Ozarks hill country; the younger two in St. Louis. Two different worlds, really &mdash; but the same family.</p>
 
-<h2>Where They Lived &mdash; A Life in Motion</h2>
-
-<div class="census-card">
-<span class="year">1928&ndash;early 1930s</span> &middot; <span class="location">Des Arc and Webb Township (Clearwater Lake area), Iron &amp; Reynolds Counties</span>
-<div class="detail">
-Their first years of marriage were spent in the same hill country where both had grown up. Charlene was born in Des Arc; Shirley in Webb Township, Reynolds County. These were small, close-knit communities along the Black River bottoms.
-</div>
-</div>
-
-<div class="census-card">
-<span class="year">By 1933</span> &middot; <span class="location">3811a North 23rd Street, St. Louis, Missouri</span>
-<div class="detail">
-Vernon and Opal had moved to the city. Vernon was working as a <strong>chauffeur</strong>. Like many families from the Missouri Ozarks, they followed the pull of city jobs during the Depression. St. Louis was where the work was.
-</div>
-<div class="source">St. Louis city directory</div>
-</div>
-
-<div class="census-card">
-<span class="year">February 1941</span> &middot; <span class="location">Eminence, Shannon County, Missouri</span>
-<div class="detail">
-Vernon registered for the WWII draft at Eminence. His listed employer was <strong>J.W. Robinson and Son</strong> &mdash; his father-in-law John Wesley Robinson&rsquo;s sawmill operation. They had come back to the Ozarks, at least for a time. Vernon was working alongside Opal&rsquo;s family.
-</div>
-<div class="source">WWII draft registration card, February 1941</div>
-</div>
-
-<div class="census-card">
-<span class="year">1949&ndash;1957</span> &middot; <span class="location">St. Louis, Missouri</span>
-<div class="detail">
-Both Michael (1949) and Jack (1957) were born in St. Louis, so the family was back in the city for at least part of this period.
-</div>
-</div>
-
-<div class="census-card">
-<span class="year">Later years</span> &middot; <span class="location">Piedmont, Wayne County, Missouri</span>
-<div class="detail">
-Vernon and Opal eventually settled in Piedmont. Vernon&rsquo;s last residence, per the Social Security Death Index, was Piedmont, Wayne County &mdash; back in the Ozark hill country, not far from where it all started.
-</div>
-</div>
-
-<h2>Vernon&rsquo;s Death &mdash; 1977</h2>
-<p>Vernon died on November 9, 1977, in Ironton, Iron County, Missouri. He was sixty-eight years old. He was buried at Mountain View Cemetery in Des Arc &mdash; the same ground where so many of both families already lay.</p>
-
-<h2>Opal &mdash; The Keeper of Stories</h2>
-
-<p>Opal Myrtle Robinson Rayfield lived to be ninety-one years old. And she used that long life to do something no one else in the family did: she wrote it all down.</p>
-
-<p>In 1976, as the nation celebrated its bicentennial, Opal sat down and wrote a tribute to her parents, John Wesley and Katie Robinson. She called it <em>&ldquo;A Tribute to My Parents in This Bicentennial Year Because They Left Their Mark.&rdquo;</em> It is the fullest surviving account of daily life in the Robinson household &mdash; the work, the food, the rhythms of the seasons, the neighbors, the faith, the small details that make a family real instead of just names on a census page.</p>
-
-<p>Without Opal&rsquo;s tribute, we would know the dates. We would know the places. But we wouldn&rsquo;t know what it <em>felt</em> like to live in that household, in that community, in that time. She gave us that. She is the reason whole chapters of this family history could be written at all.</p>
-
-<div class="alert alert-info">
-<strong>Katherine&rsquo;s Bible</strong>
-Opal also preserved her mother Katie&rsquo;s Bible &mdash; a family Bible with handwritten records of births, deaths, and marriages. That Bible has passed through the family and is still in the family today &mdash; wrapped in soft cotton inside a marble box trimmed with acacia wood, kept on a shelf alongside other family mementos, preserved so it might last for the generations still coming. Katie wrote in it; Opal kept it safe; and the handwritten pages still help fill in details across the generations.
-</div>
-
-<h2>Mountain View Cemetery, Des Arc</h2>
-<p>Vernon and Opal are both buried at Mountain View Cemetery in Des Arc, Iron County &mdash; side by side, in the ground where so many of their family already lay.</p>
-
-<p>If you walk the rows of Mountain View today, you find the names from this whole family story carved into stone after stone. Mann. Seal. Lewis. Rayfield. Robinson. Dickson. The community that formed along the Black River bottoms is still there, in a sense &mdash; quieter now, but together.</p>
-
-<h2>Source Records</h2>
+<h2 id="sources">Source Records</h2>
 <table>
 <tr><th>ARN</th><th>Record</th><th>Type</th><th>Link</th></tr>
 <tr>
@@ -337,7 +291,7 @@ Opal also preserved her mother Katie&rsquo;s Bible &mdash; a family Bible with h
 </tr>
 </table>
 
-<h2>Connections to Other Profiles</h2>
+<h2 id="connections">Connections to Other Profiles</h2>
 <ul style="margin: 0.5rem 0 1rem 1.5rem;">
 <li><strong>Vernon&rsquo;s parents:</strong> <a href="profile-franklin-myrtle-rayfield.html">Franklin Peter Rayfield &amp; Myrtle Lee Seal</a> (1884&ndash;1941 / 1888&ndash;1968)</li>
 <li><strong>Vernon&rsquo;s grandfather:</strong> <a href="profile-john-carter-rayfield.html">John Carter Rayfield Sr</a></li>
@@ -360,6 +314,7 @@ For questions, corrections, or to share information: <a href="mailto:abaumm+rayf
   <ul class="site-footer__links">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rayfield Family Tree — Ancestors of Vernon &amp; Opal</title>
+<meta name="description" content="Four-generation ancestor chart for Vernon Jack Rayfield and Opal Myrtle Robinson Rayfield of Iron County, Missouri.">
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── layout ── */
+body { padding-top: var(--nav-h, 4rem); background: #F5F0EA; }
+
+.ft-header {
+  text-align: center;
+  padding: 2.5rem 1rem 0.75rem;
+}
+.ft-header h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  color: #7A5C2E;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.35rem;
+}
+.ft-header .subtitle {
+  color: #999;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: Georgia, serif;
+}
+.ft-header .ornament {
+  display: block;
+  margin: 0.75rem auto 0;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #C8A87A, transparent);
+}
+
+/* ── legend ── */
+.ft-legend {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem 1rem 1.5rem;
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+  color: #777;
+}
+.ft-legend-item { display: flex; align-items: center; gap: 0.5rem; }
+.ft-dot {
+  width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0;
+  display: inline-block;
+}
+.ft-leaf-icon {
+  width: 14px; height: 14px; flex-shrink: 0; display: inline-block;
+  border-radius: 60% 4px 60% 4px;
+  background: #9B7B6A;
+}
+
+/* ── scroll wrapper ── */
+.ft-scroll { overflow-x: auto; padding: 0 1rem 3rem; -webkit-overflow-scrolling: touch; }
+
+/* ── tree canvas ── */
+.ft-canvas {
+  position: relative;
+  width: 1100px;
+  height: 1000px;
+  margin: 0 auto;
+}
+
+/* ── cards ── */
+.ft-card {
+  position: absolute;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 165px;
+}
+
+.ft-gen-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #C8A87A;
+  margin-bottom: 5px;
+  font-family: Georgia, serif;
+}
+
+/* Person bubbles */
+.ft-man, .ft-woman {
+  display: block;
+  margin: 0 auto;
+  width: 155px;
+  padding: 7px 12px;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.35;
+  text-decoration: none;
+  cursor: default;
+}
+a.ft-man, a.ft-woman {
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+a.ft-man:hover, a.ft-woman:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+/* Men = oval pill */
+.ft-man { border-radius: 60px; }
+
+/* Women = leaf (rotated border-radius) */
+.ft-woman { border-radius: 60% 6px 60% 6px; }
+
+.ft-name {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: bold;
+  line-height: 1.3;
+}
+.ft-years {
+  display: block;
+  font-size: 0.68rem;
+  opacity: 0.82;
+  margin-top: 2px;
+}
+.ft-amp {
+  font-size: 0.72rem;
+  color: #C8A87A;
+  line-height: 1.9;
+  display: block;
+  font-family: Georgia, serif;
+}
+
+/* ── Generation colour themes ── */
+
+/* Gen 4 — deep brick */
+.g4m { background: #5C3B2B; color: #F0E4D8; border: 2px solid #3E2518; }
+.g4f { background: #9B7B6A; color: #F0E4D8; border: 2px solid #7A5848; }
+
+/* Gen 3 — forest green */
+.g3m { background: #3B5C38; color: #E4F0E0; border: 2px solid #253E22; }
+.g3f { background: #7A9B78; color: #1A3018; border: 2px solid #557852; }
+
+/* Gen 2 — golden brown */
+.g2m { background: #8B5E28; color: #F5ECD8; border: 2px solid #6B4018; }
+.g2f { background: #C8A058; color: #3E2C0C; border: 2px solid #9B7A38; }
+
+/* Gen 1 — deep walnut (root couple) */
+.g1m {
+  background: #5C3A1E;
+  color: #F5EAD8;
+  border: 3px solid #3E2010;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  width: 170px;
+  padding: 10px 14px;
+}
+.g1f {
+  background: #A87850;
+  color: #F5EAD8;
+  border: 3px solid #7A5030;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  width: 170px;
+  padding: 10px 14px;
+}
+.g1m .ft-name, .g1f .ft-name { font-size: 0.85rem; }
+.g1m .ft-years, .g1f .ft-years { font-size: 0.72rem; }
+
+/* ── caption ── */
+.ft-caption {
+  text-align: center;
+  padding: 0.5rem 1rem 3rem;
+  font-size: 0.75rem;
+  color: #C8A87A;
+  font-style: italic;
+  font-family: Georgia, serif;
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
+  <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <ul class="site-nav__links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="name-index.html">Family Members</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="family-tree.html" aria-current="page">Family Tree</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="ft-header">
+  <h1>Rayfield Family Tree</h1>
+  <p class="subtitle">Ancestors of Vernon Jack Rayfield &amp; Opal Myrtle Robinson · Iron County, Missouri</p>
+  <span class="ornament"></span>
+</div>
+
+<div class="ft-legend">
+  <div class="ft-legend-item"><span class="ft-dot" style="background:#5C3A1E"></span> Vernon &amp; Opal</div>
+  <div class="ft-legend-item"><span class="ft-dot" style="background:#8B5E28"></span> Parents</div>
+  <div class="ft-legend-item"><span class="ft-dot" style="background:#3B5C38"></span> Grandparents</div>
+  <div class="ft-legend-item"><span class="ft-dot" style="background:#5C3B2B"></span> Great-grandparents</div>
+  <div class="ft-legend-item"><span style="width:14px;height:14px;border-radius:60px;background:#8B5E28;display:inline-block;flex-shrink:0"></span> Oval = men</div>
+  <div class="ft-legend-item"><span class="ft-leaf-icon"></span> Leaf = women</div>
+</div>
+
+<div class="ft-scroll">
+<div class="ft-canvas">
+
+<!-- ══════════════════════════════════════
+     SVG TREE  (branches behind cards)
+     ══════════════════════════════════════ -->
+<svg width="1100" height="1000" viewBox="0 0 1100 1000"
+     style="position:absolute;top:0;left:0;pointer-events:none;"
+     aria-hidden="true">
+
+  <!-- ── ROOTS ── -->
+  <path fill="none" stroke="#4A2E10" stroke-width="9"  stroke-linecap="round" d="M 550 945 Q 518 958 488 962"/>
+  <path fill="none" stroke="#4A2E10" stroke-width="7"  stroke-linecap="round" d="M 550 945 Q 582 958 612 962"/>
+  <path fill="none" stroke="#4A2E10" stroke-width="6"  stroke-linecap="round" d="M 546 940 Q 506 950 470 946"/>
+  <path fill="none" stroke="#4A2E10" stroke-width="5"  stroke-linecap="round" d="M 554 940 Q 594 950 630 946"/>
+  <path fill="none" stroke="#4A2E10" stroke-width="4"  stroke-linecap="round" d="M 544 935 Q 500 940 458 934"/>
+  <path fill="none" stroke="#4A2E10" stroke-width="3"  stroke-linecap="round" d="M 556 935 Q 600 940 642 934"/>
+
+  <!-- ── TRUNK ── (three overlapping paths for texture) -->
+  <path fill="none" stroke="#4A2E10" stroke-width="26" stroke-linecap="round" d="M 550 965 Q 549 920 550 860"/>
+  <path fill="none" stroke="#7A5C2E" stroke-width="20" stroke-linecap="round" d="M 550 965 Q 551 920 550 860"/>
+  <path fill="none" stroke="#9B7A4A" stroke-width="10" stroke-linecap="round" opacity="0.3" d="M 553 965 Q 554 920 553 860"/>
+  <!-- Trunk continues (thinner) from Gen1 card bottom up to branch point -->
+  <path fill="none" stroke="#7A5C2E" stroke-width="14" stroke-linecap="round" d="M 550 860 Q 550 820 550 745"/>
+  <path fill="none" stroke="#9B7A4A" stroke-width="6"  stroke-linecap="round" opacity="0.25" d="M 553 860 Q 553 820 553 745"/>
+
+  <!-- Small leaf accents on trunk -->
+  <ellipse fill="#7A9B5A" opacity="0.3" cx="540" cy="900" rx="9" ry="4" transform="rotate(-28 540 900)"/>
+  <ellipse fill="#7A9B5A" opacity="0.3" cx="562" cy="878" rx="7" ry="3.5" transform="rotate(32 562 878)"/>
+  <ellipse fill="#7A9B5A" opacity="0.25" cx="541" cy="842" rx="6" ry="3" transform="rotate(-18 541 842)"/>
+  <ellipse fill="#7A9B5A" opacity="0.25" cx="559" cy="818" rx="5" ry="2.5" transform="rotate(22 559 818)"/>
+
+  <!-- ── MAIN BRANCHES: Gen1 top → Gen2 bottoms ── -->
+  <!-- to Franklin+Myrtle (x=275, bottom≈635) -->
+  <path fill="none" stroke="#7A5C2E" stroke-width="10" stroke-linecap="round"
+        d="M 550 745 C 550 690 275 690 275 635"/>
+  <!-- to John Wesley+Katie (x=825, bottom≈635) -->
+  <path fill="none" stroke="#7A5C2E" stroke-width="10" stroke-linecap="round"
+        d="M 550 745 C 550 690 825 690 825 635"/>
+
+  <!-- Leaf accents on main branches -->
+  <ellipse fill="#7A9B5A" opacity="0.3" cx="420" cy="700" rx="9" ry="4" transform="rotate(-30 420 700)"/>
+  <ellipse fill="#7A9B5A" opacity="0.28" cx="388" cy="682" rx="7" ry="3" transform="rotate(22 388 682)"/>
+  <ellipse fill="#7A9B5A" opacity="0.3" cx="680" cy="698" rx="9" ry="4" transform="rotate(30 680 698)"/>
+  <ellipse fill="#7A9B5A" opacity="0.28" cx="712" cy="680" rx="7" ry="3" transform="rotate(-22 712 680)"/>
+
+  <!-- ── SUB-BRANCHES: Gen2-left top (275,525) → Gen3 bottoms ── -->
+  <!-- to JC Jr (x=100, bottom≈405) -->
+  <path fill="none" stroke="#8B6B4E" stroke-width="7" stroke-linecap="round"
+        d="M 275 525 C 275 460 100 460 100 405"/>
+  <!-- to BF Seal (x=450, bottom≈405) -->
+  <path fill="none" stroke="#8B6B4E" stroke-width="7" stroke-linecap="round"
+        d="M 275 525 C 275 460 450 460 450 405"/>
+
+  <!-- ── SUB-BRANCHES: Gen2-right top (825,525) → Gen3 bottoms ── -->
+  <!-- to Absalom Robinson (x=650, bottom≈405) -->
+  <path fill="none" stroke="#8B6B4E" stroke-width="7" stroke-linecap="round"
+        d="M 825 525 C 825 460 650 460 650 405"/>
+  <!-- to Wm Lewis (x=1000, bottom≈405) -->
+  <path fill="none" stroke="#8B6B4E" stroke-width="7" stroke-linecap="round"
+        d="M 825 525 C 825 460 1000 460 1000 405"/>
+
+  <!-- Leaf accents on sub-branches -->
+  <ellipse fill="#7A9B5A" opacity="0.25" cx="185" cy="470" rx="7" ry="3" transform="rotate(-28 185 470)"/>
+  <ellipse fill="#7A9B5A" opacity="0.25" cx="370" cy="468" rx="6" ry="2.5" transform="rotate(24 370 468)"/>
+  <ellipse fill="#7A9B5A" opacity="0.25" cx="735" cy="467" rx="7" ry="3" transform="rotate(-25 735 467)"/>
+  <ellipse fill="#7A9B5A" opacity="0.25" cx="915" cy="469" rx="6" ry="2.5" transform="rotate(26 915 469)"/>
+
+  <!-- ── GEN4 BRANCH: JC Jr top (100,290) → JC Sr bottom (100,175) ── -->
+  <path fill="none" stroke="#A08060" stroke-width="5" stroke-linecap="round"
+        d="M 100 290 Q 100 232 100 175"/>
+  <ellipse fill="#7A9B5A" opacity="0.22" cx="89"  cy="240" rx="6" ry="2.5" transform="rotate(-18 89 240)"/>
+  <ellipse fill="#7A9B5A" opacity="0.22" cx="111" cy="218" rx="5" ry="2"   transform="rotate(24 111 218)"/>
+
+  <!-- ── DECORATIVE CORNER BOTANICALS ── -->
+  <g opacity="0.18" fill="#6A8C5A">
+    <!-- top-left -->
+    <ellipse cx="42"  cy="28"  rx="22" ry="8"  transform="rotate(-42 42 28)"/>
+    <ellipse cx="28"  cy="52"  rx="18" ry="7"  transform="rotate(-22 28 52)"/>
+    <ellipse cx="68"  cy="18"  rx="16" ry="6"  transform="rotate(-62 68 18)"/>
+    <ellipse cx="18"  cy="72"  rx="14" ry="5"  transform="rotate(-10 18 72)"/>
+    <!-- top-right -->
+    <ellipse cx="1058" cy="28"  rx="22" ry="8"  transform="rotate(42 1058 28)"/>
+    <ellipse cx="1072" cy="52"  rx="18" ry="7"  transform="rotate(22 1072 52)"/>
+    <ellipse cx="1032" cy="18"  rx="16" ry="6"  transform="rotate(62 1032 18)"/>
+    <ellipse cx="1082" cy="72"  rx="14" ry="5"  transform="rotate(10 1082 72)"/>
+  </g>
+
+  <!-- Thin dividing line below header area -->
+  <line x1="380" y1="58" x2="720" y2="58" stroke="#C8A87A" stroke-width="0.5" opacity="0.4"/>
+
+</svg>
+<!-- /SVG -->
+
+
+<!-- ══════════════════════════════
+     GENERATION 4 — Great-grandparents
+     ══════════════════════════════ -->
+
+<!-- John Carter Rayfield Sr. + Mary Ann 'Polly' Mann -->
+<div class="ft-card" style="left:100px; top:60px;">
+  <div class="ft-gen-label">Great-grandparents</div>
+  <a class="ft-man g4m" href="profile-john-carter-rayfield.html" title="View profile">
+    <span class="ft-name">John Carter Rayfield Sr.</span>
+    <span class="ft-years">1816 – 1903</span>
+  </a>
+  <span class="ft-amp">&amp;</span>
+  <span class="ft-woman g4f">
+    <span class="ft-name">Mary Ann 'Polly' Mann</span>
+    <span class="ft-years">Reynolds Co., MO</span>
+  </span>
+</div>
+
+
+<!-- ══════════════════════════════
+     GENERATION 3 — Grandparents
+     ══════════════════════════════ -->
+
+<!-- JC Rayfield Jr. + Nancy Ann Farris (Vernon's paternal grandparents) -->
+<div class="ft-card" style="left:100px; top:290px;">
+  <div class="ft-gen-label">Vernon's grandparents</div>
+  <a class="ft-man g3m" href="profile-john-carter-rayfield-jr.html" title="View profile">
+    <span class="ft-name">John Carter Rayfield Jr.</span>
+    <span class="ft-years">~1848 – 1915</span>
+  </a>
+  <span class="ft-amp">&amp;</span>
+  <span class="ft-woman g3f">
+    <span class="ft-name">Nancy Ann Farris</span>
+    <span class="ft-years">Reynolds Co., MO</span>
+  </span>
+</div>
+
+<!-- Benjamin F. Seal + Mary Jane Lewis (Vernon's maternal grandparents) -->
+<div class="ft-card" style="left:450px; top:290px;">
+  <div class="ft-gen-label">Vernon's grandparents</div>
+  <span class="ft-man g3m">
+    <span class="ft-name">Benjamin F. Seal</span>
+    <span class="ft-years">b. 1859 · Arcadia, MO</span>
+  </span>
+  <span class="ft-amp">&amp;</span>
+  <span class="ft-woman g3f">
+    <span class="ft-name">Mary Jane Lewis</span>
+    <span class="ft-years">Iron County, MO</span>
+  </span>
+</div>
+
+<!-- Absalom Parker Robinson + Josephine Parks (Opal's paternal grandparents) -->
+<div class="ft-card" style="left:650px; top:290px;">
+  <div class="ft-gen-label">Opal's grandparents</div>
+  <a class="ft-man g3m" href="profile-absalom-robinson.html" title="View profile">
+    <span class="ft-name">Absalom Parker Robinson</span>
+    <span class="ft-years">~1856 – 1936</span>
+  </a>
+  <span class="ft-amp">&amp;</span>
+  <span class="ft-woman g3f">
+    <span class="ft-name">Josephine Parks</span>
+    <span class="ft-years">St. Francois Co., MO</span>
+  </span>
+</div>
+
+<!-- William John Lewis + Abigail Johnson (Opal's maternal grandparents) -->
+<div class="ft-card" style="left:1000px; top:290px;">
+  <div class="ft-gen-label">Opal's grandparents</div>
+  <a class="ft-man g3m" href="profile-william-lewis.html" title="View profile">
+    <span class="ft-name">William John Lewis</span>
+    <span class="ft-years">~1834 – 1900</span>
+  </a>
+  <span class="ft-amp">&amp;</span>
+  <span class="ft-woman g3f">
+    <span class="ft-name">Abigail Johnson Lewis</span>
+    <span class="ft-years">~1840 – 1919</span>
+  </span>
+</div>
+
+
+<!-- ══════════════════════════════
+     GENERATION 2 — Parents
+     ══════════════════════════════ -->
+
+<!-- Franklin Peter Rayfield + Myrtle Lee Seal (Vernon's parents) -->
+<div class="ft-card" style="left:275px; top:525px;">
+  <div class="ft-gen-label">Vernon's parents</div>
+  <a class="ft-man g2m" href="profile-franklin-myrtle-rayfield.html" title="View profile">
+    <span class="ft-name">Franklin Peter Rayfield</span>
+    <span class="ft-years">1884 – 1941</span>
+  </a>
+  <span class="ft-amp">&amp;</span>
+  <a class="ft-woman g2f" href="profile-franklin-myrtle-rayfield.html" title="View profile">
+    <span class="ft-name">Myrtle Lee Seal</span>
+    <span class="ft-years">1888 – 1968</span>
+  </a>
+</div>
+
+<!-- John Wesley Robinson + Katherine Lewis (Opal's parents) -->
+<div class="ft-card" style="left:825px; top:525px;">
+  <div class="ft-gen-label">Opal's parents</div>
+  <a class="ft-man g2m" href="profile-john-wesley-robinson.html" title="View profile">
+    <span class="ft-name">John Wesley Robinson</span>
+    <span class="ft-years">1880 – 1941</span>
+  </a>
+  <span class="ft-amp">&amp;</span>
+  <span class="ft-woman g2f">
+    <span class="ft-name">Katherine (Katie) Lewis</span>
+    <span class="ft-years">1878 – 1946</span>
+  </span>
+</div>
+
+
+<!-- ══════════════════════════════
+     GENERATION 1 — Root Couple
+     ══════════════════════════════ -->
+
+<div class="ft-card" style="left:550px; top:745px; width:190px;">
+  <div class="ft-gen-label" style="color:#9B7A5A; letter-spacing:0.12em;">The Couple</div>
+  <a class="ft-man g1m" href="profile-vernon-opal-rayfield.html" title="View profile">
+    <span class="ft-name">Vernon Jack Rayfield</span>
+    <span class="ft-years">1909 – 1977 · Iron Co., MO</span>
+  </a>
+  <span class="ft-amp" style="color:#9B7A5A; font-size:0.85rem;">&amp;</span>
+  <a class="ft-woman g1f" href="profile-vernon-opal-rayfield.html" title="View profile">
+    <span class="ft-name">Opal Myrtle Robinson</span>
+    <span class="ft-years">1911 – 2002 · Iron Co., MO</span>
+  </a>
+</div>
+
+
+</div><!-- /ft-canvas -->
+</div><!-- /ft-scroll -->
+
+<p class="ft-caption">
+  Compiled by Andrea Harter, 2026 &middot; Rayfield&ndash;Robinson Family History Project<br>
+  Oval shapes represent men &middot; Leaf shapes represent women &middot; Highlighted names link to full profiles
+</p>
+
+<script>
+// Nav toggle (reuse site pattern)
+const toggle = document.getElementById('nav-toggle');
+const links  = document.getElementById('nav-links');
+if (toggle && links) {
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+}
+</script>
+</body>
+</html>

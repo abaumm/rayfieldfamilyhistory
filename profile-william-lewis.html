@@ -13,7 +13,7 @@ body { padding-top: var(--nav-h, 4rem); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Georgia', 'Times New Roman', serif; background: var(--bg); color: var(--text); line-height: 1.6; max-width: 860px; margin: 0 auto; padding: calc(var(--nav-h, 4rem) + 2rem) 1.5rem 2rem; }
 h1 { font-size: 2rem; color: var(--accent); margin-bottom: 0.3rem; }
-h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; scroll-margin-top: 5rem; }
 h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
 p { margin-bottom: 0.8rem; }
 a { color: var(--link); }
@@ -58,6 +58,11 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
 .compare-col h3 { margin-top: 0; }
 @media (max-width: 600px) { .comparison { grid-template-columns: 1fr; } }
 
+
+/* Profile anchor nav */
+.profile-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+.profile-nav a { padding: 0.4rem 1.1rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.9rem; text-decoration: none; }
+.profile-nav a:hover { opacity: 0.85; }
 /* Back link */
 .back-link { font-size: 0.9rem; margin-bottom: 2rem; }
 
@@ -78,6 +83,7 @@ td:first-child { font-weight: bold; white-space: nowrap; width: 160px; }
   <ul class="site-nav__links" id="nav-links" role="list">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -98,7 +104,23 @@ Last updated: June 2026
 The Iron County Register called him "Uncle Billy" — but this wasn't a family nickname. In the rural Ozarks, "Uncle" was a title of community respect given to older men who had earned the regard of their neighbors. William John Lewis was one of those men. His obituary called him "an old and highly respected citizen... upright man and good citizen." He was Katie Lewis Robinson's father, making him great-grandfather to Opal Robinson Rayfield — and a direct ancestor of our family.
 </div>
 
-<h2>Name Variations in Records</h2>
+
+<nav class="profile-nav" aria-label="Jump to section">
+  <a href="#story">Story</a>
+  <a href="#vital-facts">Vital Facts</a>
+  <a href="#sources">Sources</a>
+  <a href="#connections">Connections</a>
+</nav>
+
+<h2 id="story">His Story</h2>
+
+<p>William John Lewis was born around 1834 in Marion County, Tennessee, the son of George Lewis — a man who had made his way from North Carolina to Tennessee and whose family would eventually keep moving west to Missouri. William grew up in Tennessee, and by his early twenties had made the trip to Iron County himself. On October 30, 1857, at about twenty-three, he married Abigail Johnson in Iron County. Abigail was seventeen. They would spend the next four decades together on the same ground, raising nine or ten children and weathering everything the Ozarks and the nineteenth century could throw at them.</p>
+
+<p>When the Civil War reached Missouri, it came as something close to a family affair. William enlisted in Company A of the 15th Missouri Cavalry on October 4, 1862, at Pocahontas, Arkansas. His brothers John, Andrew, and Benjamin enrolled in the same regiment ten weeks later — four Lewis brothers in the same unit. In October 1863, William was arrested and signed a Union bond and oath of allegiance at Pilot Knob. It wasn't a change of heart; it was the price of release. By early 1864 he was back with Confederate forces. His brother Benjamin fared far worse. Captured in the Christmas Day 1863 attack on Reeves' camp at Pulliam's Farm and shipped to Gratiot Street Prison in St. Louis, Benjamin died there on January 30, 1864 — one month after his capture. Benjamin's wife Naoma died not long after, under circumstances that have never been documented. William and Abigail took in two of Benjamin's five orphaned children and raised them alongside their own.</p>
+
+<p>After the war, William bought 160 acres in Iron County — two federal land patents, cash purchases at $1.25 an acre — and worked that land for the next two decades. Sometime in the mid-1880s he fell from a horse and became an invalid. His obituary described him as an invalid for the last fourteen or fifteen years of his life — though a neighbor who wrote the notice added that even so, he was "energetic in business, and a good manager." He died on April 9, 1900, in Des Arc, at sixty-five. The Iron County Register called him "an old and highly respected citizen" and used his community title — "Uncle Billy," the Ozark honorific given to elders who had earned their neighbors' regard. He is buried at Mountain View Cemetery in Des Arc. His daughter Katie Lewis married John Wesley Robinson two years after his death. Abigail outlived him by nineteen years, dying on Christmas Day 1919 at seventy-nine.</p>
+
+<h2 id="vital-facts">Name Variations in Records</h2>
 <span class="name-var">William Lewis</span>
 <span class="name-var">Wm Lewis</span>
 <span class="name-var">William J Lewis</span>
@@ -163,10 +185,6 @@ The Iron County Register called him "Uncle Billy" — but this wasn't a family n
 </tr>
 </table>
 
-<h2>Abigail Johnson Lewis — The Wife Who Held It All Together</h2>
-<p>Abigail Johnson was born February 4, 1840, in Floyd County (or Pike County), Kentucky. She married William on October 30, 1857, in Iron County &mdash; she was just 17 years old. Census records consistently note she could not read or write &mdash; not unusual for the time and place, and no reflection of what she was capable of. She raised nine or ten children, managed a household through war and hardship, and kept the family together when it mattered most.</p>
-<p>The 1900 census &mdash; taken just months after William&rsquo;s death &mdash; lists Abigail as head of household, age 60, occupation: <strong>&ldquo;Farmer.&rdquo;</strong> She remained on the property until her death on Christmas Day, 1919, at age 79 &mdash; nineteen years after William. Whether she was actively working the land that entire time or gradually scaling back, we don&rsquo;t know. What we do know is that she never left.</p>
-
 <h2>Children</h2>
 <table>
 <tr><th>Name</th><th>Approx. Birth</th><th>Notes</th></tr>
@@ -184,161 +202,7 @@ The Iron County Register called him "Uncle Billy" — but this wasn't a family n
 
 <p>Also in the household: <strong>Nancy</strong> and <strong>young William</strong> — orphaned children of William's brother Benjamin, taken in after the tragedies of 1863–1864. See <a href="#benjamin">Benjamin Lewis section below</a>.</p>
 
-<h2>Confederate Military Service</h2>
-
-<p>When the Civil War reached the Missouri Ozarks, it wasn't about distant politics — it was about neighbors, brothers, and survival. William John Lewis enlisted on <strong>October 4, 1862</strong>, at Pocahontas, Arkansas, joining <strong>Company A of the 15th Missouri Cavalry</strong> under Colonel Timothy Reeves. He was about 28 years old.</p>
-
-<p>He wasn't alone. His brothers John, Andrew, and Benjamin all enrolled in the same regiment on <strong>December 22, 1862</strong>. Four Lewis brothers, same unit. That tells you something about the pressures — and loyalties — of Iron County families during the war.</p>
-
-<div class="alert alert-warn">
-<strong>About the "Bond and Oath" — October 31, 1863</strong>
-William signed a Union Bond and Oath of Allegiance at Pilot Knob on October 31, 1863. This is sometimes misread in Ancestry trees as a voluntary Union enlistment. It was not. This came <strong>after his arrest</strong> — it was the price of release, not a change of heart. Many Confederate-aligned men in the border regions signed these oaths under duress. The muster rolls confirm he returned to Confederate service: by January–February 1864, he was listed as temporarily attached to Kitchen's Regiment, recruiting.
-</div>
-
-<h3>Military Timeline</h3>
-<table>
-<tr><th>Date</th><th>Event</th><th>Source</th></tr>
-<tr>
-<td>Oct 4, 1862</td>
-<td>Enlisted at Pocahontas, Arkansas. 15th Missouri Cavalry, Company A, Col. Timothy Reeves.</td>
-<td><span class="arn">ARN0000055</span> <span class="source-link">· <a href="https://drive.google.com/file/d/1HQR1IQqoZDVBKsmUDJf3Ha6AoOZ6HyJt/view" target="_blank">Muster Roll</a></span></td>
-</tr>
-<tr>
-<td>Dec 22, 1862</td>
-<td>Brothers John, Andrew, and Benjamin Lewis enroll in the same regiment.</td>
-<td><span class="arn">ARN0000064</span> <span class="source-link">· <a href="https://drive.google.com/file/d/1Qse6KeXHhXuhbLN1-EMtXwHh2QIuyEPH/view" target="_blank">Benjamin's Muster Roll</a></span></td>
-</tr>
-<tr>
-<td>May–Aug 1863</td>
-<td>Muster roll: absent, sick at Little Rock since August 9.</td>
-<td><span class="arn">ARN0000052</span> <span class="source-link">· <a href="https://drive.google.com/file/d/1OdqTzSGh3S695RCm_Uj3YphTKpXrTflX/view" target="_blank">View record</a></span></td>
-</tr>
-<tr>
-<td>Oct 31, 1863</td>
-<td>Signed Union Bond and Oath of Allegiance at Pilot Knob (after arrest — not voluntary).</td>
-<td><span class="arn">ARN0000051</span> <span class="source-link">· <a href="https://drive.google.com/file/d/1PtVMfK8OUcehclZL1GRAGde_tStVGV0j/view" target="_blank">Bond and Oath</a></span></td>
-</tr>
-<tr>
-<td>Dec 25, 1863</td>
-<td>Brother Benjamin captured at Wilson's Massacre. See <a href="#benjamin">below</a>.</td>
-<td><span class="arn">ARN0000061</span> <span class="source-link">· <a href="https://drive.google.com/file/d/1m_SWqvHj9ooXR80J3cVMOs15-OhsH75y/view" target="_blank">POW record</a></span></td>
-</tr>
-<tr>
-<td>Jan–Feb 1864</td>
-<td>Muster roll: absent, temporarily attached to Kitchen's Regiment, recruiting.</td>
-<td><span class="arn">ARN0000056</span> <span class="source-link">· <a href="https://drive.google.com/file/d/1BWKtZeXv0G9Pa4xyNUGeG6D9qGzoQzv-/view" target="_blank">Muster Roll</a></span></td>
-</tr>
-</table>
-
-<h2 id="benjamin">Benjamin Lewis and the Wilson's Massacre</h2>
-
-<p>This is one of the most devastating chapters in the Lewis family story — and one of the best-documented.</p>
-
-<p>Benjamin Lewis, William's brother, enlisted in the same regiment on December 22, 1862. Just over a year later, on <strong>Christmas Day 1863</strong>, Benjamin was captured at what history remembers as <strong>Wilson's Massacre</strong> — a Union attack on Confederate forces in the Iron County area. Benjamin was taken prisoner and shipped to <strong>Gratiot Street Prison</strong> in St. Louis, arriving December 31, 1863.</p>
-
-<p>Gratiot Street Prison was a nightmare. A converted warehouse on Gratiot Street between Sixth and Seventh Streets, it held Confederate prisoners, political detainees, and accused guerrillas in overcrowded, disease-ridden conditions. Benjamin didn't survive it. He died on <strong>January 30, 1864</strong> — exactly one month after arriving. He was buried at <strong>Jefferson Barracks National Cemetery</strong>, where his headstone reads:</p>
-
-<div class="alert alert-info" style="text-align:center; font-family:'Courier New',monospace; font-size:1rem; line-height:1.8;">
-BENJAMIN LEWIS<br>
-CO A<br>
-7 REGT<br>
-MO CAV<br>
-CSA<br>
-JAN 30 1864
-</div>
-
-<h3>Naoma's death and the orphaned children</h3>
-
-<p>The tragedy didn't end with Benjamin. Family tradition — passed down through multiple descendants — holds that his wife, <strong>Naoma</strong>, was <em>killed</em> while trying to bring food to prisoners at Gratiot Street Prison in St. Louis. The exact circumstances aren't recorded. Whether she knew Benjamin was already gone is something we'll never know.</p>
-<p>Naoma's death date has not been established from any primary document, and her burial place is unknown. She does not appear in Mountain View Cemetery in Des Arc, where so many of her kin eventually came to rest. If she died in or near St. Louis, she may lie in one of the city's now-lost pauper burial grounds — Sublette Cemetery (the city's potter's field before the war), Koch Hospital Cemetery (where indigent and disease victims were buried during the Civil War era), or another unmarked site. Finding her remains one of the open questions in this family's story.</p>
-
-<p>Benjamin and Naoma's children were now orphans. What happened next tells you everything about this family. The surviving Lewis siblings didn't send those children to an orphanage or let the county decide their fate. <strong>They divided the children among themselves</strong> and raised them as their own:</p>
-
-<table>
-<tr><th>Child</th><th>Taken in by</th></tr>
-<tr><td>Nancy</td><td><strong>William and Abigail Lewis</strong> (our line)</td></tr>
-<tr><td>young William</td><td><strong>William and Abigail Lewis</strong></td></tr>
-<tr><td>Daniel</td><td>Andrew and Angeline Lewis</td></tr>
-<tr><td>"Polly"</td><td>Andrew and Angeline Lewis</td></tr>
-<tr><td>"Omy" (little Naoma)</td><td>Sister Elizabeth Jackson</td></tr>
-</table>
-
-<p>Five children were divided among three households. William and Abigail — already with children of their own — took in Nancy and young William. Andrew and Angeline raised Daniel and Martha Mary ("Polly"). Sister Elizabeth Jackson took little Naoma ("Omy"). The 1870 and 1880 censuses confirm the arrangement.</p>
-
-<h3>Benjamin Lewis — Source Records</h3>
-<table>
-<tr><th>ARN</th><th>Record</th><th>Link</th></tr>
-<tr>
-<td><span class="arn">ARN0000061</span></td>
-<td>POW Record — Benjamin captured at Wilson's Massacre, Dec 25, 1863</td>
-<td><a href="https://drive.google.com/file/d/1m_SWqvHj9ooXR80J3cVMOs15-OhsH75y/view" target="_blank">View</a></td>
-</tr>
-<tr>
-<td><span class="arn">ARN0000062</span></td>
-<td>Gratiot Street Prison death report — Benjamin Lewis, Jan 30, 1864</td>
-<td><a href="https://drive.google.com/file/d/1SryHJXLf1k-SMHGIdTwmcq9vZeclXSzl/view" target="_blank">View</a></td>
-</tr>
-<tr>
-<td><span class="arn">ARN0000063</span></td>
-<td>Land Grant — Benjamin Lewis</td>
-<td><a href="https://drive.google.com/file/d/1aZUH7Ucv8udbxGp37fsfkuuSTU4F2xtg/view" target="_blank">View</a></td>
-</tr>
-<tr>
-<td><span class="arn">ARN0000064</span></td>
-<td>Muster Roll — Benjamin Lewis, enrolled Dec 22, 1862</td>
-<td><a href="https://drive.google.com/file/d/1Qse6KeXHhXuhbLN1-EMtXwHh2QIuyEPH/view" target="_blank">View</a></td>
-</tr>
-<tr>
-<td><span class="arn">ARN0000066</span></td>
-<td>Jefferson Barracks National Cemetery — burials list</td>
-<td><a href="https://drive.google.com/file/d/1bmh0hRXeheQEHTvq0QzWAnqbPg3xb4bq/view" target="_blank">View</a></td>
-</tr>
-<tr>
-<td><span class="arn">ARN0000068</span></td>
-<td>Gratiot Street Prison — historical photo</td>
-<td><a href="https://drive.google.com/file/d/1hagVPFKc2Q_1ubUMRMUpTTqXbks_JG5P/view" target="_blank">View</a></td>
-</tr>
-</table>
-
-<h2>Land</h2>
-
-<p>William secured his family's future early. On <strong>September 10, 1859</strong>, he received two land patents — both cash purchases at <strong>$1.25 per acre</strong> under the <strong>Land Act of 1820</strong>. Together, they totaled approximately <strong>160 acres</strong> in Iron County.</p>
-
-<div class="alert alert-warn">
-<strong>Common error on Ancestry trees:</strong> These patents are sometimes labeled as Homestead Act claims. They were not. The Homestead Act wasn't passed until 1862. William's patents were straightforward cash purchases under the 1820 law — you paid $1.25 an acre, you got your land. No residency requirement, no improvement clause. He was 25 years old with land of his own, two years before the war started.
-</div>
-
-<table>
-<tr><th>Certificate</th><th>Detail</th><th>Source</th></tr>
-<tr>
-<td>#26147</td>
-<td>Cash purchase, $1.25/acre, September 10, 1859</td>
-<td><span class="arn">ARN0000057</span> <span class="source-link">· <a href="https://drive.google.com/file/d/1lsMnRCpM9EWvebtDhHWou0a0cufWFNiL/view" target="_blank">View Land Grant</a></span></td>
-</tr>
-<tr>
-<td>#27410</td>
-<td>Cash purchase, $1.25/acre, September 10, 1859</td>
-<td><span class="arn">ARN0000058</span> <span class="source-link">· <a href="https://drive.google.com/file/d/1Me6gIR4gHBSdkA9uXZI4Z697nqpu9vGF/view" target="_blank">View Land Grant</a></span></td>
-</tr>
-</table>
-
-<h2>Later Life and Death</h2>
-
-<p>Sometime in the mid-1880s, William suffered a disabling fall from a horse. According to his obituary, he was an invalid for the last <strong>14 to 15 years</strong> of his life. That means from roughly his early fifties until his death, he couldn't work the land he'd bought as a young man. Abigail and the older children must have carried the load.</p>
-
-<p>William died on <strong>April 9, 1900</strong>, in Des Arc. He was 65 years old. The Iron County Register noted his passing, calling him "Uncle Billy" — that community title of respect — and describing him as "an old and highly respected citizen" who was "an upright man and good citizen." He was buried at Mountain View Cemetery in Des Arc.</p>
-
-<p>His headstone reads simply:</p>
-
-<div class="alert alert-info" style="text-align:center; font-family:'Courier New',monospace; font-size:1rem; line-height:1.8;">
-WM. LEWIS<br>
-DIED<br>
-APR. 9, 1900<br>
-AGE<br>
-65 YRS.
-</div>
-
-<h2>All Source Records</h2>
+<h2 id="sources">All Source Records</h2>
 <table>
 <tr><th>ARN</th><th>Record</th><th>Type</th><th>Link</th></tr>
 <tr>
@@ -445,7 +309,7 @@ AGE<br>
 </tr>
 </table>
 
-<h2>Connections to Other Profiles</h2>
+<h2 id="connections">Connections to Other Profiles</h2>
 <ul style="margin: 0.5rem 0 1rem 1.5rem;">
 <li><strong>Daughter:</strong> Katie Lewis Robinson (1878–1946) — married <a href="profile-john-wesley-robinson.html">John Wesley Robinson</a></li>
 <li><strong>Son-in-law:</strong> <a href="profile-john-wesley-robinson.html">John Wesley Robinson</a> (1880–1941) — blacksmith of Des Arc</li>
@@ -466,6 +330,7 @@ For questions, corrections, or to share information: <a href="mailto:abaumm+rayf
   <ul class="site-footer__links">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="name-index.html">Family Members</a></li>
     <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>
