@@ -71,6 +71,9 @@ body { background: var(--bg); min-height: 100vh; }
 .ni-tag.tag-Robinson { background: #e8eef5; color: #2a4a6a; border-color: #c0cdd8; }
 .ni-tag.tag-Lewis { background: #eaf2ea; color: #2a5a2a; border-color: #b8d0b8; }
 .ni-tag.tag-Allied { background: #f5f0e8; color: #8a7a5a; border-color: #d8d0c0; }
+.ni-tag.tag-Farris { background: #f0ebf5; color: #5c3a7a; border-color: #ccc0d8; }
+.ni-tag.tag-Mann { background: #f5ebe8; color: #7a3a2a; border-color: #d8c0b8; }
+.ni-tag.tag-Seal { background: #e8eff0; color: #2a4a52; border-color: #b8ccce; }
 
 .ni-empty { text-align: center; padding: 3rem 0; color: #9a8878; font-style: italic; font-size: 0.95rem; }
 
@@ -105,6 +108,8 @@ body { background: var(--bg); min-height: 100vh; }
   <a class="sb-ch" href="profile-absalom-robinson.html">Absalom Robinson</a>
   <a class="sb-ch" href="profile-john-wesley-robinson.html">John Wesley Robinson</a>
   <a class="sb-ch" href="profile-william-lewis.html">William John Lewis</a>
+  <a class="sb-ch" href="profile-john-carter-rayfield-jr.html">John Carter Rayfield Jr.</a>
+  <a class="sb-ch" href="profile-lucian-farris.html">Lucian N. Farris</a>
   <span class="sb-part">Reference</span>
   <a class="sb-ch active" href="name-index.html">Index of Names</a>
   <a class="sb-ch" href="ancestor-map.html">Ancestor Map</a>
@@ -112,7 +117,7 @@ body { background: var(--bg); min-height: 100vh; }
 
 <div class="page-header">
   <h1>Index of Names</h1>
-  <div class="subtitle">Every person named in this history — 96 individuals across four family lines</div>
+  <div class="subtitle">Every person named in this history — 96 individuals across six family lines</div>
 </div>
 
 <div class="ni-controls">
@@ -122,6 +127,9 @@ body { background: var(--bg); min-height: 100vh; }
     <button class="ni-filter" data-filter="Rayfield">Rayfield</button>
     <button class="ni-filter" data-filter="Robinson">Robinson</button>
     <button class="ni-filter" data-filter="Lewis">Lewis</button>
+    <button class="ni-filter" data-filter="Farris">Farris</button>
+    <button class="ni-filter" data-filter="Mann">Mann</button>
+    <button class="ni-filter" data-filter="Seal">Seal</button>
     <button class="ni-filter" data-filter="Allied">Also Mentioned</button>
   </div>
 </div>
@@ -154,9 +162,9 @@ const people = [
   {"name":"Angeline Lewis","years":"","place":"Iron County, Missouri","desc":"Wife of Andrew Lewis; helped raise orphaned children of Benjamin Lewis","surname":"Allied"},
   {"name":"Andrew Jackson Rayfield","years":"~1853–","place":"Reynolds County, Missouri","desc":"Son of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann","surname":"Rayfield"},
   {"name":"Armintie Ann Robinson","years":"1879–1879","place":"Missouri","desc":"Infant daughter of Absalom Robinson and Josephine Parks; died at one month","surname":"Robinson"},
-  {"name":"Arnold Mann","years":"","place":"Reynolds County, Missouri","desc":"Father of Mary Ann 'Polly' Mann, first wife of John Carter Rayfield Sr.","surname":"Allied"},
+  {"name":"Arnold Mann","years":"","place":"Reynolds County, Missouri","desc":"Father of Mary Ann 'Polly' Mann, first wife of John Carter Rayfield Sr.","surname":"Mann"},
   {"name":"Benjamin Franklin Rayfield","years":"~1852–1932","place":"Reynolds County, Missouri","desc":"Son of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann; John Carter Sr. lived in his household in 1900","surname":"Rayfield"},
-  {"name":"Benjamin F. Seal","years":"b. 1859","place":"Arcadia, Iron County, Missouri","desc":"Father of Myrtle Lee Seal","surname":"Allied"},
+  {"name":"Benjamin F. Seal","years":"b. 1859","place":"Arcadia, Iron County, Missouri","desc":"Father of Myrtle Lee Seal","surname":"Seal"},
   {"name":"Benjamin Lewis","years":"–1864","place":"Iron Co., MO → Gratiot Street Prison, St. Louis","desc":"Brother of William John Lewis; Confederate soldier captured at Wilson's Massacre Christmas Day 1863; died at Gratiot Street Prison January 30, 1864; buried Jefferson Barracks National Cemetery","surname":"Lewis"},
   {"name":"Bessie L. Rayfield","years":"b. 1907","place":"Piedmont, Missouri","desc":"Daughter of Franklin Peter Rayfield and Myrtle Lee Seal","surname":"Rayfield"},
   {"name":"Betsy Stop","years":"","place":"Cumberland County, Kentucky","desc":"Wife of Isaac Rayfield; married 1816","surname":"Allied"},
@@ -201,22 +209,23 @@ const people = [
   {"name":"Katherine (Katie) Lewis Robinson","years":"1878–1946","place":"Annapolis, Iron Co. → Des Arc → Pine Lawn","desc":"Wife of John Wesley Robinson; daughter of William John 'Uncle Billy' Lewis and Abigail Johnson; lifelong member of Des Arc Missionary Baptist Church","surname":"Lewis"},
   {"name":"Lee Lewis","years":"b. ~1868","place":"Iron County, Missouri","desc":"Son of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
   {"name":"Lloyd Robinson","years":"b. ~1906","place":"Iron County, Missouri","desc":"Son of Absalom Robinson and Mary E. Burcham (second wife); listed in 1920 census","surname":"Robinson"},
+  {"name":"Lucian Nester Farris","years":"1820–1876","place":"Reynolds County, Missouri","desc":"Farmer, two-term Missouri state legislator, Confederate Lt. Colonel; father of Nancy Ann Farris; maternal grandfather of Franklin Peter Rayfield; buried Buffington Cemetery","surname":"Farris"},
   {"name":"Lucinda Biggers","years":"","place":"Reynolds County, Missouri","desc":"Mother of Mary Ann 'Polly' Mann; wife of Arnold Mann","surname":"Allied"},
   {"name":"Lucinda Rayfield","years":"~1846–","place":"Reynolds County, Missouri","desc":"Daughter of John Carter Rayfield Sr. and Mary Ann 'Polly' Mann","surname":"Rayfield"},
   {"name":"Marion Lewis","years":"b. ~1859","place":"Iron County, Missouri","desc":"Son of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
   {"name":"Martha Lewis","years":"b. ~1874","place":"Iron County, Missouri","desc":"Daughter of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
   {"name":"Martha Mary Lewis (Polly)","years":"","place":"Iron County, Missouri","desc":"Orphaned daughter of Benjamin Lewis and Naoma; raised by Andrew and Angeline Lewis","surname":"Lewis"},
-  {"name":"Mary Ann 'Polly' Mann","years":"~1820–1860","place":"Reynolds County, Missouri","desc":"First wife of John Carter Rayfield Sr.; daughter of Arnold Mann and Lucinda Biggers","surname":"Allied"},
+  {"name":"Mary Ann 'Polly' Mann","years":"~1820–1860","place":"Reynolds County, Missouri","desc":"First wife of John Carter Rayfield Sr.; daughter of Arnold Mann and Lucinda Biggers","surname":"Mann"},
   {"name":"Mary E. Burcham","years":"","place":"Iron County, Missouri","desc":"Second wife of Absalom Parker Robinson; née Davis; married May 15, 1904","surname":"Allied"},
   {"name":"Mary Jane Lewis","years":"","place":"Missouri","desc":"Mother of Myrtle Lee Seal; shares the Lewis surname with William John Lewis's family","surname":"Lewis"},
   {"name":"Mary Lewis","years":"b. ~1870","place":"Iron County, Missouri","desc":"Daughter of William John Lewis and Abigail Johnson Lewis","surname":"Lewis"},
   {"name":"Mary Polly Manis","years":"b. ~1831","place":"Hawkins County, Tennessee","desc":"Mother of the Tennessee Absolom (Dock); not the Missouri line","surname":"Allied"},
   {"name":"Michael Vernon Rayfield","years":"b. 1949","place":"St. Louis, Missouri","desc":"Son of Vernon Jack Rayfield and Opal Robinson Rayfield","surname":"Rayfield"},
   {"name":"Mollie Gonce","years":"","place":"Hawkins County, Tennessee","desc":"Wife of the Tennessee Absolom (Dock); married October 24, 1875","surname":"Allied"},
-  {"name":"Myrtle Lee Seal","years":"1888–1968","place":"Missouri → Des Arc, Iron County, MO","desc":"Wife of Franklin Peter Rayfield; daughter of Benjamin F. Seal and Mary Jane Lewis; buried Mountain View Cemetery","surname":"Allied"},
+  {"name":"Myrtle Lee Seal","years":"1888–1968","place":"Missouri → Des Arc, Iron County, MO","desc":"Wife of Franklin Peter Rayfield; daughter of Benjamin F. Seal and Mary Jane Lewis; buried Mountain View Cemetery","surname":"Seal"},
   {"name":"Myrtle Levada Robinson","years":"b. 1885","place":"Missouri","desc":"Daughter of Absalom Robinson and Josephine Parks; married Chilton","surname":"Robinson"},
-  {"name":"Nancy Ann Farris","years":"","place":"Reynolds County, Missouri","desc":"Wife of John Carter Rayfield Jr.; mother of Franklin Peter Rayfield","surname":"Allied"},
-  {"name":"Nancy Ann Mann","years":"~1835–1902","place":"Reynolds County, Missouri","desc":"Second wife of John Carter Rayfield Sr.; Polly's first cousin; had 6 children with John Carter","surname":"Allied"},
+  {"name":"Nancy Ann Farris","years":"June 12, 1847–Feb 8, 1931","place":"Reynolds County, Missouri","desc":"Wife of John Carter Rayfield Jr.; mother of Franklin Peter Rayfield; daughter of Lucian Nester Farris","surname":"Farris"},
+  {"name":"Nancy Ann Mann","years":"~1835–1902","place":"Reynolds County, Missouri","desc":"Second wife of John Carter Rayfield Sr.; Polly's first cousin; had 6 children with John Carter","surname":"Mann"},
   {"name":"Nancy King","years":"","place":"Kentucky","desc":"Wife of Uncle John Rayfield; traveled west in 1829","surname":"Allied"},
   {"name":"Nancy Lewis","years":"","place":"Iron County, Missouri","desc":"Orphaned daughter of Benjamin Lewis and Naoma; raised by William and Abigail Lewis","surname":"Lewis"},
   {"name":"Nancy Robinson","years":"b. ~1858","place":"Iron County, Missouri","desc":"Member of Isaac Robinson household in 1860 census; likely Isaac's wife","surname":"Robinson"},
