@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rayfield Family History — Design Mockup v2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       ============================================================ */
+    :root {
+      --navy:         #002C3D;
+      --navy-mid:     #003D56;
+      --navy-dark:    #001922;
+      --gold:         #D6A15D;
+      --gold-dark:    #7A5C2E;   /* for text on light backgrounds — passes AA */
+      --cream:        #F5F0EA;
+      --cream-dark:   #EDE6DC;
+      --white:        #FFFFFF;
+      --text-dark:    #1A1A1A;
+      --text-mid:     #4A4A4A;
+      --border-dark:  rgba(214,161,93,0.25);
+      --border-light: rgba(122,92,46,0.2);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+    }
+
+    /* ============================================================
+       CONTRAST RATIOS (WCAG AA)
+       white on --navy:          ~15.2:1  ✅
+       --gold on --navy:         ~6.6:1   ✅
+       --gold on --navy-mid:     ~5.9:1   ✅
+       --text-dark on --cream:   ~17:1    ✅
+       --text-mid on --cream:    ~7.8:1   ✅
+       --gold-dark on --cream:   ~5.2:1   ✅ (large text: ✅, normal: ✅)
+       --gold-dark on --white:   ~4.7:1   ✅
+       --gold-dark on --cream-dark: ~4.6:1 ✅
+       ============================================================ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; } /* rem base */
+
+    body {
+      font-family: var(--font-body);
+      color: var(--white);
+      background: var(--navy);
+      line-height: 1.6;
+    }
+
+    /* ── MOCKUP NOTICE ── */
+    .mockup-notice {
+      background: var(--gold);
+      color: var(--navy);
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      position: sticky;
+      top: 0;
+      z-index: 300;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 2rem; /* offset below mockup notice — in real site would be 0 */
+      left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(0, 28, 39, 0.93);
+      backdrop-filter: blur(0.625rem);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a.active { color: var(--gold); }
+
+    /* ── SHARED UTILITIES ── */
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .eyebrow-dark {
+      color: var(--gold-dark);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 300;
+      line-height: 1.15;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-title-light { color: var(--text-dark); }
+    .section-title-light em { color: var(--gold-dark); }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      cursor: pointer;
+    }
+
+    .btn:hover { background: var(--gold); color: var(--navy); }
+
+    .btn-filled { background: var(--gold); color: var(--navy); }
+    .btn-filled:hover { background: #C49050; border-color: #C49050; color: var(--navy); }
+
+    /* on light backgrounds */
+    .btn-light {
+      border-color: var(--gold-dark);
+      color: var(--gold-dark);
+    }
+    .btn-light:hover { background: var(--gold-dark); color: var(--cream); }
+
+    .btn-sm { padding: 0.5rem 1.25rem; font-size: 0.65rem; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 37.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding-top: 5rem; /* nav clearance */
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      /* Lush forested Ozarks-style hillside */
+      background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1900&q=85');
+      background-size: cover;
+      background-position: center 35%;
+      filter: brightness(0.4);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,44,61,0.15) 0%,
+        rgba(0,44,61,0.0) 35%,
+        rgba(0,44,61,0.6) 75%,
+        rgba(0,44,61,1.0) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 52rem;
+      padding: 0 2rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.25rem, 8vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em { font-style: italic; color: var(--gold); }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.03em;
+      max-width: 30rem;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 3rem;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    /* ── INTRO — LIGHT ── */
+    .intro {
+      background: var(--cream);
+      padding: 6rem 3rem;
+    }
+
+    .intro-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      max-width: 75rem;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .intro-image-wrap {
+      position: relative;
+      order: -1;
+    }
+
+    .intro-image-wrap img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* offset border accent */
+    .intro-image-wrap::after {
+      content: '';
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      right: -1.25rem;
+      bottom: -1.25rem;
+      border: 1px solid var(--border-light);
+      z-index: -1;
+    }
+
+    .intro-text p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .intro-text p strong {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .intro-text p:last-of-type { margin-bottom: 2rem; }
+
+    /* ── QUOTE BAND — DARK ── */
+    .quote-band {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+
+    .quote-band blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.75vw, 2.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      max-width: 54rem;
+      margin: 0 auto 1.25rem;
+      line-height: 1.4;
+    }
+
+    .quote-band cite {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ── BOOK FEATURE — LIGHT ── */
+    .book-feature {
+      background: var(--white);
+      padding: 6rem 3rem;
+    }
+
+    .book-feature-inner {
+      max-width: 75rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .book-cover {
+      position: relative;
+      /* simulate a book */
+      box-shadow:
+        0.25rem 0.5rem 1.5rem rgba(0,0,0,0.18),
+        inset -0.25rem 0 0.5rem rgba(0,0,0,0.08);
+    }
+
+    .book-cover img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .book-cover::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0.5rem;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.15), transparent);
+      z-index: 1;
+    }
+
+    .book-text .section-title { margin-bottom: 1.25rem; }
+
+    .book-text p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .book-chapters {
+      list-style: none;
+      margin: 1.5rem 0 2rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .book-chapters li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.85rem;
+      color: var(--text-mid);
+    }
+
+    .book-chapters li::before {
+      content: attr(data-num);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--gold-dark);
+      flex-shrink: 0;
+      width: 1.5rem;
+    }
+
+    /* ── FAMILY MEMBERS — CREAM ── */
+    .members-section {
+      background: var(--cream-dark);
+      padding: 6rem 3rem;
+    }
+
+    .members-inner {
+      max-width: 75rem;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+
+    /* Compact directory-style grid — 4 per row, multi-row friendly */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .member-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .member-card:hover {
+      transform: translateY(-0.2rem);
+      box-shadow: 0 0.5rem 1.25rem rgba(0,44,61,0.1);
+      border-color: var(--gold-dark);
+    }
+
+    /* Small square thumbnail */
+    .member-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      filter: sepia(25%) brightness(0.9) contrast(1.05);
+      transition: filter 0.35s;
+    }
+
+    .member-card:hover img {
+      filter: sepia(5%) brightness(1) contrast(1);
+    }
+
+    .member-info {
+      padding: 0.75rem 0.875rem 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .member-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 0.1rem;
+      line-height: 1.25;
+    }
+
+    .member-dates {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--gold-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .member-info p {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      flex: 1;
+    }
+
+    .member-tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-dark);
+      padding: 0.2rem 0.5rem;
+      margin-bottom: 0.6rem;
+      opacity: 0.7;
+    }
+
+    /* ── STORIES — DARK ── */
+    .stories-section {
+      background: var(--navy);
+      padding: 6rem 3rem;
+    }
+
+    .stories-inner { max-width: 75rem; margin: 0 auto; }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .story-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .story-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .story-card:hover img { transform: scale(1.05); }
+
+    .story-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,44,61,0.92) 0%, rgba(0,44,61,0.0) 50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      transition: background 0.3s;
+    }
+
+    .story-card:hover .story-overlay {
+      background: linear-gradient(to top, rgba(0,44,61,0.97) 0%, rgba(0,44,61,0.1) 50%);
+    }
+
+    .story-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.35rem;
+    }
+
+    .story-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── TIMELINE — DARK ── */
+    .timeline-section {
+      background: var(--navy-dark);
+      padding: 6rem 3rem;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .timeline-inner { max-width: 62rem; margin: 0 auto; }
+
+    .timeline {
+      margin-top: 4rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--border-dark);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 3.75rem 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+
+    .tl-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 0.25rem rgba(214,161,93,0.18);
+      margin: 0.35rem auto 0;
+    }
+
+    .tl-content {
+      background: var(--navy-mid);
+      border: 1px solid var(--border-dark);
+      padding: 1.5rem;
+    }
+
+    .tl-year {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .tl-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .tl-content p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+    }
+
+    .tl-right { grid-column: 3; }
+    .tl-empty { grid-column: 1; }
+
+    /* ── SITE GUIDE — LIGHT ── */
+    .site-guide {
+      background: var(--cream);
+      padding: 6rem 3rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .site-guide-inner { max-width: 75rem; margin: 0 auto; }
+
+    .site-guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .guide-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      padding: 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    .guide-card:hover {
+      border-color: var(--gold-dark);
+      box-shadow: 0 0.5rem 1.5rem rgba(0,44,61,0.08);
+    }
+
+    .guide-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: block;
+      line-height: 1;
+    }
+
+    .guide-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .guide-card p {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    .guide-link {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      text-decoration: none;
+    }
+
+    .guide-link::after { content: ' →'; }
+
+    /* ── FOOTER — DARK ── */
+    footer {
+      background: var(--navy-dark);
+      border-top: 1px solid var(--border-dark);
+      padding: 4rem 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── DESIGN REFERENCE (mockup only) ── */
+    .ref-panel {
+      background: #000F17;
+      padding: 4rem 3rem;
+      border-top: 2px dashed rgba(214,161,93,0.4);
+    }
+
+    .ref-panel h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--gold);
+      text-align: center;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .ref-sub {
+      text-align: center;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.08em;
+      margin-bottom: 3rem;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .swatch { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+
+    .swatch-color {
+      width: 5rem;
+      height: 5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .swatch-name {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+    }
+
+    .swatch-hex { font-size: 0.65rem; color: rgba(255,255,255,0.3); font-family: monospace; }
+
+    .type-samples { max-width: 52rem; margin: 0 auto; }
+
+    .type-sample { margin-bottom: 2.5rem; }
+
+    .type-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .section-rhythm {
+      max-width: 50rem;
+      margin: 0 auto 4rem;
+    }
+
+    .section-rhythm h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+
+    .rhythm-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 1rem;
+    }
+
+    .rhythm-row .label { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+    .rhythm-row .value { font-size: 0.72rem; color: rgba(255,255,255,0.35); font-family: monospace; }
+    .rhythm-bg-dark { color: #4AA6C9; }
+    .rhythm-bg-light { color: #A07848; }
+  </style>
+</head>
+<body>
+
+  <!-- MOCKUP NOTICE -->
+  <div class="mockup-notice" role="note">
+    ✦ DESIGN MOCKUP v2 — FOR REVIEW ONLY — NOT THE LIVE SITE ✦
+  </div>
+
+  <!-- NAV (updated page structure) -->
+  <nav aria-label="Main navigation">
+    <div class="nav-logo">The Rayfield Family</div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">The Rayfield Story</a></li>
+      <li><a href="#">Family Members</a></li>
+      <li><a href="#">Records &amp; Documents</a></li>
+      <li><a href="#">Timeline</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ 1. HERO — DARK ══ -->
+  <section class="hero" aria-label="Welcome">
+    <div class="hero-bg" role="img" aria-label="Sunlit forest in the Missouri Ozarks"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Missouri Ozarks · Est. 1850s</p>
+      <h1 class="hero-title">The <em>Rayfield</em><br>Family History</h1>
+      <p class="hero-sub">Generations of stories, records, and memories from the Missouri Ozarks — gathered in one place for the family who carries them forward.</p>
+      <a href="#" class="btn btn-filled">Start Exploring</a>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══ 2. INTRO — LIGHT ══ -->
+  <section class="intro" aria-labelledby="intro-heading">
+    <div class="intro-inner">
+      <div class="intro-image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1476304884326-cd2c88572c5f?w=700&q=80"
+          alt="Old family farmhouse in a rural Ozarks setting"
+        />
+      </div>
+      <div class="intro-text">
+        <span class="eyebrow eyebrow-dark">About This Project</span>
+        <h2 class="section-title section-title-light" id="intro-heading">
+          Rooted in the <em>Ozarks,</em><br>documented for family
+        </h2>
+        <br>
+        <p>I've spent years piecing together the Rayfield family story — combing through census records, courthouse documents, old photographs, and the handwritten letters that somehow survived. This site is where I'm sharing what I've found.</p>
+        <p>It's built for the cousins I've met, the ones I haven't, and everyone who ever wondered where they came from. <strong>Everything here is sourced and cited</strong> — so you can trust what you're reading, and dig deeper if you want to.</p>
+        <p>If you have photos, letters, or memories to contribute, I'd love to hear from you.</p>
+        <a href="#" class="btn btn-light" style="margin-top: 0.5rem;">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 3. QUOTE BAND — DARK ══ -->
+  <section class="quote-band" aria-label="Featured quote">
+    <blockquote>
+      "To forget one's ancestors is to be a brook without a source,<br>a tree without a root."
+    </blockquote>
+    <cite>— Chinese Proverb</cite>
+  </section>
+
+  <!-- ══ 4. THE BOOK — LIGHT ══ -->
+  <section class="book-feature" aria-labelledby="book-heading">
+    <div class="book-feature-inner">
+      <div class="book-cover">
+        <img
+          src="https://images.unsplash.com/photo-1474932430478-367dbb6832c1?w=600&q=80"
+          alt="Vintage photograph of a Missouri farmstead"
+        />
+      </div>
+      <div class="book-text">
+        <span class="eyebrow eyebrow-dark">The Rayfield Story</span>
+        <h2 class="section-title section-title-light" id="book-heading">
+          The narrative history,<br><em>chapter by chapter</em>
+        </h2>
+        <br>
+        <p>I've written a full narrative history of the family — not just names and dates, but context: what was happening in Missouri, what drove people to move, why decisions were made. It reads like a story because it is one.</p>
+        <ul class="book-chapters" aria-label="Book chapters">
+          <li data-num="I">Origins — Kentucky Roots &amp; the Move West</li>
+          <li data-num="II">Settling Crawford County, 1853–1880</li>
+          <li data-num="III">The Hughes–Rayfield Alliance</li>
+          <li data-num="IV">War, Loss, and Return</li>
+          <li data-num="V">Into the 20th Century</li>
+        </ul>
+        <a href="#" class="btn btn-light">Read the Full Story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 5. FAMILY MEMBERS — CREAM ══ -->
+  <section class="members-section" aria-labelledby="members-heading">
+    <div class="members-inner">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow eyebrow-dark">Profiles</span>
+          <h2 class="section-title section-title-light" id="members-heading">Family Members</h2>
+        </div>
+        <a href="#" class="btn btn-sm btn-light">Search All Members</a>
+      </div>
+      <!-- 4-per-row grid — scales to multiple rows as more profiles are added -->
+      <div class="members-grid">
+
+        <article class="member-card">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&q=70" alt="Portrait of Abigail Robinson" />
+          <div class="member-info">
+            <span class="member-tag">Robinson</span>
+            <h3>Abigail Robinson</h3>
+            <p class="member-dates">c. 1832 – 1910</p>
+            <p>Wife of Absalom Robinson. Missouri, Iron County.</p>
+            <a href="#" class="btn btn-sm btn-light">View Profile</a>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&q=70" alt="Portrait of Absalom Robinson" />
+          <div class="member-info">
+            <span class="member-tag">Robinson</span>
+            <h3>Absalom Robinson</h3>
+            <p class="member-dates">c. 1828 – 1895</p>
+            <p>Farmer and Civil War veteran. Iron County, Missouri.</p>
+            <a href="#" class="btn btn-sm btn-light">View Profile</a>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=300&q=70" alt="Portrait of John Carter Rayfield" />
+          <div class="member-info">
+            <span class="member-tag">Rayfield</span>
+            <h3>John Carter Rayfield</h3>
+            <p class="member-dates">1878 – 1951</p>
+            <p>Farmer and logger. Crawford County, Missouri.</p>
+            <a href="#" class="btn btn-sm btn-light">View Profile</a>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=300&q=70" alt="Portrait of John Wesley Robinson" />
+          <div class="member-info">
+            <span class="member-tag">Robinson</span>
+            <h3>John Wesley Robinson</h3>
+            <p class="member-dates">1856 – 1932</p>
+            <p>Son of Absalom. Married Kate; lived in Reynolds County.</p>
+            <a href="#" class="btn btn-sm btn-light">View Profile</a>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&q=70" alt="Portrait of Myrtle Rayfield" />
+          <div class="member-info">
+            <span class="member-tag">Rayfield</span>
+            <h3>Franklin &amp; Myrtle Rayfield</h3>
+            <p class="member-dates">1875 – 1963</p>
+            <p>Long-time residents of Steelville, Missouri.</p>
+            <a href="#" class="btn btn-sm btn-light">View Profile</a>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=70" alt="Portrait of Vernon Rayfield" />
+          <div class="member-info">
+            <span class="member-tag">Rayfield</span>
+            <h3>Vernon &amp; Opal Rayfield</h3>
+            <p class="member-dates">1902 – 1981</p>
+            <p>Vernon worked at Nabisco; Opal was the family's keeper of stories and traditions.</p>
+            <a href="#" class="btn btn-sm btn-light">View Profile</a>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=70" alt="Portrait of William Lewis" />
+          <div class="member-info">
+            <span class="member-tag">Lewis</span>
+            <h3>William Lewis</h3>
+            <p class="member-dates">c. 1820 – 1885</p>
+            <p>Early settler. Connected through the Robinson line.</p>
+            <a href="#" class="btn btn-sm btn-light">View Profile</a>
+          </div>
+        </article>
+
+        <article class="member-card" style="border-style: dashed; background: transparent; display:flex; align-items:center; justify-content:center; min-height:16rem;">
+          <div class="member-info" style="text-align:center; padding: 2rem 1rem;">
+            <p style="font-size:1.5rem; color: var(--border-light); margin-bottom:0.5rem;">+</p>
+            <p style="color: var(--text-mid); font-size:0.8rem;">More profiles<br>being added</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 6. STORIES — DARK ══ -->
+  <section class="stories-section" aria-labelledby="stories-heading">
+    <div class="stories-inner">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Stories &amp; Themes</span>
+          <h2 class="section-title" id="stories-heading">Explore by Topic</h2>
+        </div>
+        <a href="#" class="btn btn-sm">All Stories</a>
+      </div>
+      <div class="stories-grid">
+        <article class="story-card">
+          <img src="https://images.unsplash.com/photo-1547473078-b6d0f6a60571?w=400&q=70" alt="Veterans in uniform, black and white" />
+          <div class="story-overlay">
+            <p class="story-label">Military</p>
+            <h3>War &amp; Service</h3>
+          </div>
+        </article>
+        <article class="story-card">
+          <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=70" alt="Rows of old books in a library" />
+          <div class="story-overlay">
+            <p class="story-label">Education</p>
+            <h3>Teachers &amp; Learners</h3>
+          </div>
+        </article>
+        <article class="story-card">
+          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&q=70" alt="Aerial view of forested hills" />
+          <div class="story-overlay">
+            <p class="story-label">Migration</p>
+            <h3>The Move to Missouri</h3>
+          </div>
+        </article>
+        <article class="story-card">
+          <img src="https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?w=400&q=70" alt="Rolling farmland and green fields" />
+          <div class="story-overlay">
+            <p class="story-label">Farming Life</p>
+            <h3>Working the Land</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 7. TIMELINE — DARK ══ -->
+  <section class="timeline-section" aria-labelledby="timeline-heading">
+    <div class="timeline-inner">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">170+ Years</span>
+          <h2 class="section-title" id="timeline-heading">Family Timeline</h2>
+        </div>
+        <a href="#" class="btn btn-sm">Full Timeline</a>
+      </div>
+      <div class="timeline" role="list">
+
+        <div class="timeline-item" role="listitem">
+          <div class="tl-content">
+            <p class="tl-year">1853</p>
+            <h4>Arrival in Missouri</h4>
+            <p>Elijah Rayfield and his family traveled from Kentucky to Crawford County, settling near the Meramec River.</p>
+          </div>
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div></div>
+        </div>
+
+        <div class="timeline-item" role="listitem">
+          <div></div>
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-content tl-right">
+            <p class="tl-year">1876</p>
+            <h4>The Hughes–Rayfield Marriage</h4>
+            <p>William Rayfield married Martha Ellen Hughes, uniting two of the region's most prominent farming families.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" role="listitem">
+          <div class="tl-content">
+            <p class="tl-year">1917–1918</p>
+            <h4>World War I</h4>
+            <p>Two Rayfield cousins served in France with the American Expeditionary Forces. One did not return.</p>
+          </div>
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div></div>
+        </div>
+
+        <div class="timeline-item" role="listitem">
+          <div></div>
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-content tl-right">
+            <p class="tl-year">1944</p>
+            <h4>World War II Service</h4>
+            <p>Three Rayfield brothers served simultaneously in the European and Pacific theaters. All three came home.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 8. SITE GUIDE — LIGHT ══ -->
+  <section class="site-guide" aria-labelledby="guide-heading">
+    <div class="site-guide-inner">
+      <div style="max-width: 36rem; margin-bottom: 1rem;">
+        <span class="eyebrow eyebrow-dark">What's Here</span>
+        <h2 class="section-title section-title-light" id="guide-heading">
+          Find what you're <em>looking for</em>
+        </h2>
+      </div>
+      <div class="site-guide-grid">
+        <a class="guide-card" href="#" aria-label="Read the Rayfield Story">
+          <span class="guide-icon" aria-hidden="true">📖</span>
+          <h3>The Rayfield Story</h3>
+          <p>The full narrative history — from Kentucky origins to 20th-century Missouri. Written to be read, not just referenced.</p>
+          <span class="guide-link">Read the history</span>
+        </a>
+        <a class="guide-card" href="#" aria-label="Search family members">
+          <span class="guide-icon" aria-hidden="true">🔍</span>
+          <h3>Family Members</h3>
+          <p>Search and browse individual profiles — birth and death records, photos, relationships, and linked documents.</p>
+          <span class="guide-link">Search the family</span>
+        </a>
+        <a class="guide-card" href="#" aria-label="Browse records and documents">
+          <span class="guide-icon" aria-hidden="true">📄</span>
+          <h3>Records &amp; Documents</h3>
+          <p>Primary sources: census records, land deeds, marriage certificates, military papers, and more — all cited and linked.</p>
+          <span class="guide-link">Browse records</span>
+        </a>
+        <a class="guide-card" href="#" aria-label="View the family timeline">
+          <span class="guide-icon" aria-hidden="true">📅</span>
+          <h3>Timeline</h3>
+          <p>Key events in Rayfield family history laid out chronologically — cross-referenced with broader historical context.</p>
+          <span class="guide-link">View timeline</span>
+        </a>
+        <a class="guide-card" href="#" aria-label="Read family stories by topic">
+          <span class="guide-icon" aria-hidden="true">🗂</span>
+          <h3>Stories by Topic</h3>
+          <p>Thematic collections — military service, migration, education, farming life — pulling together people and documents around a shared thread.</p>
+          <span class="guide-link">Explore stories</span>
+        </a>
+        <a class="guide-card" href="#" aria-label="Contact">
+          <span class="guide-icon" aria-hidden="true">✉️</span>
+          <h3>Contribute</h3>
+          <p>Have a photo, letter, or memory that should be here? I'd love to add it. Every piece helps fill out the picture.</p>
+          <span class="guide-link">Get in touch</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER — DARK ══ -->
+  <footer>
+    <p class="footer-logo">The Rayfield Family</p>
+    <p class="footer-tagline">A personal family history project · Missouri Ozarks</p>
+    <ul class="footer-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">The Rayfield Story</a></li>
+      <li><a href="#">Family Members</a></li>
+      <li><a href="#">Records &amp; Documents</a></li>
+      <li><a href="#">Timeline</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 · Researched and written by Andrea Harter</p>
+  </footer>
+
+  <!-- ══ DESIGN REFERENCE PANELS (mockup only) ══ -->
+  <div class="ref-panel" role="region" aria-label="Design reference">
+    <h2>Design Reference</h2>
+    <p class="ref-sub">Palette · Typography · Section Rhythm — Remove before going live</p>
+
+    <!-- Section rhythm map -->
+    <div class="section-rhythm">
+      <h3>Section Rhythm — Light / Dark Alternation</h3>
+      <div class="rhythm-row">
+        <span class="label">1. Hero</span>
+        <span class="value rhythm-bg-dark">DARK — #002C3D over photo</span>
+      </div>
+      <div class="rhythm-row">
+        <span class="label">2. Intro / About</span>
+        <span class="value rhythm-bg-light">LIGHT — #F5F0EA cream</span>
+      </div>
+      <div class="rhythm-row">
+        <span class="label">3. Quote Band</span>
+        <span class="value rhythm-bg-dark">DARK — #003D56 navy-mid</span>
+      </div>
+      <div class="rhythm-row">
+        <span class="label">4. The Rayfield Book</span>
+        <span class="value rhythm-bg-light">LIGHT — #FFFFFF white</span>
+      </div>
+      <div class="rhythm-row">
+        <span class="label">5. Family Members</span>
+        <span class="value rhythm-bg-light">LIGHT — #EDE6DC cream-dark</span>
+      </div>
+      <div class="rhythm-row">
+        <span class="label">6. Stories by Topic</span>
+        <span class="value rhythm-bg-dark">DARK — #002C3D navy</span>
+      </div>
+      <div class="rhythm-row">
+        <span class="label">7. Timeline</span>
+        <span class="value rhythm-bg-dark">DARK — #001922 navy-dark</span>
+      </div>
+      <div class="rhythm-row">
+        <span class="label">8. Site Guide / What's Here</span>
+        <span class="value rhythm-bg-light">LIGHT — #F5F0EA cream</span>
+      </div>
+      <div class="rhythm-row">
+        <span class="label">Footer</span>
+        <span class="value rhythm-bg-dark">DARK — #001922 navy-dark</span>
+      </div>
+    </div>
+
+    <!-- Swatches -->
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#002C3D;"></div>
+        <span class="swatch-name">Navy</span>
+        <span class="swatch-hex">#002C3D</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#003D56;"></div>
+        <span class="swatch-name">Navy Mid</span>
+        <span class="swatch-hex">#003D56</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#001922;"></div>
+        <span class="swatch-name">Navy Dark</span>
+        <span class="swatch-hex">#001922</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D6A15D;"></div>
+        <span class="swatch-name">Gold<br><small>(on dark)</small></span>
+        <span class="swatch-hex">#D6A15D</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#7A5C2E;"></div>
+        <span class="swatch-name">Gold Dark<br><small>(on light)</small></span>
+        <span class="swatch-hex">#7A5C2E</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5F0EA; border:1px solid #ccc;"></div>
+        <span class="swatch-name">Cream</span>
+        <span class="swatch-hex">#F5F0EA</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#EDE6DC; border:1px solid #ccc;"></div>
+        <span class="swatch-name">Cream Dark</span>
+        <span class="swatch-hex">#EDE6DC</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF; border:1px solid #ccc;"></div>
+        <span class="swatch-name">White</span>
+        <span class="swatch-hex">#FFFFFF</span>
+      </div>
+    </div>
+
+    <!-- Type samples -->
+    <div class="type-samples">
+      <div class="type-sample">
+        <span class="type-label">Hero Display — Cormorant Garamond 300 · ~6.5rem</span>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:#fff;line-height:1.05;">The Rayfield Family</p>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Display Italic — Cormorant Garamond 300 italic · Gold</span>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;font-style:italic;color:#D6A15D;line-height:1.2;">Rooted in the Ozarks</p>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Section Heading — Cormorant Garamond 300 · ~2.75rem · On light</span>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:#1A1A1A;">Family Members</p>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Eyebrow — Inter 500 · 0.7rem · Letter-spaced · Uppercase</span>
+        <p style="font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#D6A15D;">Recently Added · Est. 1852</p>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Body — Inter 300 · 0.95rem · On dark background</span>
+        <p style="font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.85;">I've spent years piecing together the Rayfield family story — combing through census records, courthouse documents, old photographs, and the handwritten letters that somehow survived. This site is where I'm sharing what I've found.</p>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Body — Inter 300 · 0.95rem · On light background</span>
+        <p style="font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:300;color:#4A4A4A;line-height:1.85;">I've spent years piecing together the Rayfield family story — combing through census records, courthouse documents, old photographs, and the handwritten letters that somehow survived. This site is where I'm sharing what I've found.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
