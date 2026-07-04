@@ -4,176 +4,133 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rayfield Family Tree — Ancestors of Vernon &amp; Opal</title>
-<meta name="description" content="Four-generation ancestor chart for Vernon Jack Rayfield and Opal Myrtle Robinson Rayfield of Iron County, Missouri.">
+<meta name="description" content="Eight-generation ancestor chart for Vernon Jack Rayfield and Opal Myrtle Robinson Rayfield.">
 <link rel="stylesheet" href="style.css"/>
 <style>
-/* ── layout ── */
 body { padding-top: var(--nav-h, 4rem); background: #F5F0EA; }
 
-.ft-header {
-  text-align: center;
-  padding: 2.5rem 1rem 0.75rem;
-}
-.ft-header h1 {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 2rem;
-  color: #7A5C2E;
-  letter-spacing: 0.07em;
-  margin-bottom: 0.35rem;
-}
-.ft-header .subtitle {
-  color: #999;
-  font-size: 0.9rem;
-  font-style: italic;
-  font-family: Georgia, serif;
-}
-.ft-header .ornament {
-  display: block;
-  margin: 0.75rem auto 0;
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #C8A87A, transparent);
+/* ── header ── */
+.ft-header { text-align:center; padding:2.5rem 1rem 1.25rem; }
+.ft-header h1 { font-family:Georgia,serif; font-size:1.8rem; color:#7A5C2E; margin-bottom:0.25rem; letter-spacing:0.04em; }
+.ft-header .subtitle { color:#999; font-size:0.88rem; font-style:italic; font-family:Georgia,serif; }
+.ft-header .ornament { display:block; width:80px; height:1px; background:linear-gradient(to right,transparent,#C8A87A,transparent); margin:0.75rem auto 0; }
+.ft-crosslink { text-align:center; font-family:Georgia,serif; font-size:0.82rem; margin:0.9rem 0 0; }
+.ft-crosslink a { color:#7A5C2E; }
+
+/* ── zoom controls ── */
+.ft-controls { display:flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.75rem 1rem 1rem; font-family:Georgia,serif; }
+.ft-zoom-btn { background:#7A5C2E; color:#F5EAD8; border:none; border-radius:3px; width:32px; height:32px; font-size:1.1rem; cursor:pointer; line-height:1; transition:background 0.15s; }
+.ft-zoom-btn:hover { background:#5C3A1E; }
+.ft-zoom-label { font-size:0.8rem; color:#999; min-width:3.5rem; text-align:center; }
+.ft-zoom-reset { font-size:0.75rem; color:#7A5C2E; background:none; border:1px solid #C8A87A; border-radius:3px; padding:4px 10px; cursor:pointer; font-family:Georgia,serif; transition:background 0.15s; }
+.ft-zoom-reset:hover { background:rgba(200,168,122,0.15); }
+
+/* ── scroll / zoom wrapper ── */
+.ft-scroll { overflow:auto; background:#F5F0EA; padding:1.5rem; -webkit-overflow-scrolling:touch; cursor:grab; }
+.ft-scroll:active { cursor:grabbing; }
+.ft-scale-wrap { transform-origin:top left; display:inline-block; }
+
+/* ── tree container — CSS grid rows ── */
+.ft-tree {
+  position: relative;    /* anchor for SVG overlay */
+  min-width: 860px;
+  padding: 1.5rem 1rem 2rem;
+  box-sizing: border-box;
 }
 
-/* ── legend ── */
-.ft-legend {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 1rem 1rem 1.5rem;
-  font-family: Georgia, serif;
-  font-size: 0.8rem;
-  color: #777;
-}
-.ft-legend-item { display: flex; align-items: center; gap: 0.5rem; }
-.ft-dot {
-  width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0;
-  display: inline-block;
-}
-.ft-leaf-icon {
-  width: 14px; height: 14px; flex-shrink: 0; display: inline-block;
-  border-radius: 60% 4px 60% 4px;
-  background: #9B7B6A;
-}
-
-/* ── scroll wrapper ── */
-.ft-scroll { overflow-x: auto; padding: 0 1rem 3rem; -webkit-overflow-scrolling: touch; }
-
-/* ── tree canvas ── */
-.ft-canvas {
-  position: relative;
-  width: 1100px;
-  height: 1000px;
-  margin: 0 auto;
-}
-
-/* ── cards ── */
-.ft-card {
+#ft-svg {
   position: absolute;
-  transform: translateX(-50%);
-  text-align: center;
-  width: 165px;
+  top: 0; left: 0;
+  pointer-events: none;
+  overflow: visible;
 }
 
-.ft-gen-label {
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #C8A87A;
-  margin-bottom: 5px;
-  font-family: Georgia, serif;
+/* ── generation row ── */
+.ft-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 2.5rem;   /* gap between gens = space for connector lines */
+}
+.ft-row:first-child { margin-top: 0; }
+
+.ft-cell {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 6px;
 }
 
-/* Person bubbles */
-.ft-man, .ft-woman {
-  display: block;
-  margin: 0 auto;
-  width: 155px;
-  padding: 7px 12px;
+/* ── couple group ── */
+.ft-couple {
+  width: 100%;
+  max-width: 178px;
   font-family: Georgia, 'Times New Roman', serif;
-  line-height: 1.35;
+}
+
+/* gen label above couple */
+.ft-gen-label {
+  display: block;
+  font-size: 0.54rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9B7A50;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+/* ── person card ── */
+.ft-person {
+  background: transparent;
+  border: 1.5px solid #C8A87A;
+  border-radius: 20px;
+  padding: 7px 12px;
+  display: block;
   text-decoration: none;
-  cursor: default;
+  box-sizing: border-box;
 }
-a.ft-man, a.ft-woman {
+a.ft-couple {
+  display: block;
+  text-decoration: none;
   cursor: pointer;
-  transition: filter 0.15s ease, transform 0.15s ease;
+  border-radius: 8px;
+  transition: opacity 0.15s;
 }
-a.ft-man:hover, a.ft-woman:hover {
-  filter: brightness(1.12);
-  transform: translateY(-1px);
-}
+a.ft-couple:hover { opacity: 0.78; }
 
-/* Men = oval pill */
-.ft-man { border-radius: 60px; }
-
-/* Women = leaf (rotated border-radius) */
-.ft-woman { border-radius: 60% 6px 60% 6px; }
-
-.ft-name {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: bold;
-  line-height: 1.3;
-}
-.ft-years {
-  display: block;
-  font-size: 0.68rem;
-  opacity: 0.82;
-  margin-top: 2px;
-}
-.ft-amp {
-  font-size: 0.72rem;
-  color: #C8A87A;
-  line-height: 1.9;
-  display: block;
-  font-family: Georgia, serif;
+.ft-person.ft-unknown {
+  border-style: dashed;
+  opacity: 0.55;
 }
 
-/* ── Generation colour themes ── */
-
-/* Gen 4 — deep brick */
-.g4m { background: #5C3B2B; color: #F0E4D8; border: 2px solid #3E2518; }
-.g4f { background: #9B7B6A; color: #F0E4D8; border: 2px solid #7A5848; }
-
-/* Gen 3 — forest green */
-.g3m { background: #3B5C38; color: #E4F0E0; border: 2px solid #253E22; }
-.g3f { background: #7A9B78; color: #1A3018; border: 2px solid #557852; }
-
-/* Gen 2 — golden brown */
-.g2m { background: #8B5E28; color: #F5ECD8; border: 2px solid #6B4018; }
-.g2f { background: #C8A058; color: #3E2C0C; border: 2px solid #9B7A38; }
-
-/* Gen 1 — deep walnut (root couple) */
-.g1m {
-  background: #5C3A1E;
-  color: #F5EAD8;
-  border: 3px solid #3E2010;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
-  width: 170px;
-  padding: 10px 14px;
+/* gender dots */
+.ft-male   .ft-name::before,
+.ft-female .ft-name::before {
+  content:'';
+  display:inline-block;
+  width:6px; height:6px;
+  border-radius:50%;
+  margin-right:5px;
+  vertical-align:middle;
+  position:relative; top:-1px;
 }
-.g1f {
-  background: #A87850;
-  color: #F5EAD8;
-  border: 3px solid #7A5030;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
-  width: 170px;
-  padding: 10px 14px;
-}
-.g1m .ft-name, .g1f .ft-name { font-size: 0.85rem; }
-.g1m .ft-years, .g1f .ft-years { font-size: 0.72rem; }
+.ft-male   .ft-name::before { background:#6B8FAD; }
+.ft-female .ft-name::before { background:#B8788A; }
+
+.ft-name { display:block; font-size:0.74rem; font-weight:bold; color:#5C3A1E; line-height:1.3; }
+.ft-dates { display:block; font-size:0.62rem; color:#888; margin-top:3px; }
+.ft-amp   { display:block; text-align:center; font-size:0.6rem; font-style:italic; color:#C8A87A; margin:5px 0; line-height:1; }
+
+/* attributed label suffix */
+.ft-attributed .ft-gen-label::after { content:" · attributed"; font-style:italic; opacity:0.75; }
+
+/* root couple */
+.g1 .ft-person { border-color:#7A5C2E; border-width:2px; }
+.g1 .ft-name   { color:#3E2010; font-size:0.8rem; }
+.g1 .ft-gen-label { opacity:0.9; }
 
 /* ── caption ── */
-.ft-caption {
-  text-align: center;
-  padding: 0.5rem 1rem 3rem;
-  font-size: 0.75rem;
-  color: #C8A87A;
-  font-style: italic;
-  font-family: Georgia, serif;
-}
+.ft-caption { text-align:center; padding:0.5rem 1rem 2.5rem; font-size:0.75rem; color:#AAA; font-style:italic; font-family:Georgia,serif; }
 </style>
 </head>
 <body>
@@ -184,272 +141,437 @@ a.ft-man:hover, a.ft-woman:hover {
   <ul class="site-nav__links" id="nav-links" role="list">
     <li><a href="index.html">Home</a></li>
     <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
-    <li><a href="name-index.html">Family Members</a></li>
-    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
     <li><a href="family-tree.html" aria-current="page">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 
 <div class="ft-header">
-  <h1>Rayfield Family Tree</h1>
-  <p class="subtitle">Ancestors of Vernon Jack Rayfield &amp; Opal Myrtle Robinson · Iron County, Missouri</p>
+  <h1>Rayfield &mdash; Robinson Family Tree</h1>
+  <p class="subtitle">Ancestors of Vernon Jack Rayfield &amp; Opal Myrtle Robinson &middot; Iron County, Missouri</p>
   <span class="ornament"></span>
 </div>
 
-<div class="ft-legend">
-  <div class="ft-legend-item"><span class="ft-dot" style="background:#5C3A1E"></span> Vernon &amp; Opal</div>
-  <div class="ft-legend-item"><span class="ft-dot" style="background:#8B5E28"></span> Parents</div>
-  <div class="ft-legend-item"><span class="ft-dot" style="background:#3B5C38"></span> Grandparents</div>
-  <div class="ft-legend-item"><span class="ft-dot" style="background:#5C3B2B"></span> Great-grandparents</div>
-  <div class="ft-legend-item"><span style="width:14px;height:14px;border-radius:60px;background:#8B5E28;display:inline-block;flex-shrink:0"></span> Oval = men</div>
-  <div class="ft-legend-item"><span class="ft-leaf-icon"></span> Leaf = women</div>
+<p class="ft-crosslink">Curious how six pioneer families connect into one line? <a href="family-tree-convergence.html">See the convergence chart →</a></p>
+
+<div class="ft-controls">
+  <button class="ft-zoom-btn" id="ft-zoom-out" aria-label="Zoom out">−</button>
+  <span class="ft-zoom-label" id="ft-zoom-label">100%</span>
+  <button class="ft-zoom-btn" id="ft-zoom-in" aria-label="Zoom in">+</button>
+  <button class="ft-zoom-reset" id="ft-zoom-reset">Reset</button>
 </div>
 
-<div class="ft-scroll">
-<div class="ft-canvas">
+<div class="ft-scroll" id="ft-scroll">
+<div class="ft-scale-wrap" id="ft-scale-wrap">
+<div class="ft-tree" id="ft-tree">
 
-<!-- ══════════════════════════════════════
-     SVG TREE  (branches behind cards)
-     ══════════════════════════════════════ -->
-<svg width="1100" height="1000" viewBox="0 0 1100 1000"
-     style="position:absolute;top:0;left:0;pointer-events:none;"
-     aria-hidden="true">
+  <!-- SVG drawn by JS after layout -->
+  <svg id="ft-svg" aria-hidden="true"></svg>
 
-  <!-- ── ROOTS ── -->
-  <path fill="none" stroke="#4A2E10" stroke-width="9"  stroke-linecap="round" d="M 550 945 Q 518 958 488 962"/>
-  <path fill="none" stroke="#4A2E10" stroke-width="7"  stroke-linecap="round" d="M 550 945 Q 582 958 612 962"/>
-  <path fill="none" stroke="#4A2E10" stroke-width="6"  stroke-linecap="round" d="M 546 940 Q 506 950 470 946"/>
-  <path fill="none" stroke="#4A2E10" stroke-width="5"  stroke-linecap="round" d="M 554 940 Q 594 950 630 946"/>
-  <path fill="none" stroke="#4A2E10" stroke-width="4"  stroke-linecap="round" d="M 544 935 Q 500 940 458 934"/>
-  <path fill="none" stroke="#4A2E10" stroke-width="3"  stroke-linecap="round" d="M 556 935 Q 600 940 642 934"/>
+  <!-- ── GEN 8: William Rayfield Sr. ── -->
+  <div class="ft-row">
+    <div class="ft-cell" style="grid-column:1">
+      <div class="ft-couple" id="c-g8">
+        <span class="ft-gen-label">Rayfield immigrant ancestor · from England</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">William Rayfield Sr.</span>
+          <span class="ft-dates">~1670 – 1731 · England → NC</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Ann</span>
+          <span class="ft-dates">surname unknown</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- ── TRUNK ── (three overlapping paths for texture) -->
-  <path fill="none" stroke="#4A2E10" stroke-width="26" stroke-linecap="round" d="M 550 965 Q 549 920 550 860"/>
-  <path fill="none" stroke="#7A5C2E" stroke-width="20" stroke-linecap="round" d="M 550 965 Q 551 920 550 860"/>
-  <path fill="none" stroke="#9B7A4A" stroke-width="10" stroke-linecap="round" opacity="0.3" d="M 553 965 Q 554 920 553 860"/>
-  <!-- Trunk continues (thinner) from Gen1 card bottom up to branch point -->
-  <path fill="none" stroke="#7A5C2E" stroke-width="14" stroke-linecap="round" d="M 550 860 Q 550 820 550 745"/>
-  <path fill="none" stroke="#9B7A4A" stroke-width="6"  stroke-linecap="round" opacity="0.25" d="M 553 860 Q 553 820 553 745"/>
+  <!-- ── GEN 7: William Rayfield Jr. ── -->
+  <div class="ft-row">
+    <div class="ft-cell" style="grid-column:1">
+      <div class="ft-couple" id="c-g7">
+        <span class="ft-gen-label">JC Sr.'s great-grandparents</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">William Rayfield Jr.</span>
+          <span class="ft-dates">1698 – 1757 · Tyrrell Co., NC</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Ann Meekins</span>
+          <span class="ft-dates">1700 – 1767</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Small leaf accents on trunk -->
-  <ellipse fill="#7A9B5A" opacity="0.3" cx="540" cy="900" rx="9" ry="4" transform="rotate(-28 540 900)"/>
-  <ellipse fill="#7A9B5A" opacity="0.3" cx="562" cy="878" rx="7" ry="3.5" transform="rotate(32 562 878)"/>
-  <ellipse fill="#7A9B5A" opacity="0.25" cx="541" cy="842" rx="6" ry="3" transform="rotate(-18 541 842)"/>
-  <ellipse fill="#7A9B5A" opacity="0.25" cx="559" cy="818" rx="5" ry="2.5" transform="rotate(22 559 818)"/>
+  <!-- ── GEN 6: Isaac Rayfield ── -->
+  <div class="ft-row">
+    <div class="ft-cell" style="grid-column:1">
+      <div class="ft-couple" id="c-g6">
+        <span class="ft-gen-label">JC Sr.'s grandparents</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">Isaac Rayfield</span>
+          <span class="ft-dates">~1748 – ~1822 · KY</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Jerusha Rayfield</span>
+          <span class="ft-dates">documented 1810–1827 · not proven mother of oldest children</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- ── MAIN BRANCHES: Gen1 top → Gen2 bottoms ── -->
-  <!-- to Franklin+Myrtle (x=275, bottom≈635) -->
-  <path fill="none" stroke="#7A5C2E" stroke-width="10" stroke-linecap="round"
-        d="M 550 745 C 550 690 275 690 275 635"/>
-  <!-- to John Wesley+Katie (x=825, bottom≈635) -->
-  <path fill="none" stroke="#7A5C2E" stroke-width="10" stroke-linecap="round"
-        d="M 550 745 C 550 690 825 690 825 635"/>
+  <!-- ── GEN 5: James Rayfield (attributed) ── -->
+  <div class="ft-row">
+    <div class="ft-cell" style="grid-column:1">
+      <div class="ft-couple ft-attributed" id="c-g5">
+        <span class="ft-gen-label">JC Sr.'s parents</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">James Rayfield</span>
+          <span class="ft-dates">~1793 · Cumberland Co., KY</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female ft-unknown">
+          <span class="ft-name">— Mansfield</span>
+          <span class="ft-dates">given name unknown</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Leaf accents on main branches -->
-  <ellipse fill="#7A9B5A" opacity="0.3" cx="420" cy="700" rx="9" ry="4" transform="rotate(-30 420 700)"/>
-  <ellipse fill="#7A9B5A" opacity="0.28" cx="388" cy="682" rx="7" ry="3" transform="rotate(22 388 682)"/>
-  <ellipse fill="#7A9B5A" opacity="0.3" cx="680" cy="698" rx="9" ry="4" transform="rotate(30 680 698)"/>
-  <ellipse fill="#7A9B5A" opacity="0.28" cx="712" cy="680" rx="7" ry="3" transform="rotate(-22 712 680)"/>
+  <!-- ── GEN 4: John Carter Rayfield Sr. ── -->
+  <div class="ft-row">
+    <div class="ft-cell" style="grid-column:1">
+      <a class="ft-couple" href="profile-john-carter-rayfield.html" id="c-g4">
+        <span class="ft-gen-label">Great-grandparents (Rayfield)</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">John Carter Rayfield Sr.</span>
+          <span class="ft-dates">1816 – 1903</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Mary Ann &ldquo;Polly&rdquo; Mann</span>
+          <span class="ft-dates">Reynolds Co., MO</span>
+        </div>
+      </a>
+    </div>
+  </div>
 
-  <!-- ── SUB-BRANCHES: Gen2-left top (275,525) → Gen3 bottoms ── -->
-  <!-- to JC Jr (x=100, bottom≈405) -->
-  <path fill="none" stroke="#8B6B4E" stroke-width="7" stroke-linecap="round"
-        d="M 275 525 C 275 460 100 460 100 405"/>
-  <!-- to BF Seal (x=450, bottom≈405) -->
-  <path fill="none" stroke="#8B6B4E" stroke-width="7" stroke-linecap="round"
-        d="M 275 525 C 275 460 450 460 450 405"/>
+  <!-- ── GEN 3: Grandparents (4 couples) ── -->
+  <div class="ft-row">
+    <div class="ft-cell">
+      <a class="ft-couple" href="profile-john-carter-rayfield-jr.html" id="c-jcjr">
+        <span class="ft-gen-label">Vernon's paternal grandparents</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">John Carter Rayfield Jr.</span>
+          <span class="ft-dates">~1848 – 1915</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Nancy Ann Farris</span>
+          <span class="ft-dates">Reynolds Co., MO</span>
+        </div>
+      </a>
+    </div>
+    <div class="ft-cell">
+      <div class="ft-couple" id="c-bfseal">
+        <span class="ft-gen-label">Vernon's maternal grandparents</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">Benjamin F. Seal</span>
+          <span class="ft-dates">b. 1859 &middot; Arcadia, MO</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Mary Jane Lewis</span>
+          <span class="ft-dates">Iron County, MO</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-cell">
+      <a class="ft-couple" href="profile-absalom-robinson.html" id="c-absalom">
+        <span class="ft-gen-label">Opal's paternal grandparents</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">Absalom Parker Robinson</span>
+          <span class="ft-dates">~1856 – 1936</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Josephine Parks</span>
+          <span class="ft-dates">St. Francois Co., MO</span>
+        </div>
+      </a>
+    </div>
+    <div class="ft-cell">
+      <a class="ft-couple" href="profile-william-lewis.html" id="c-wmlewis">
+        <span class="ft-gen-label">Opal's maternal grandparents</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">William John Lewis</span>
+          <span class="ft-dates">~1834 – 1900</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Abigail Johnson</span>
+          <span class="ft-dates">~1840 – 1919</span>
+        </div>
+      </a>
+    </div>
+  </div>
 
-  <!-- ── SUB-BRANCHES: Gen2-right top (825,525) → Gen3 bottoms ── -->
-  <!-- to Absalom Robinson (x=650, bottom≈405) -->
-  <path fill="none" stroke="#8B6B4E" stroke-width="7" stroke-linecap="round"
-        d="M 825 525 C 825 460 650 460 650 405"/>
-  <!-- to Wm Lewis (x=1000, bottom≈405) -->
-  <path fill="none" stroke="#8B6B4E" stroke-width="7" stroke-linecap="round"
-        d="M 825 525 C 825 460 1000 460 1000 405"/>
+  <!-- ── GEN 2: Parents ── -->
+  <div class="ft-row">
+    <div class="ft-cell" style="grid-column:1/3">
+      <a class="ft-couple" href="profile-franklin-myrtle-rayfield.html" id="c-franklin">
+        <span class="ft-gen-label">Vernon's parents</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">Franklin Peter Rayfield</span>
+          <span class="ft-dates">1884 – 1941</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Myrtle Lee Seal</span>
+          <span class="ft-dates">1888 – 1968</span>
+        </div>
+      </a>
+    </div>
+    <div class="ft-cell" style="grid-column:3/5">
+      <a class="ft-couple" href="profile-john-wesley-robinson.html" id="c-jwrobinson">
+        <span class="ft-gen-label">Opal's parents</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">John Wesley Robinson</span>
+          <span class="ft-dates">1880 – 1941</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Katie Lewis</span>
+          <span class="ft-dates">1878 – 1946</span>
+        </div>
+      </a>
+    </div>
+  </div>
 
-  <!-- Leaf accents on sub-branches -->
-  <ellipse fill="#7A9B5A" opacity="0.25" cx="185" cy="470" rx="7" ry="3" transform="rotate(-28 185 470)"/>
-  <ellipse fill="#7A9B5A" opacity="0.25" cx="370" cy="468" rx="6" ry="2.5" transform="rotate(24 370 468)"/>
-  <ellipse fill="#7A9B5A" opacity="0.25" cx="735" cy="467" rx="7" ry="3" transform="rotate(-25 735 467)"/>
-  <ellipse fill="#7A9B5A" opacity="0.25" cx="915" cy="469" rx="6" ry="2.5" transform="rotate(26 915 469)"/>
+  <!-- ── GEN 1: Vernon & Opal ── -->
+  <div class="ft-row">
+    <div class="ft-cell" style="grid-column:1/5">
+      <a class="ft-couple g1" href="profile-vernon-opal-rayfield.html" id="c-vernon" style="max-width:185px">
+        <span class="ft-gen-label">The Couple</span>
+        <div class="ft-person ft-male">
+          <span class="ft-name">Vernon Jack Rayfield</span>
+          <span class="ft-dates">1909 – 1977 &middot; Iron Co., MO</span>
+        </div>
+        <span class="ft-amp">&amp;</span>
+        <div class="ft-person ft-female">
+          <span class="ft-name">Opal Myrtle Robinson</span>
+          <span class="ft-dates">1911 – 2002 &middot; Iron Co., MO</span>
+        </div>
+      </a>
+    </div>
+  </div>
 
-  <!-- ── GEN4 BRANCH: JC Jr top (100,290) → JC Sr bottom (100,175) ── -->
-  <path fill="none" stroke="#A08060" stroke-width="5" stroke-linecap="round"
-        d="M 100 290 Q 100 232 100 175"/>
-  <ellipse fill="#7A9B5A" opacity="0.22" cx="89"  cy="240" rx="6" ry="2.5" transform="rotate(-18 89 240)"/>
-  <ellipse fill="#7A9B5A" opacity="0.22" cx="111" cy="218" rx="5" ry="2"   transform="rotate(24 111 218)"/>
-
-  <!-- ── DECORATIVE CORNER BOTANICALS ── -->
-  <g opacity="0.18" fill="#6A8C5A">
-    <!-- top-left -->
-    <ellipse cx="42"  cy="28"  rx="22" ry="8"  transform="rotate(-42 42 28)"/>
-    <ellipse cx="28"  cy="52"  rx="18" ry="7"  transform="rotate(-22 28 52)"/>
-    <ellipse cx="68"  cy="18"  rx="16" ry="6"  transform="rotate(-62 68 18)"/>
-    <ellipse cx="18"  cy="72"  rx="14" ry="5"  transform="rotate(-10 18 72)"/>
-    <!-- top-right -->
-    <ellipse cx="1058" cy="28"  rx="22" ry="8"  transform="rotate(42 1058 28)"/>
-    <ellipse cx="1072" cy="52"  rx="18" ry="7"  transform="rotate(22 1072 52)"/>
-    <ellipse cx="1032" cy="18"  rx="16" ry="6"  transform="rotate(62 1032 18)"/>
-    <ellipse cx="1082" cy="72"  rx="14" ry="5"  transform="rotate(10 1082 72)"/>
-  </g>
-
-  <!-- Thin dividing line below header area -->
-  <line x1="380" y1="58" x2="720" y2="58" stroke="#C8A87A" stroke-width="0.5" opacity="0.4"/>
-
-</svg>
-<!-- /SVG -->
-
-
-<!-- ══════════════════════════════
-     GENERATION 4 — Great-grandparents
-     ══════════════════════════════ -->
-
-<!-- John Carter Rayfield Sr. + Mary Ann 'Polly' Mann -->
-<div class="ft-card" style="left:100px; top:60px;">
-  <div class="ft-gen-label">Great-grandparents</div>
-  <a class="ft-man g4m" href="profile-john-carter-rayfield.html" title="View profile">
-    <span class="ft-name">John Carter Rayfield Sr.</span>
-    <span class="ft-years">1816 – 1903</span>
-  </a>
-  <span class="ft-amp">&amp;</span>
-  <span class="ft-woman g4f">
-    <span class="ft-name">Mary Ann 'Polly' Mann</span>
-    <span class="ft-years">Reynolds Co., MO</span>
-  </span>
-</div>
-
-
-<!-- ══════════════════════════════
-     GENERATION 3 — Grandparents
-     ══════════════════════════════ -->
-
-<!-- JC Rayfield Jr. + Nancy Ann Farris (Vernon's paternal grandparents) -->
-<div class="ft-card" style="left:100px; top:290px;">
-  <div class="ft-gen-label">Vernon's grandparents</div>
-  <a class="ft-man g3m" href="profile-john-carter-rayfield-jr.html" title="View profile">
-    <span class="ft-name">John Carter Rayfield Jr.</span>
-    <span class="ft-years">~1848 – 1915</span>
-  </a>
-  <span class="ft-amp">&amp;</span>
-  <span class="ft-woman g3f">
-    <span class="ft-name">Nancy Ann Farris</span>
-    <span class="ft-years">Reynolds Co., MO</span>
-  </span>
-</div>
-
-<!-- Benjamin F. Seal + Mary Jane Lewis (Vernon's maternal grandparents) -->
-<div class="ft-card" style="left:450px; top:290px;">
-  <div class="ft-gen-label">Vernon's grandparents</div>
-  <span class="ft-man g3m">
-    <span class="ft-name">Benjamin F. Seal</span>
-    <span class="ft-years">b. 1859 · Arcadia, MO</span>
-  </span>
-  <span class="ft-amp">&amp;</span>
-  <span class="ft-woman g3f">
-    <span class="ft-name">Mary Jane Lewis</span>
-    <span class="ft-years">Iron County, MO</span>
-  </span>
-</div>
-
-<!-- Absalom Parker Robinson + Josephine Parks (Opal's paternal grandparents) -->
-<div class="ft-card" style="left:650px; top:290px;">
-  <div class="ft-gen-label">Opal's grandparents</div>
-  <a class="ft-man g3m" href="profile-absalom-robinson.html" title="View profile">
-    <span class="ft-name">Absalom Parker Robinson</span>
-    <span class="ft-years">~1856 – 1936</span>
-  </a>
-  <span class="ft-amp">&amp;</span>
-  <span class="ft-woman g3f">
-    <span class="ft-name">Josephine Parks</span>
-    <span class="ft-years">St. Francois Co., MO</span>
-  </span>
-</div>
-
-<!-- William John Lewis + Abigail Johnson (Opal's maternal grandparents) -->
-<div class="ft-card" style="left:1000px; top:290px;">
-  <div class="ft-gen-label">Opal's grandparents</div>
-  <a class="ft-man g3m" href="profile-william-lewis.html" title="View profile">
-    <span class="ft-name">William John Lewis</span>
-    <span class="ft-years">~1834 – 1900</span>
-  </a>
-  <span class="ft-amp">&amp;</span>
-  <span class="ft-woman g3f">
-    <span class="ft-name">Abigail Johnson Lewis</span>
-    <span class="ft-years">~1840 – 1919</span>
-  </span>
-</div>
-
-
-<!-- ══════════════════════════════
-     GENERATION 2 — Parents
-     ══════════════════════════════ -->
-
-<!-- Franklin Peter Rayfield + Myrtle Lee Seal (Vernon's parents) -->
-<div class="ft-card" style="left:275px; top:525px;">
-  <div class="ft-gen-label">Vernon's parents</div>
-  <a class="ft-man g2m" href="profile-franklin-myrtle-rayfield.html" title="View profile">
-    <span class="ft-name">Franklin Peter Rayfield</span>
-    <span class="ft-years">1884 – 1941</span>
-  </a>
-  <span class="ft-amp">&amp;</span>
-  <a class="ft-woman g2f" href="profile-franklin-myrtle-rayfield.html" title="View profile">
-    <span class="ft-name">Myrtle Lee Seal</span>
-    <span class="ft-years">1888 – 1968</span>
-  </a>
-</div>
-
-<!-- John Wesley Robinson + Katherine Lewis (Opal's parents) -->
-<div class="ft-card" style="left:825px; top:525px;">
-  <div class="ft-gen-label">Opal's parents</div>
-  <a class="ft-man g2m" href="profile-john-wesley-robinson.html" title="View profile">
-    <span class="ft-name">John Wesley Robinson</span>
-    <span class="ft-years">1880 – 1941</span>
-  </a>
-  <span class="ft-amp">&amp;</span>
-  <span class="ft-woman g2f">
-    <span class="ft-name">Katherine (Katie) Lewis</span>
-    <span class="ft-years">1878 – 1946</span>
-  </span>
-</div>
-
-
-<!-- ══════════════════════════════
-     GENERATION 1 — Root Couple
-     ══════════════════════════════ -->
-
-<div class="ft-card" style="left:550px; top:745px; width:190px;">
-  <div class="ft-gen-label" style="color:#9B7A5A; letter-spacing:0.12em;">The Couple</div>
-  <a class="ft-man g1m" href="profile-vernon-opal-rayfield.html" title="View profile">
-    <span class="ft-name">Vernon Jack Rayfield</span>
-    <span class="ft-years">1909 – 1977 · Iron Co., MO</span>
-  </a>
-  <span class="ft-amp" style="color:#9B7A5A; font-size:0.85rem;">&amp;</span>
-  <a class="ft-woman g1f" href="profile-vernon-opal-rayfield.html" title="View profile">
-    <span class="ft-name">Opal Myrtle Robinson</span>
-    <span class="ft-years">1911 – 2002 · Iron Co., MO</span>
-  </a>
-</div>
-
-
-</div><!-- /ft-canvas -->
+</div><!-- /ft-tree -->
+</div><!-- /ft-scale-wrap -->
 </div><!-- /ft-scroll -->
 
 <p class="ft-caption">
   Compiled by Andrea Harter, 2026 &middot; Rayfield&ndash;Robinson Family History Project<br>
-  Oval shapes represent men &middot; Leaf shapes represent women &middot; Highlighted names link to full profiles
+  <span style="color:#6B8FAD;">●</span> male &nbsp;
+  <span style="color:#B8788A;">●</span> female &nbsp;&middot;&nbsp;
+  Dashed border = name unknown &nbsp;&middot;&nbsp;
+  Dashed line = attributed connection &nbsp;&middot;&nbsp;
+  Bordered blocks link to full profiles
 </p>
 
+<footer class="site-footer">
+  <p class="site-footer__logo">The Rayfield Family</p>
+  <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
+  <ul class="site-footer__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="family-tree.html">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
+  <p class="site-footer__copy" style="margin-top:0.4rem;font-size:0.78em;opacity:0.7;">Some photographs on this site have been digitally restored to improve clarity. Originals are preserved in the family research archive.</p>
+</footer>
+
 <script>
-// Nav toggle (reuse site pattern)
-const toggle = document.getElementById('nav-toggle');
-const links  = document.getElementById('nav-links');
-if (toggle && links) {
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
+// ── Nav toggle ──
+const navToggle = document.getElementById('nav-toggle');
+const navLinks  = document.getElementById('nav-links');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
   });
 }
+
+// ══════════════════════════════════════════
+//  DYNAMIC CONNECTOR LINES
+//  Measures actual card positions after CSS
+//  layout — works at any zoom or screen size
+// ══════════════════════════════════════════
+
+const treeEl = document.getElementById('ft-tree');
+const svgEl  = document.getElementById('ft-svg');
+
+// Get a couple's position relative to ft-tree (local coords, unaffected by zoom)
+function pos(id) {
+  const el = document.getElementById(id);
+  let top = 0, left = 0, node = el;
+  // Walk offsetParent chain up to ft-tree
+  while (node && node !== treeEl) {
+    top  += node.offsetTop;
+    left += node.offsetLeft;
+    node  = node.offsetParent;
+  }
+  return {
+    top,
+    bottom: top  + el.offsetHeight,
+    cx:     left + el.offsetWidth / 2
+  };
+}
+
+function drawLines() {
+  // Size SVG to match tree
+  const w = treeEl.offsetWidth;
+  const h = treeEl.offsetHeight;
+  svgEl.setAttribute('width',   w);
+  svgEl.setAttribute('height',  h);
+  svgEl.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+  const segs = [];
+
+  // Draw a straight vertical from bottom of one couple to top of another
+  function straight(fromId, toId, opts = {}) {
+    const f = pos(fromId), t = pos(toId);
+    const dash   = opts.dashed ? 'stroke-dasharray="5 4"' : '';
+    const color  = opts.dark   ? '#7A5C2E' : '#C8A87A';
+    const weight = opts.dark   ? 2 : 1.5;
+    const op     = opts.dashed ? 0.5 : 0.7;
+    segs.push(`<path d="M ${f.cx} ${f.bottom} V ${t.top}"
+      fill="none" stroke="${color}" stroke-width="${weight}" opacity="${op}" ${dash}/>`);
+  }
+
+  // Draw two parents converging to one child
+  function merge(p1Id, p2Id, childId, opts = {}) {
+    const p1 = pos(p1Id), p2 = pos(p2Id), c = pos(childId);
+    const midY   = (Math.max(p1.bottom, p2.bottom) + c.top) / 2;
+    const color  = opts.dark ? '#7A5C2E' : '#C8A87A';
+    const weight = opts.dark ? 2 : 1.5;
+    const op     = opts.dark ? 0.8 : 0.7;
+    const d = `
+      M ${p1.cx} ${p1.bottom} V ${midY}
+      M ${p2.cx} ${p2.bottom} V ${midY}
+      M ${p1.cx} ${midY}      H ${p2.cx}
+      M ${c.cx}  ${midY}      V ${c.top}`;
+    segs.push(`<path d="${d}" fill="none" stroke="${color}" stroke-width="${weight}" opacity="${op}"/>`);
+  }
+
+  // Deep Rayfield branch (left column, straight verticals)
+  straight('c-g8', 'c-g7');
+  straight('c-g7', 'c-g6');
+  straight('c-g6', 'c-g5');
+  straight('c-g5', 'c-g4', { dashed: true }); // attributed
+
+  // JC Sr → JC Jr
+  straight('c-g4', 'c-jcjr');
+
+  // Grandparents → Parents
+  merge('c-jcjr',    'c-bfseal',    'c-franklin');
+  merge('c-absalom', 'c-wmlewis',   'c-jwrobinson');
+
+  // Parents → Root couple (darker, thicker)
+  merge('c-franklin', 'c-jwrobinson', 'c-vernon', { dark: true });
+
+  svgEl.innerHTML = segs.join('\n');
+}
+
+// Redraw whenever layout changes
+const ro = new ResizeObserver(() => drawLines());
+ro.observe(treeEl);
+
+// ══════════════════════════════════════════
+//  ZOOM
+// ══════════════════════════════════════════
+
+const MIN_SCALE = 0.2;
+const MAX_SCALE = 2.0;
+const STEP      = 0.1;
+
+const scaleWrap = document.getElementById('ft-scale-wrap');
+const scroll    = document.getElementById('ft-scroll');
+const labelEl   = document.getElementById('ft-zoom-label');
+
+let scale = 1.0;
+
+function applyScale(s, preserveCenter) {
+  s = Math.min(MAX_SCALE, Math.max(MIN_SCALE, s));
+
+  let cx, cy;
+  if (preserveCenter) {
+    cx = (scroll.scrollLeft + scroll.clientWidth  / 2) / scale;
+    cy = (scroll.scrollTop  + scroll.clientHeight / 2) / scale;
+  }
+
+  scale = s;
+  scaleWrap.style.transform       = `scale(${scale})`;
+  scaleWrap.style.transformOrigin = 'top left';
+
+  // Expand scroll area to match scaled content
+  const naturalW = treeEl.offsetWidth;
+  const naturalH = treeEl.offsetHeight;
+  scroll.style.paddingRight  = Math.max(0, naturalW * scale - naturalW + 32) + 'px';
+  scroll.style.paddingBottom = Math.max(0, naturalH * scale - naturalH + 32) + 'px';
+
+  labelEl.textContent = Math.round(scale * 100) + '%';
+
+  if (preserveCenter) {
+    scroll.scrollLeft = cx * scale - scroll.clientWidth  / 2;
+    scroll.scrollTop  = cy * scale - scroll.clientHeight / 2;
+  }
+}
+
+function fitScale() {
+  const available = Math.min(window.innerWidth - 48, 1400);
+  applyScale(Math.min(1.0, available / treeEl.offsetWidth));
+}
+
+// Init: draw lines first, then fit scale
+window.addEventListener('load', () => {
+  drawLines();
+  fitScale();
+});
+
+window.addEventListener('resize', fitScale);
+
+document.getElementById('ft-zoom-in').addEventListener('click',    () => applyScale(scale + STEP, true));
+document.getElementById('ft-zoom-out').addEventListener('click',   () => applyScale(scale - STEP, true));
+document.getElementById('ft-zoom-reset').addEventListener('click', fitScale);
+
+// Ctrl + scroll wheel zoom
+scroll.addEventListener('wheel', e => {
+  if (!e.ctrlKey && !e.metaKey) return;
+  e.preventDefault();
+  applyScale(scale - e.deltaY * 0.001, true);
+}, { passive: false });
+
+// Pinch-to-zoom
+let lastDist = null;
+scroll.addEventListener('touchstart', e => {
+  if (e.touches.length === 2)
+    lastDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+}, { passive: true });
+scroll.addEventListener('touchmove', e => {
+  if (e.touches.length !== 2 || lastDist === null) return;
+  const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+  applyScale(scale * (d / lastDist), true);
+  lastDist = d;
+}, { passive: true });
+scroll.addEventListener('touchend', () => { lastDist = null; });
 </script>
 </body>
 </html>
