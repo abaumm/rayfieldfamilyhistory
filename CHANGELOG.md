@@ -2,6 +2,20 @@
 
 ---
 
+## 2026-07-14 — New Blog section added
+
+### Added
+- **`blog.html`** — new blog listing page, matching the site's card-grid design system (page-banner header + post cards). Currently lists one post, with a placeholder card for "more stories coming soon."
+- **`blog-wagon-maker-of-des-arc.html`** — first blog post, the full text of "The Wagon Maker of Des Arc" (John Wesley Robinson), originally published in the Wayne County Journal Banner, June 29, 2026. Byline Andrea Harter; credit line to the original publication included. Cross-links to `profile-john-wesley-robinson.html`.
+- **Nav + footer updated site-wide** — "Blog" link added to the main nav and footer on all 14 existing pages (between Ancestor Map and Contact), so the new section is reachable from anywhere on the site.
+- **Homepage (`index.html`)** — new "Blog" card added to the "What's Here" site guide grid, linking to `blog.html`.
+- **Profile page (`profile-john-wesley-robinson.html`)** — added a cross-link from the intro callout to the new blog post.
+
+### Rationale
+Andrea wants a place for shorter, focused narratives (by person or by place, e.g. Des Arc) separate from the full book chapters, plus a home for outside-published work like the Journal Banner piece. Rights to republish the full article text were confirmed clear (no written agreement existed with the paper; author retains copyright by default) before posting.
+
+---
+
 ## 2026-07-04 (later same day) — Cut Family Members page; promoted the Family Tree from draft to live
 
 Andrea decided to retire the Family Members / name index page and finish integrating the two family-tree visuals that had been sitting as unlinked drafts. All fixed locally; nothing pushed to origin yet.

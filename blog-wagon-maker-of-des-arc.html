@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Wagon Maker of Des Arc — The Rayfield Family History</title>
+  <meta name="description" content="On the nation's 250th July 4th, a great-granddaughter traces the life of Des Arc blacksmith and wagon maker John Wesley Robinson, whose shop served his Ozark community. Originally published in the Wayne County Journal Banner." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: var(--cream); padding-top: var(--nav-h); }
+
+    /* ── POST HEADER ── */
+    .post-header {
+      background: var(--navy-dark);
+      padding: 4.5rem 2.5rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .post-header__meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .post-header__tag {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border-dark);
+      padding: 0.25rem 0.65rem;
+    }
+    .post-header__date {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .post-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 1rem;
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .post-header__sub {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.68);
+      max-width: 36rem;
+      margin: 0 auto 1.5rem;
+      line-height: 1.75;
+    }
+    .post-header__byline {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .post-header__credit {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.5rem;
+    }
+
+    /* ── BODY ── */
+    .post-body {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+    }
+    .post-body p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.95;
+      margin-bottom: 1.35rem;
+    }
+    .post-body p:first-of-type::first-letter {
+      font-family: var(--font-display);
+      font-size: 3.4rem;
+      font-weight: 400;
+      color: var(--gold-dark);
+      float: left;
+      line-height: 0.85;
+      padding: 0.1rem 0.5rem 0 0;
+    }
+    .post-body blockquote {
+      border-left: 3px solid var(--gold-dark);
+      background: var(--cream-dark);
+      padding: 1rem 1.5rem;
+      margin: 1.75rem 0;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    .post-callout {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--gold-dark);
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    /* ── FOOTNOTE / CTA ── */
+    .post-cta {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+    .post-cta__box {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold-dark);
+      padding: 1.5rem 1.75rem;
+    }
+    .post-cta__box p {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin: 0;
+    }
+    .post-cta__box a { color: var(--gold-dark); }
+
+    .post-nav {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-light);
+      padding-top: 2rem;
+    }
+    .post-nav a {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
+  <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <ul class="site-nav__links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="family-tree.html">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="blog.html" aria-current="page">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="post-header">
+  <div class="post-header__meta">
+    <span class="post-header__tag">Published Work</span>
+    <span class="post-header__tag">Des Arc</span>
+    <span class="post-header__date">June 29, 2026</span>
+  </div>
+  <h1>The Wagon Maker of Des Arc</h1>
+  <p class="post-header__sub">On the nation's 250th July 4th, a great-granddaughter traces the life of Des Arc blacksmith and wagon maker John Wesley Robinson, whose shop served his Ozark community.</p>
+  <p class="post-header__byline">By Andrea Harter</p>
+  <p class="post-header__credit">Originally published in the Wayne County Journal Banner, June 29, 2026</p>
+</header>
+
+<div class="post-body">
+
+<p>This July 4th, the nation marks 250 years of independence. Historians will write about founding documents and famous names. But most of American life — the real texture of it — happened in places like Des Arc, Iron County, where a man named John Wesley Robinson ran a forge, built wagons, kept a grocery, and made caskets by hand on Sunday mornings when the neighbors needed them.</p>
+
+<p>Robinson was born in Des Arc in March 1880. His father, Absalom Parker Robinson, was a farm laborer. John Wesley drove a team of horses for wages as a young man — "teamster," the 1900 census said. Then he picked up a hammer.</p>
+
+<p>By 1909, he had installed a six-horsepower International Harvester gasoline engine in a blacksmith shop he was running with a partner, and the Arcadia Valley Enterprise was predicting big things. A gas engine in a rural Missouri hollow in 1909 was not the usual arrangement. It was a bet on volume. Two years later, the Iron County Register was calling them "our enterprising blacksmiths" and noting they turned out a wagon every two weeks — built start to finish in the shop, including the heavy log wagons the Ozark timber trade depended on to move pine and hardwood off the ridges.</p>
+
+<p>In December 1911, Robinson bought out his partner and moved his family to College Hill. He was thirty-one years old and sole owner of a mechanized wagon works. His daughter Opal described what he did there: "He was a general blacksmith because everything he made was, as the saying is today, from scratch."</p>
+
+<p>He made horseshoes from straight steel. He set wagon wheels from the ring of fire, red-hot, to a perfect fit. He kept his children away from the flying sparks. He built the shop up until, by October 1919, the Iron County Register had stopped calling it a shop. The paper reported that Robinson "is working a number of men in his wagon factory." A factory.</p>
+
+<p>He also ran a grocery out of a building next door — six daughters staffing it, Opal wrote, because that was "plenty of help." There was a stalk of bananas hanging in the window and a big bag of candy for a nickel. Coffee sold by the grain, pickles and crackers from a barrel. On Saturdays, people drove in from the ridges and the hollows, and most of the trade moved without cash. Eggs, berries, and chickens went one direction; shoes, thread, and groceries went the other. "That was the way of life," Opal wrote.</p>
+
+<p>And then there were the caskets. Robinson made them by hand, in the same shop where he shod horses and turned wagon wheels. Every one was his own design, finished in high satin and lace. In Des Arc there was no funeral home. When a neighbor died, the community buried them, and whoever had the tools took on the work. Robinson had the tools, and he used them. Opal wrote that each casket had "a touch of love and affection in every detail because in most cases it would be for a neighbor or friend."</p>
+
+<blockquote>"So many times for a small child."<br>She left it there.</blockquote>
+
+<p>In February 1928, Robinson sold the blacksmith shop to Charles Jones and turned his full attention to the mercantile. The great Ozark pine runs were spent by then, and he had read the shift early enough. He wasn't finished with timber — he bought a truck and started hauling lumber north to St. Louis, and later moved to Shannon County and ran a sawmill. But the forge chapter was closed. He had run it for nearly twenty years.</p>
+
+<p>The Register summed him up as "the well-known blacksmith and wagon maker from Des Arc." No full name needed. Everyone in Iron County knew.</p>
+
+<p>He died December 27, 1941.</p>
+
+<p>I am Robinson's great-granddaughter. I know him through the newspaper columns, the census pages, the classified ad he ran in 1913 when he was sick and thought he might have to give up what he'd built. I know him through Opal's tribute, written in 1976 when she was in her sixties and still trying to do justice to a father she'd watched at the forge as a girl — and through the stories she told, sitting her grandchildren down with old photographs, pointing to each face, explaining who everyone was and what they did.</p>
+
+<p>What American enterprise looked like for most Americans, in most years of those 250 years, was not Wall Street or Washington. It was one man in an Iron County hollow, with a gas engine and a set of tools, building something his community felt proud of.</p>
+
+<p class="post-callout">One of his wagons may still be out there.</p>
+
+<p>Andrea Harter's father remembers Opal telling him that she spotted one of her father's wagons in a Piedmont parade sometime in the 1980s — decades after the shop closed. She was surprised, and proud.</p>
+
+</div>
+
+<div class="post-cta">
+  <div class="post-cta__box">
+    <p>If you have photographs from Piedmont parades of that era, or know what became of that wagon, or have any photos of the Des Arc shop or grocery store from the 1910s–1930s, I'd love to hear from you. I can be reached at <a href="mailto:abaumm@gmail.com">abaumm@gmail.com</a>, or visit the <a href="profile-john-wesley-robinson.html">full research profile</a> for John Wesley &amp; Katie Robinson.</p>
+  </div>
+</div>
+
+<div class="post-nav">
+  <a href="blog.html">← Back to Blog</a>
+  <a href="profile-john-wesley-robinson.html">JW Robinson Profile →</a>
+</div>
+
+<footer class="site-footer">
+  <p class="site-footer__logo">The Rayfield Family</p>
+  <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
+  <ul class="site-footer__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="family-tree.html">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
+  <p class="site-footer__copy" style="margin-top:0.4rem;font-size:0.78em;opacity:0.7;">Some photographs on this site have been digitally restored to improve clarity. Originals are preserved in the family research archive.</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.textContent = open ? '✕' : '☰';
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    });
+  });
+</script>
+</body>
+</html>

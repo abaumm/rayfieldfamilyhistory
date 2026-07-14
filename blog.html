@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — The Rayfield Family History</title>
+  <meta name="description" content="Short stories and published articles from the Rayfield, Robinson, and Lewis family history project — including pieces on Des Arc and other Missouri Ozarks communities." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: var(--cream); padding-top: var(--nav-h); }
+
+    /* ── PAGE HEADER ── */
+    .blog-header {
+      background: var(--navy-dark);
+      padding: 5rem 2.5rem 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .blog-header__eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .blog-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .blog-header h1 em { font-style: italic; color: var(--gold); }
+    .blog-header p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      max-width: 38rem;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── POST LIST ── */
+    .blog-list {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .post-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      display: grid;
+      grid-template-columns: 1fr;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      padding: 2rem 2.25rem;
+    }
+    .post-card:hover {
+      border-color: var(--gold-dark);
+      box-shadow: 0 0.5rem 1.5rem rgba(0,44,61,0.08);
+    }
+    .post-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+    .post-card__tag {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      background: var(--cream-dark);
+      padding: 0.25rem 0.6rem;
+    }
+    .post-card__date {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      color: var(--text-mid);
+      letter-spacing: 0.04em;
+    }
+    .post-card__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .post-card__excerpt {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+    .post-card__link {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+    .post-card__link::after { content: ' →'; }
+
+    .post-card--placeholder {
+      border-style: dashed;
+      text-align: center;
+      padding: 2.5rem;
+    }
+    .post-card--placeholder p {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
+  <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <ul class="site-nav__links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="family-tree.html">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="blog.html" aria-current="page">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="blog-header">
+  <h1>The <em>Blog</em></h1>
+  <p>Shorter pieces than the full family history — focused looks at a person, a place, or a piece of published work.</p>
+</header>
+
+<div class="blog-list">
+
+  <a class="post-card" href="blog-wagon-maker-of-des-arc.html">
+    <div class="post-card__meta">
+      <span class="post-card__tag">Published Work</span>
+      <span class="post-card__tag">Des Arc</span>
+      <span class="post-card__date">June 29, 2026</span>
+    </div>
+    <h2 class="post-card__title">The Wagon Maker of Des Arc</h2>
+    <p class="post-card__excerpt">On the nation's 250th July 4th, a look at the life of Des Arc blacksmith and wagon maker John Wesley Robinson — forge, wagon factory, grocery, and the caskets he built by hand for neighbors who needed them. Originally published in the Wayne County Journal Banner.</p>
+    <span class="post-card__link">Read the story</span>
+  </a>
+
+  <div class="post-card post-card--placeholder" aria-hidden="true">
+    <p>More stories coming soon — Des Arc, and other family communities.</p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <p class="site-footer__logo">The Rayfield Family</p>
+  <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
+  <ul class="site-footer__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="family-tree.html">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
+  <p class="site-footer__copy" style="margin-top:0.4rem;font-size:0.78em;opacity:0.7;">Some photographs on this site have been digitally restored to improve clarity. Originals are preserved in the family research archive.</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.textContent = open ? '✕' : '☰';
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    });
+  });
+</script>
+</body>
+</html>
