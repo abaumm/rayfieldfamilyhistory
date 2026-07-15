@@ -2,6 +2,18 @@
 
 ---
 
+## 2026-07-15 — Second blog post: "The Salesman from Des Arc" (Absalom Robinson)
+
+### Added
+- **`blog-absalom-robinson.html`** — new blog post, a fully-cited narrative profile of Absalom Parker Robinson (~1856–1936), built entirely from the existing sourced facts and ARN records already on `profile-absalom-robinson.html`. Uses inline numbered footnotes (14 citations) linked to a citations list at the bottom, matching the book's Evidence Explained endnote convention.
+- **Evidence discipline applied:** the disputed-parentage question is presented explicitly as "probable, not proven" (DNA ThruLines evidence, not a document); the Josephine Parks death date/burial are flagged as unconfirmed (no record found, not asserted); the Alexander-reunion story and the parents'-Tennessee-origin story are both labeled as family oral history, not fact; the "two Absoloms" mixup is corrected using only the place-based evidence actually on file (not a stronger same-year-two-states claim, which wasn't supported by the sourced records).
+- Added to `blog.html` listing, cross-linked from `profile-absalom-robinson.html`.
+
+### Rationale
+Andrea asked specifically for citation rigor on this one — every stated fact traceable to a source, uncertain conclusions kept uncertain, oral history kept labeled as oral history. Reviewed against the site's `genealogy-evidence-evaluation` skill before writing.
+
+---
+
 ## 2026-07-14 — New Blog section added
 
 ### Added
