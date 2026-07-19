@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Salesman from Des Arc — The Rayfield Family History</title>
+  <meta name="description" content="A cited profile of Absalom Parker Robinson (~1856-1936) of Des Arc, Iron County, Missouri — day laborer turned Singer Sewing Machine salesman, and a man whose own origins remain only partly known." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: var(--cream); padding-top: var(--nav-h); }
+
+    /* ── POST HEADER ── */
+    .post-header {
+      background: var(--navy-dark);
+      padding: 4.5rem 2.5rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .post-header__meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .post-header__tag {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border-dark);
+      padding: 0.25rem 0.65rem;
+    }
+    .post-header__date {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .post-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 1rem;
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .post-header__sub {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.68);
+      max-width: 36rem;
+      margin: 0 auto 1.5rem;
+      line-height: 1.75;
+    }
+    .post-header__byline {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── BODY ── */
+    .post-body {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 4rem 2rem 1rem;
+    }
+    .post-body p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.95;
+      margin-bottom: 1.35rem;
+    }
+    .post-body p:first-of-type::first-letter {
+      font-family: var(--font-display);
+      font-size: 3.4rem;
+      font-weight: 400;
+      color: var(--gold-dark);
+      float: left;
+      line-height: 0.85;
+      padding: 0.1rem 0.5rem 0 0;
+    }
+    .post-body blockquote {
+      border-left: 3px solid var(--gold-dark);
+      background: var(--cream-dark);
+      padding: 1rem 1.5rem;
+      margin: 1.75rem 0;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    .post-body sup a {
+      color: var(--gold-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .post-body sup a:hover { text-decoration: underline; }
+
+    .research-note {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold-dark);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .research-note p {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin: 0 !important;
+    }
+    .research-note__label {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── CITATIONS ── */
+    .post-citations {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .post-citations h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+    }
+    .post-citations ol {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-left: 1.4rem;
+    }
+    .post-citations li { margin-bottom: 0.75rem; }
+    .post-citations li span.arn {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: var(--gold-dark);
+      font-weight: bold;
+    }
+    .post-citations a { color: var(--gold-dark); }
+
+    /* ── FOOTNOTE / CTA ── */
+    .post-cta {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+    .post-cta__box {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold-dark);
+      padding: 1.5rem 1.75rem;
+    }
+    .post-cta__box p {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin: 0;
+    }
+    .post-cta__box a { color: var(--gold-dark); }
+
+    .post-nav {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-light);
+      padding-top: 2rem;
+    }
+    .post-nav a {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
+  <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <ul class="site-nav__links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="family-tree.html">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="blog.html" aria-current="page">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="post-header">
+  <div class="post-header__meta">
+    <span class="post-header__tag">Family Profile</span>
+    <span class="post-header__tag">Des Arc</span>
+    <span class="post-header__date">July 15, 2026</span>
+  </div>
+  <h1>The Salesman from Des Arc</h1>
+  <p class="post-header__sub">Absalom Parker Robinson spent fifty years of his adult life fully documented — and the first twenty with almost no trace at all.</p>
+  <p class="post-header__byline">By Andrea Harter</p>
+</header>
+
+<div class="post-body">
+
+<p>Absalom Parker Robinson shows up in the record cleanly, over and over, for more than fifty years — five federal censuses, two marriage records, a death certificate, a newspaper mention, a headstone.<sup><a href="#c1" id="r1">1</a></sup> Every one of those records, from 1880 to his death in 1936, lists the same birthplace: Missouri.<sup><a href="#c2" id="r2">2</a></sup> But nothing tells us exactly when he was born — the records put it somewhere around 1856 to 1858 — or exactly where in Missouri, or who his parents were.</p>
+
+<div class="research-note">
+<span class="research-note__label">What we don't know</span>
+<p>Absalom's biological parents have not been identified. Family oral history, passed down through a descendant of his brother Alexander, holds that his parents were from Tennessee and died when he was young, and that the children were separated and raised by different families.<sup><a href="#c3" id="r3">3</a></sup> That's a family story, not a document — it may be right in its shape and uncertain in its particulars, and it's presented here as oral tradition, not as an established fact.</p>
+</div>
+
+<p>What the records do show is a household: the 1860 census for Arcadia, Iron County, Missouri, lists Isaac Robinson with a child named "Apsa," age five, born in Missouri.<sup><a href="#c4" id="r4">4</a></sup> The name and age line up well enough with Absalom that this is very likely the same boy — though the census doesn't state a relationship for him the way it does for children clearly recorded as sons or daughters, so the family connection to Isaac Robinson is not spelled out in that record itself.</p>
+
+<p>Whether Isaac Robinson was Absalom's guardian or his biological father is still an open question. DNA matches connecting to Isaac's other documented children — including daughters from an earlier marriage, unrelated to Absalom's mother whoever she was — point toward Isaac as a biological ancestor rather than only the man who raised him.<sup><a href="#c5" id="r5">5</a></sup> But those same matches also carry Lewis family DNA, because every research path through this family eventually runs through a later marriage into the Lewis line, so the two contributions can't be fully separated at this distance. <strong>The honest answer is: probable, not proven.</strong> Isaac Robinson most likely was Absalom's biological father — but that conclusion rests on indirect DNA evidence, not a document that says so outright.</p>
+
+<p>Absalom grew up in Iron County and, as a young man, moved to St. Francois County, where on March 22, 1878, he married Josephine Parks at a Justice of the Peace's home in Perry Township.<sup><a href="#c6" id="r6">6</a></sup> Their son, John Wesley Robinson — the future blacksmith of Des Arc — was born two years later.<sup><a href="#c7" id="r7">7</a></sup> Over the next two decades Absalom and Josephine had thirteen children by the 1900 census's count; nine were still living that year, four had died as infants.<sup><a href="#c8" id="r8">8</a></sup> Sometime between that 1900 census, where Josephine still appears at his side, and May 1904, when Absalom married again — this time to Mary E. Burcham, née Davis, in Iron County — Josephine's life ended.<sup><a href="#c9" id="r9">9</a></sup> No death record for her has been found. Her death date and burial place remain unconfirmed.</p>
+
+<p>For his first twenty years in the record, Absalom worked as a farm laborer, then a day laborer.<sup><a href="#c1" id="r1b">1</a></sup> Sometime between 1900 and 1910, that changed: the 1910 census lists his occupation as "salesman, sewing machine," and it stayed that way for the rest of his working life.<sup><a href="#c1" id="r1c">1</a></sup> In April 1929, a local newspaper's "Peola News" column caught him mid-round, at around seventy-one years old: "A. B. Robinson, the Singer Sewing Machine Salesman, was on our creek last Friday."<sup><a href="#c10" id="r10">10</a></sup> It's a small line, but it's the clearest glimpse the records give of who he was to his neighbors — a familiar face still working his territory in his seventies.</p>
+
+<p>Absalom died on June 17, 1936, in Doniphan, Ripley County — not Iron County, where he'd spent his adult life. Why he was in Doniphan isn't recorded; it's an open question. His death certificate lists lobar pneumonia as the cause, with onset March 1, 1936, and names a physician, Dr. Clifton Go Fort, and an informant, "D. L. Robinson" — very likely his son Delbert, though the certificate doesn't spell out the relationship.<sup><a href="#c11" id="r11">11</a></sup> He was buried two days later at Mountain View Cemetery in Des Arc, where his headstone reads "A B Robinson."<sup><a href="#c12" id="r12">12</a></sup></p>
+
+<div class="research-note">
+<span class="research-note__label">A name, tangled with a stranger's</span>
+<p>For years, online family trees conflated Absalom with a different man of nearly the same name and age — an Absolom Robinson who was born and lived his entire life in Hawkins County, Tennessee. A WikiTree profile and a FamilySearch record still carry that Tennessee man's parents attached to Absalom's name.<sup><a href="#c13" id="r13">13</a></sup> The two men can be told apart on place alone: our Absalom's own records place him consistently in Missouri from 1880 onward, while the Tennessee man's 1870 census record places him, that same decade, still in Hawkins County.<sup><a href="#c14" id="r14">14</a></sup> It's a reminder that a shared name and a roughly matching age are never enough to merge two people — place and an independent record trail have to line up too.</p>
+</div>
+
+<p>One more thread from the family's oral history, unresolved and undocumented: a story, passed down through Alexander's descendants, that as adults the separated brothers crossed paths again — that Absalom, suspecting a stranger might be the brother he'd lost as a child, asked to see his foot for a scar he remembered, and found it there.<sup><a href="#c3" id="r3b">3</a></sup> Whatever happened between the two boys who were split apart sometime before 1860, the record doesn't say. The story is family memory, not a document, and it's offered here as exactly that.</p>
+
+</div>
+
+<div class="post-citations">
+<h2>Citations</h2>
+<ol>
+<li id="c1">U.S. Federal Census records for Absalom P. Robinson (recorded variously as A. P. Robison, Abe Robinson, Abraham Robinson, Abson B. Robinson, Absom B. Robinson): 1880, Perry Township, St. Francois Co., Mo. <span class="arn">ARN0000028</span>; 1900, Union Township, Iron Co., Mo. <span class="arn">ARN0000029</span>; 1910, Union Township, Iron Co., Mo. <span class="arn">ARN0000030</span>; 1920, Union Township, Iron Co., Mo. <span class="arn">ARN0000031</span>; 1930, Des Arc, Union Township, Iron Co., Mo. <span class="arn">ARN0000032</span>.</li>
+<li id="c2">Birthplace of Missouri is listed consistently across all five censuses above (1880–1930) and on his 1936 death certificate <span class="arn">ARN0000034</span> — see note 11.</li>
+<li id="c3">Family oral history via Roxanna Robison, a descendant of Absalom's brother Alexander Robinson, communicated May 2026. Presented as oral tradition, not documentary evidence.</li>
+<li id="c4">U.S. Federal Census, 1860, Arcadia, Iron Co., Mo., household of Isaac Robinson, listing "Apsa," age 5, born Missouri.</li>
+<li id="c5">AncestryDNA ThruLines match analysis (Rayfield–Robinson–Seal family tree, researcher Andrea Harter): matches connecting through documented children of Isaac Robinson's earlier marriage. Presented as probable, not proven — see discussion above.</li>
+<li id="c6">Missouri Marriage Record, Absolom Robinson &amp; Josephine Parks, March 22, 1878, Perry Township, St. Francois Co., Mo.; Justice of the Peace George Crump; filed May 6, 1878. <span class="arn">ARN0000033</span></li>
+<li id="c7">U.S. Federal Census, 1880 (cited in note 1), listing son John W., age 2 months.</li>
+<li id="c8">U.S. Federal Census, 1900 (cited in note 1): Josephine reported 13 children born, 9 surviving.</li>
+<li id="c9">Missouri Marriage License, Absalom [B.] Robinson &amp; Mary E. Burcham (née Davis), May 15, 1904, Iron Co., Mo.; Elder H. G. Wray, officiant. No death record for Josephine Parks Robinson has been located; her death date and burial location are unconfirmed.</li>
+<li id="c10">Newspaper, "Peola News" column, 1929: "A. B. Robinson, the Singer Sewing Machine Salesman, was on our creek last Friday." <span class="arn">ARN0000035</span></li>
+<li id="c11">Missouri Death Certificate No. 23978, Absolam Parker Robinson, June 17, 1936, Doniphan, Ripley Co., Mo.; cause of death lobar pneumonia, onset March 1, 1936; physician Dr. Clifton Go Fort; informant D. L. Robinson. <span class="arn">ARN0000034</span></li>
+<li id="c12">Find A Grave Memorial #33447902, Absalom P. Robinson, Mountain View Cemetery, Des Arc, Iron Co., Mo.; burial June 19, 1936; headstone reads "A B Robinson."</li>
+<li id="c13">WikiTree profile <a href="https://www.wikitree.com/wiki/Robinson-10159" target="_blank">Robinson-10159</a> and FamilySearch person ID LZ6L-PCJ, both currently listing parents (John A. Robinson and Mary Polly Manis) belonging to a different, unrelated Absolom Robinson of Hawkins Co., Tennessee. Error flagged on WikiTree by commenter "Anonymous Cope," April 2016.</li>
+<li id="c14">U.S. Federal Census, 1870, Hawkins Co., Tenn., household of Absolom Robinson — a different, unrelated man of the same name (referred to in family research notes as "Dock"). <span class="arn">ARN0000036</span></li>
+</ol>
+<p style="font-family:var(--font-body);font-size:0.78rem;color:var(--text-mid);margin-top:1.5rem;font-style:italic;">For the full record set, name-variant list, and census-by-census detail, see the <a href="profile-absalom-robinson.html">complete research profile</a>.</p>
+</div>
+
+<div class="post-cta">
+  <div class="post-cta__box">
+    <p>If you have information on Josephine Parks Robinson's death, on Absalom's biological parents, or on the Robinson–Alexander reunion story, I'd love to hear from you. I can be reached at <a href="mailto:abaumm@gmail.com">abaumm@gmail.com</a>.</p>
+  </div>
+</div>
+
+<div class="post-nav">
+  <a href="blog.html">← Back to Blog</a>
+  <a href="profile-absalom-robinson.html">Full Research Profile →</a>
+</div>
+
+<footer class="site-footer">
+  <p class="site-footer__logo">The Rayfield Family</p>
+  <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
+  <ul class="site-footer__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="family-tree.html">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
+  <p class="site-footer__copy" style="margin-top:0.4rem;font-size:0.78em;opacity:0.7;">Some photographs on this site have been digitally restored to improve clarity. Originals are preserved in the family research archive.</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.textContent = open ? '✕' : '☰';
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    });
+  });
+</script>
+</body>
+</html>
