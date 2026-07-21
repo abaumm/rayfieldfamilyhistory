@@ -1,0 +1,6 @@
+# macOS Finder junk files
+.DS_Store
+**/.DS_Store
+
+# Leftover git lock files (in case they ever reappear)
+_to_delete/
