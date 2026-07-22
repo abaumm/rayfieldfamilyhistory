@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Four Wives, and a Nancy Who Wasn't — The Rayfield Family History</title>
+  <meta name="description" content="A cited look at Isaac Robinson (~1793 - after 1860) of North Carolina, Tennessee, and Missouri: at least four wives across three states, and the online-tree marriage to Nancy Talbot that the records don't support." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: var(--cream); padding-top: var(--nav-h); }
+
+    /* ── POST HEADER ── */
+    .post-header {
+      background: var(--navy-dark);
+      padding: 4.5rem 2.5rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .post-header__meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .post-header__tag {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border-dark);
+      padding: 0.25rem 0.65rem;
+    }
+    .post-header__date {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .post-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 1rem;
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .post-header__sub {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.68);
+      max-width: 36rem;
+      margin: 0 auto 1.5rem;
+      line-height: 1.75;
+    }
+    .post-header__byline {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── BODY ── */
+    .post-body {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 4rem 2rem 1rem;
+    }
+    .post-body p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.95;
+      margin-bottom: 1.35rem;
+    }
+    .post-body p:first-of-type::first-letter {
+      font-family: var(--font-display);
+      font-size: 3.4rem;
+      font-weight: 400;
+      color: var(--gold-dark);
+      float: left;
+      line-height: 0.85;
+      padding: 0.1rem 0.5rem 0 0;
+    }
+    .post-body blockquote {
+      border-left: 3px solid var(--gold-dark);
+      background: var(--cream-dark);
+      padding: 1rem 1.5rem;
+      margin: 1.75rem 0;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    .post-body sup a {
+      color: var(--gold-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .post-body sup a:hover { text-decoration: underline; }
+
+    .research-note {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold-dark);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .research-note p {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin: 0 !important;
+    }
+    .research-note__label {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── CITATIONS ── */
+    .post-citations {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .post-citations h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+    }
+    .post-citations ol {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-left: 1.4rem;
+    }
+    .post-citations li { margin-bottom: 0.75rem; }
+    .post-citations li span.arn {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: var(--gold-dark);
+      font-weight: bold;
+    }
+    .post-citations a { color: var(--gold-dark); }
+
+    /* ── FOOTNOTE / CTA ── */
+    .post-cta {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+    .post-cta__box {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold-dark);
+      padding: 1.5rem 1.75rem;
+    }
+    .post-cta__box p {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin: 0;
+    }
+    .post-cta__box a { color: var(--gold-dark); }
+
+    .post-nav {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-light);
+      padding-top: 2rem;
+    }
+    .post-nav a {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__logo" href="index.html">The Rayfield Family</a>
+  <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <ul class="site-nav__links" id="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="family-tree.html">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="blog.html" aria-current="page">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="post-header">
+  <div class="post-header__meta">
+    <span class="post-header__tag">Family Profile</span>
+    <span class="post-header__tag">Iron County</span>
+    <span class="post-header__date">July 21, 2026</span>
+  </div>
+  <h1>Four Wives, and a Nancy Who Wasn't</h1>
+  <p class="post-header__sub">Isaac Robinson crossed three states and married at least four times. For years, online trees gave him a fifth wife he never had.</p>
+  <p class="post-header__byline">By Andrea Harter</p>
+</header>
+
+<div class="post-body">
+
+<p>Isaac Robinson never wrote his own name. Every record he left — two censuses, a land patent, a deed — was written by someone else, in whatever spelling the clerk's ear supplied that day: Robinson, Roberson, Robison, Robbison. He signed the one document that required his signature with his mark, an X, because he could not read or write.<sup><a href="#c1" id="r1">1</a></sup> What survives instead is a life traced through other people's handwriting: a North Carolina birth, a Tennessee farm, a Missouri land purchase — and, threaded through all three states, at least four wives, only two of whom can be named with any confidence.</p>
+
+<p>Two censuses anchor him and prove the migration. In 1850, "Isaac Robbison" — 57 years old, born in North Carolina, unable to read or write — headed a household in Sevier County, Tennessee, with his wife Nancy, 31, and five children: Celia, Martha, Volentine, David, and baby Alexr.<sup><a href="#c2" id="r2">2</a></sup> Ten years later, in Arcadia, Iron County, Missouri, a 65-year-old Isaac Robinson appears again — same North Carolina birth, same inability to read or write — with a different Nancy, this one "married within the year," and four children: Valentine and David, now teenagers, plus two names new to the record, "Apsa" (Absalom) and John.<sup><a href="#c3" id="r3">3</a></sup> Valentine and David carrying across both households, aged the right number of years apart, is what proves this is one man who moved — not two different Isaac Robinsons who happen to share a common name. That distinction matters more than it might sound: "Isaac Robinson," give or take a spelling, turns out to be one of the more crowded names in this part of the country.</p>
+
+<div class="research-note">
+<span class="research-note__label">How many wives, exactly?</span>
+<p>Across the 1840, 1850, and 1860 censuses and a 1859 land deed, four different women appear as Isaac's wife at four different points — though only two are known by name. In order: an unidentified first wife, North Carolina–born, married around 1814–1816; Nancy, born about 1819, in the household by 1840; an open question — possibly that same Nancy, possibly a third, unidentified wife — as the mother of Absalom, born in Missouri in the mid-1850s; and a second Nancy, born about 1823, named in the 1859 deed and present on the 1860 census. None of them, despite what a number of online trees say, was named Talbot.</p>
+</div>
+
+<p>The clearest evidence for a first wife, otherwise invisible in the records, comes from a counting error. Ancestry's transcription of the 1840 census tallies Isaac's household at eight people. The original image, read directly rather than through the index, holds nine — a fifth son, aged 5 to 9, whose tally mark the transcription simply dropped.<sup><a href="#c4" id="r4">4</a></sup> More telling than the miscount, though, is what else that household holds: several children clearly too old to belong to Nancy, who was herself a young woman of about 21 in 1840. Somebody bore those older children — a son born around 1817, several more through the 1820s and into the early 1830s — before Nancy arrived. Her identity is unknown. What can be said: her children were born in North Carolina, and a Roberson family matching Isaac's profile — a man aged 30 to 39, a wife, and six children including a boy the right age — turns up in the 1830 census of Haywood County, in the far western corner of the state, across the mountains from where Isaac later settled in Tennessee.<sup><a href="#c5" id="r5">5</a></sup> Two of the presumed sons, William "Braxil" and Madison Robinson, appear in other researchers' trees as Isaac's children, and, independently, in their own later Georgia census records with both parents' birthplace given as North Carolina — consistent with the theory, though not proof of it.<sup><a href="#c6" id="r6">6</a></sup></p>
+
+<p>Nancy, born about 1819, is the wife the 1840 and 1850 censuses actually document firsthand. For a while it seemed possible she might be a daughter rather than a wife — but the 1840 household has no older woman she could belong to; she's the only adult female present, living alongside children both older and younger than she could plausibly have borne as a teenager herself.<sup><a href="#c4" id="r4b">4</a></sup> By 1850, she's raising five of her own: Celia, Martha, Valentine, David, and Alexander.<sup><a href="#c2" id="r2b">2</a></sup> She's gone by 1860 — no trace of her anywhere in the Missouri record — so she most likely died in the early-to-mid 1850s, around the time the family made the move west.</p>
+
+<div class="research-note">
+<span class="research-note__label">Absalom's mother — still an open question</span>
+<p>Absalom was born in Missouri around 1855–57, too late to be the second Nancy's son (she married Isaac around 1859) and just uncertain enough that it isn't clear whether Nancy b.~1819 is his mother, or whether a third, entirely unidentified wife died in Missouri in the mid-1850s after bearing him and his brother John. A DNA hint suggested Absalom might be a half- rather than full sibling to Celia and Martha, which would require that third-wife scenario — but the "half" label traces back to how the online family trees were built, not to an independent DNA measurement, and at this genealogical distance a half-sibling relationship and a full one are nearly impossible to tell apart with the matches available. So: genuinely open. Nancy b.~1819 remains a perfectly reasonable answer until something settles it either way.</p>
+</div>
+
+<p>The fourth and last documented wife is a second Nancy, born about 1823. She's named directly in a July 1859 deed: Isaac and his wife "Nancy Roberson" sold the 85-acre Iron County farm he had patented five years earlier<sup><a href="#c7" id="r7">7</a></sup>, Isaac signing with his mark, Nancy examined separately to relinquish her dower rights, as the law required at the time.<sup><a href="#c1" id="r1b">1</a></sup> The 1860 census, taken less than a year later, records Isaac's marriage as new — "married within the year" — consistent with a Nancy who became his wife sometime in 1859.<sup><a href="#c3" id="r3b">3</a></sup> Beyond that: nothing. No marriage record survives — Iron County's marriage books aren't digitized before 1889 — and there's no record of what became of her, or of Isaac himself, after that census. He disappears from the record after June 1860.</p>
+
+<p>For years, a fifth name attached itself to Isaac in online family trees: Nancy Talbot, married to an "Isaac Roberson" in Roane County, Tennessee, on July 9, 1814.<sup><a href="#c8" id="r8">8</a></sup> It's a real record — a real marriage bond, with a real bondsman, Francis Erwin, standing surety — and on paper it looked like it might fill the gap where the first wife's name should be.</p>
+
+<p>What actually settles the question isn't a record of our Isaac's at all — it's a record of Talbot's own husband. A published genealogy of the Roberts family identifies him precisely: Isaac, son of Elias Roberts and Rebecca Brashears, one of five children named in Elias's 1807 Roane County estate settlement, alongside Phillip (b. 1795), William S. (b. 1797, married Letitia), Elizabeth (married Walter Brashears, 1816), and Rachel (married 1823).<sup><a href="#c9" id="r9">9</a></sup> That's a real father, a real mother, and four named siblings — a documented family entirely independent of anything in our Isaac's own trail. It also gives a much simpler explanation for the "Roberson" spelling on the 1814 bond: a clerk's ear turning "Roberts" into something that only looks like our Isaac's surname. This Roberts family came to Roane County from South Carolina around 1800 — a different state and a different lineage. It even explains how the mix-up likely started: the very same Sevier County census subdivision that holds our Isaac's household also holds a second, unrelated "Nancy Robbison," a South Carolina–born widow already alone by 1850<sup><a href="#c10" id="r10">10</a></sup> — a tangle of overlapping names in one place that's easy to see two different Isaac-and-Nancy couples getting folded into one across a decade of online trees. Nancy Talbot was a real woman who married a real Isaac. Just not this one.</p>
+
+<p>One separate item, mentioned only so it doesn't resurface as a lead: a headstone once circulated online, carved "Nancy Talbott, 1800–1884," which for a while looked like it might record how long the 1814 bride lived. It turned out to belong to a different Nancy Talbott altogether — Kentucky-born, married to a Mr. Talbott, buried in Indiana<sup><a href="#c11" id="r11">11</a></sup> — with no tie to Tennessee, the 1814 marriage, or our Isaac. It's noted here purely because it's the kind of detail that travels fast online; it had no real bearing on identifying Talbot's actual husband above.</p>
+
+<div class="research-note">
+<span class="research-note__label">Not the only Isaac</span>
+<p>"Isaac Robinson" — or Roberson, or Robertson — turns out to be a strikingly common name across Missouri, Tennessee, and North Carolina in this era. Checked and set aside in the course of this research: an Isaac E. Robertson of St. Charles County, Missouri, already deceased by 1821, decades before our Isaac ever reached the state; an Isaac Robinson born the same year as ours who was, improbably, admitted to a London workhouse in 1843, while our Isaac was still farming in Tennessee; and Robinson households in Lincoln County, North Carolina — a different part of the state from the Haywood County lead above — that don't yet line up cleanly with our Isaac's documented age. None of them are him. Every one broke on place, timing, or a separate documented family — never on the name alone, which is the same discipline the Talbot question above needed to actually resolve.</p>
+</div>
+
+<p>What's left, at the end of it, is a man easier to trace by his land and his neighbors than by his marriages: three states, one clear migration, four wives on the working model, and one name — Talbot — correctly identified and written back out of the story. The first wife's identity, the fate of the second Nancy, and whether Absalom's mother was the second Nancy or a third woman entirely are all still open. If any of it turns up in your own research — a Haywood County Roberson connection, a Braxton or Braswell family that might explain the unusual middle name "Braxil," anything at all on Isaac's death or burial after 1860 — I'd like to hear about it.</p>
+
+</div>
+
+<div class="post-citations">
+<h2>Citations</h2>
+<ol>
+<li id="c1">Iron County, Missouri, Deeds 1857–1860 / Mortgages 1857–1860, image 545 of 782: Isaac Roberson & wife Nancy Roberson to John Button, 23 July 1859; Isaac signs by his mark, Nancy examined separately and relinquishes dower. FamilySearch, ARK 61903/3:1:3Q9M-CSVW-9Z7D.</li>
+<li id="c2">U.S. Federal Census, 1850, Sevier Co., Tenn., Eastern Subdivision 12, dwelling/family 343: Isaac Robbison, 57, b. NC, cannot read/write; Nancy, 31; Celia 11, Martha 8, Volentine 6, David 4, Alexr 0. <span class="arn">ARN0000219</span></li>
+<li id="c3">U.S. Federal Census, 1860, Arcadia, Iron Co., Mo.: Isaac Robinson, 65, b. NC; wife Nancy, 37, "married within the year"; Valentine, David 14, "Apsa"/Absalom ~5, John 2. <span class="arn">ARN0000220</span></li>
+<li id="c4">U.S. Federal Census, 1840, Sevier Co., Tenn., Isaac Roberson household. Original image shows nine household members; Ancestry's transcription tallies eight, dropping one tally mark (a male aged 5–9). <span class="arn">ARN0000218</span></li>
+<li id="c5">U.S. Federal Census, 1830, Haywood Co., N.C., Isaac Roberson household: male 30–39, wife, six children including a boy 10–14. Circumstantial fit for Isaac before his move to Sevier Co., Tenn. — one of several same-name Isaacs in the region and not independently confirmed.</li>
+<li id="c6">William "Braxil" Robeson/Robinson, U.S. Federal Census, 1870 (Fairplay, Fannin Co., Ga.) and 1880 (Hot House, Fannin Co., Ga.): b. NC ~1817–18, both parents' birthplace given as North Carolina, illiterate.</li>
+<li id="c7">U.S. Bureau of Land Management, General Land Office Records: federal land patent to Isaac Roberson, accession MO3770__.385, 85.12 acres, Sec. 4, Twp. 32N, R3E, Iron Co., Mo., issued 15 December 1857 (entry 12 December 1854). glorecords.blm.gov.</li>
+<li id="c8">Tennessee, U.S., Marriage Records, 1780–2002, Roane Co., "Dec 1801–1840: and Books," image 88 of 544: marriage bond, Isaac Roberson & Nancy Talbot, 9 July 1814; bondsman Francis Erwin.</li>
+<li id="c9">Memory Aldridge Lester, <em>Alldredge-Aldridge-Bracken-Nesmith Families and Their Kin</em> (Chapel Hill, N.C., privately printed, 1957), p. 145 ("Elias Roberts"): Elias Roberts, brother of Zaccheus Roberts, married Rebecca Brashears (sister of Nancy Brashears); the family came to Roane Co., Tenn. from South Carolina by about 1800; Elias died in Roane Co. in 1807, estate settled with Rebecca as administratrix. Children per the estate settlement: Phillip (b. 1795), William S. (b. 1797, m. Letitia), Elizabeth (m. Walter Brashears, 3 Dec 1816), Isaac (m. Nancy Talbot, Roane Co. marriage records), and Rachel (m. Lomax/Loman, 28 Nov 1823). HathiTrust record 005713062; Archive.org, "alldredgealdridg00lest"; also digitized in Ancestry's U.S., Family History Books collection.</li>
+<li id="c10">U.S. Federal Census, 1850, Sevier Co., Tenn., Eastern Subdivision 12, dwelling/family 1022: Nancy Robbison, 50, b. South Carolina, widow, no husband present — a separate household from Isaac's (dwelling 343), and not to be conflated with it.</li>
+<li id="c11">"Nancy Talbott" (1800–1884), FamilySearch person L835-C98; Find A Grave memorial, Forest Hill Cemetery, Greencastle, Putnam Co., Ind. Born Meade Co., Ky.; daughter of Rev. Edward Talbott; married William E. Talbott, 1822, Shelby Co., Ky. — no connection to Tennessee, our Isaac, or the 1814 Roane County bride.</li>
+</ol>
+<p style="font-family:var(--font-body);font-size:0.78rem;color:var(--text-mid);margin-top:1.5rem;font-style:italic;">This post draws on a fuller, source-by-source research report on Isaac and his wives — including every same-name candidate checked and set aside — maintained separately and available on request.</p>
+</div>
+
+<div class="post-cta">
+  <div class="post-cta__box">
+    <p>If you have records on Isaac Robinson's first wife, on his death or burial after 1860, or a documented connection to the Haywood County, North Carolina Roberson family, I'd love to hear from you. <a href="contact.html">Get in touch here →</a></p>
+  </div>
+</div>
+
+<div class="post-nav">
+  <a href="blog.html">← Back to Blog</a>
+  <a href="blog-absalom-robinson.html">Read About Absalom →</a>
+</div>
+
+<footer class="site-footer">
+  <p class="site-footer__logo">The Rayfield Family</p>
+  <p class="site-footer__tagline">A personal family history project · Missouri Ozarks</p>
+  <ul class="site-footer__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="the-rayfield-story.html">The Rayfield Story</a></li>
+    <li><a href="pioneer-families.html">Pioneer Families</a></li>
+    <li><a href="family-tree.html">Family Tree</a></li>
+    <li><a href="ancestor-map.html">Ancestor Map</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="site-footer__copy">© 2026 · Researched and written by Andrea Harter</p>
+  <p class="site-footer__copy" style="margin-top:0.4rem;font-size:0.78em;opacity:0.7;">Some photographs on this site have been digitally restored to improve clarity. Originals are preserved in the family research archive.</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.textContent = open ? '✕' : '☰';
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    });
+  });
+</script>
+</body>
+</html>
